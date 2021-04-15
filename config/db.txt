@@ -1,0 +1,4 @@
+localhost
+db_artedental
+root
+nest2015
