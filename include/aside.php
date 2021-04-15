@@ -40,14 +40,10 @@
                          </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><?php echo $nombreusuario; ?></strong>
-                         </span> <span class="text-muted text-xs block"><?php echo $puesto; ?><b class="caret"></b></span> </span> </a>
-                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li class="divider"></li>
-                        <li><a href="../../include/logout.php?logout">Logout</a></li>
-                    </ul>
+                         </span> <span class="text-muted text-xs block"><?php echo $puesto; ?><b class=""></b></span> </span></a>
                 </div>
                 <div class="logo-element">
-                    TPV
+                    AD 4K
                 </div>
             </li>
                 <?php
