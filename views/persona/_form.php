@@ -89,7 +89,7 @@ use kartik\file\FileInput;
      </div>
  </div>
   <div class="form-group">
-      <div class="col-lg-6">  
+      <div class="col-lg-12">  
             <?php
                 echo $form->field($model, 'IdPais')->widget(Select2::classname(), [
                     'data' => ArrayHelper::map(Pais::find()->all(), 'IdPais', 'NombrePais'),
@@ -101,11 +101,11 @@ use kartik\file\FileInput;
                 ]);
             ?>
      </div>
-      <div class="col-lg-6"> 
+      <!-- <div class="col-lg-6"> 
        <?php echo $form->field($model, 'Categoria')->dropDownList(['A' => 'A', 'B' => 'B', 'C' => 'C', 'D' => 'D']);?> 
-     </div>
+     </div> -->
  </div>
-
+<br>
 <strong><h1>DATOS MEDICOS</h1></strong>
 </br></br>
  <div class="form-group">

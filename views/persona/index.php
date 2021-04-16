@@ -32,7 +32,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\PersonaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Personas';
+$this->title = 'Pacientes';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 </br>

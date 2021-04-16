@@ -49,11 +49,11 @@
       $queryusuario = "SELECT u.IdUsuario, CONCAT(u.Nombres,  ' ', u.Apellidos) as 'NombreCompleto'
          from usuario u
          inner join puesto = p on u.IdPuesto = p.IdPuesto
-         where p.Descripcion = 'Medico' and u.Activo = 1 ";
+         where p.Descripcion = 'Odontologia' and u.Activo = 1 ";
       $resultadousuario = $mysqli->query($queryusuario);
    
    
-      $querymodulo = "SELECT * FROM modulo WHERE IdModulo in(3,6,7) order by NombreModulo asc";
+      $querymodulo = "SELECT * FROM modulo WHERE IdModulo in(1) order by NombreModulo asc";
       $resultadomodulo = $mysqli->query($querymodulo);
    
       $querytablaconsulta = "SELECT c.IdConsulta, c.FechaConsulta, CONCAT(u.Nombres,' ', u.Apellidos) As 'Medico', CONCAT(p.Nombres,' ', p.Apellidos) As 'Paciente', m.NombreModulo As 'Especialidad', 

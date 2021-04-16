@@ -50,9 +50,9 @@ $this->params['breadcrumbs'][] = $this->title;
                             <li class="active"><a data-toggle="tab" href="#tab-1"> DATO GENERAL</a></li>
                             <li class=""><a data-toggle="tab" href="#tab-2">RESPONSABLE</a></li>
                             <li class=""><a data-toggle="tab" href="#tab-3">DATO MEDICO</a></li>
-                            <li class=""><a data-toggle="tab" href="#tab-4">SOCIOECONOMICO</a></li>
-                            <li class=""><a data-toggle="tab" href="#tab-5">HISTORIAL CLINICO</a></li>
-                            <li class=""><a data-toggle="tab" href="#tab-6">VACUNACION</a></li>
+                            <!-- <li class=""><a data-toggle="tab" href="#tab-4">SOCIOECONOMICO</a></li> -->
+                            <!-- <li class=""><a data-toggle="tab" href="#tab-5">HISTORIAL CLINICO</a></li>
+                            <li class=""><a data-toggle="tab" href="#tab-6">VACUNACION</a></li> -->
                             <li class="pull-right">
                                 <button type="submit" class="btn btn-primary dim" name="guardarPaciente"><i class="fa fa-check"></i></button>
 
@@ -119,7 +119,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                       <div class="col-sm-5">
                                         <div class="input-group">
                                           <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
-                                          <input type="text" class="form-control" data-mask="99999999-9-9" required=""name="txtDui" id="username"  >
+                                          <input type="text" class="form-control" data-mask="99999999-9" name="txtDui" id="username"  >
                                           <center><div id="Info"></div></center>
                                         </div>
                                       </div>
@@ -258,14 +258,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <div class="col-sm-2">
                                           <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
-                                            <input type="text" class="form-control" data-inputmask='"mask": "99999999-9"' data-mask name="txtDuiResponsable" id="txtDuiResponsable" >
+                                            <input type="text" class="form-control" data-mask="99999999-9" data-mask name="txtDuiResponsable" id="txtDuiResponsable" >
                                           </div>
                                         </div>
                                         <label for="txtTelefonoResponsable" class="col-sm-1 control-label">Telefono</label>
                                         <div class="col-sm-2">
                                           <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-phone-square"></i></div>
-                                            <input type="text" class="form-control"  data-inputmask='"mask": "9999-9999"' data-mask id="txtTelefonoResponsable" name="txtTelefonoResponsable" />
+                                            <input type="text" class="form-control"  class="form-control" data-mask="9999-9999" data-mask id="txtTelefonoResponsable" name="txtTelefonoResponsable" />
                                           </div>
                                         </div>
                                     </div>
@@ -276,7 +276,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div id="tab-3" class="tab-pane">
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label for="txtEnfermedad" class="col-sm-1 control-label">Enfermedades:</label>
+                                        <label for="txtEnfermedad" class="col-sm-2 control-label">Enfermedades:</label>
                                           <div class="col-sm-10">
                                             <div class="input-group">
                                               <div class="input-group-addon"><i class="fa fa-check"></i></div>
@@ -286,7 +286,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                       </div>
 
                                       <div class="form-group">
-                                          <label for="txtAlergias" class="col-sm-1 control-label">Alergias:</label>
+                                          <label for="txtAlergias" class="col-sm-2 control-label">Alergias:</label>
                                           <div class="col-sm-10">
                                             <div class="input-group">
                                               <div class="input-group-addon"><i class="fa fa-check"></i></div>
@@ -296,7 +296,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                       </div>
 
                                       <div class="form-group">
-                                          <label for="txtMedicamentos" class="col-sm-1 control-label">Medicamentos:</label>
+                                          <label for="txtMedicamentos" class="col-sm-2 control-label">Medicamentos:</label>
                                           <div class="col-sm-10">
                                             <div class="input-group">
                                               <div class="input-group-addon"><i class="fa fa-check"></i></div>
@@ -311,7 +311,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="pull-right">
                                           <label for="txtCategoria" class="col-sm-6 control-label">Categoría:</label>
                                           <div class="col-sm-6">
-                                            <select class="form-control" id="txtCategoria" name="txtCategoria" required="">
+                                            <select class="form-control" id="txtCategoria" name="txtCategoria">
                                               <option value=""></option>
                                               <option value="A">A</option>
                                               <option value="B">B</option>
