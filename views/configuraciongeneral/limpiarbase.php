@@ -7,8 +7,8 @@ $resultadoconsultaquerytablas = $mysqli->query($consultaquerytablas);
 
 while ($test = $resultadoconsultaquerytablas->fetch_assoc()) {
 	$query = $test['Query'];
-
 	$accionquery = "$query";
-	$resultadoaccionquery = $mysqli->query($accionquery);
-	header('Location: ../../web/configuraciongeneral/index');
+	$resultadoaccionquery = $mysqli->query($query);
+    header('Location: ../../web/configuraciongeneral/index');
+	//echo $accionquery;
 }

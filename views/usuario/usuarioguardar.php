@@ -28,12 +28,12 @@ session_start();
     {
 
      $insert = "INSERT INTO usuario(InicioSesion,Nombres,Apellidos,Correo,Clave,Activo,IdPuesto,FechaIngreso,AmilatAdmin,Estado,ImagenUsuario,Idioma)"
-                        . "VALUES ('$InicioSesion','$Nombre','$Apellido','$Correo','$clave','$activo','$Puesto',now(),0,'Desconectado','uploads/usuarios/admin.jpg',1)";
+                        . "VALUES ('$InicioSesion','$Nombre','$Apellido','$Correo','$clave','$activo','$Puesto',now(),0,'Desconectado','uploads/usuarios/artedental.jpg',1)";
      $resultadoinsert = $mysqli->query($insert);
 		 $last_id = $mysqli->insert_id;
 
 
-		 $querymenudetalle = "SELECT IdMenuDetalle, IdMenu from menudetalle where IdMenu between 1 and 12 order by IdMenu asc";
+		 $querymenudetalle = "SELECT IdMenuDetalle, IdMenu from menudetalle where IdMenu between 1 and 14 order by IdMenu asc";
 		 $resultadomenudetalle = $mysqli->query($querymenudetalle);
 
 		 while ($test = $resultadomenudetalle->fetch_assoc())

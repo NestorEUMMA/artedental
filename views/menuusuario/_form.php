@@ -69,7 +69,7 @@ use kartik\depdrop\DepDrop;
                 ]);
                 ?>
 
-                <!-- <?php
+                <?php
                         echo $form->field($model, 'TipoPermiso')->widget(Select2::classname(), [
                             'data' => $data = [
                                 "1" => "Permiso",
@@ -81,7 +81,7 @@ use kartik\depdrop\DepDrop;
                                 'allowClear' => true
                             ],
                         ]);
-                        ?> -->
+                        ?> 
 
             </div>
             <div class="form-group" align="right">

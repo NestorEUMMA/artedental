@@ -110,6 +110,7 @@ include '../include/dbconnect.php';
                                                         </div>
                                                       </form>
                                                     </div>
+                                                    </div>
                                                 </div>
                                         </div>
 <script src="../../assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>

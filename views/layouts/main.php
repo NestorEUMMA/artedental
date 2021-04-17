@@ -68,6 +68,6 @@ DashboardAsset::register($this);
 </html>
 
 <?php $this->endPage() ?>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 document.oncontextmenu = function(){return false;}
-</script>
+</script> -->

@@ -37,7 +37,7 @@ use app\models\Persona;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 $titulo = '';
 if($_SESSION['IdIdioma'] == 1){
-  $titulo = 'Consulta - Medica';
+  $titulo = 'Consullta - Medica';
 }
 else{
    $titulo = 'Physician - Exams';

@@ -50,12 +50,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             <li class="active"><a data-toggle="tab" href="#tab-1"> DATO GENERAL</a></li>
                             <li class=""><a data-toggle="tab" href="#tab-2">RESPONSABLE</a></li>
                             <li class=""><a data-toggle="tab" href="#tab-3">DATO MEDICO</a></li>
-                            <!-- <li class=""><a data-toggle="tab" href="#tab-4">SOCIOECONOMICO</a></li> -->
-                            <!-- <li class=""><a data-toggle="tab" href="#tab-5">HISTORIAL CLINICO</a></li>
-                            <li class=""><a data-toggle="tab" href="#tab-6">VACUNACION</a></li> -->
+                            <li class=""><a data-toggle="tab" href="#tab-4">SOCIOECONOMICO</a></li>
+                            <li class=""><a data-toggle="tab" href="#tab-5">HISTORIAL CLINICO</a></li>
+                            <li class=""><a data-toggle="tab" href="#tab-6">ESQUEMA DE VACUNACION</a></li>
                             <li class="pull-right">
                                 <button type="submit" class="btn btn-primary dim" name="guardarPaciente"><i class="fa fa-check"></i></button>
-
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -331,6 +330,233 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div id="tab-6" class="tab-pane">
                                 <div class="panel-body">
                                     <div id="vacunacion"></div>
+                                    <div>
+                                    <div class="col-sm-12">
+                                    <center><h3>VESTIBULAR</h3></center>
+                                    </div>
+                                    <div class="col-sm-12">
+                                      <div class="col-sm-1"><center>18</center>  
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div> 
+                                      <div class="col-sm-1"><center>17</center>  
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>   
+                                      <div class="col-sm-1"><center>16</center>
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>   
+                                      <div class="col-sm-1"><center>15</center>
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div> 
+                                      <div class="col-sm-1"><center>14</center>
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>   
+                                      <div class="col-sm-1"><center>13</center>
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>   
+                                      <div class="col-sm-1"><center>12</center>
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>   
+                                      <div class="col-sm-1"><center>11</center>
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div> 
+                                      <div class="col-sm-1"></div>            
+                                    </div>
+                                    <div class="col-sm-12">  
+                                      <div class="col-sm-1"><center>55</center>
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>   
+                                      <div class="col-sm-1"><center>54</center>
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>   
+                                      <div class="col-sm-1"><center>53</center>
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>   
+                                      <div class="col-sm-1"><center>52</center>
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>   
+                                      <div class="col-sm-1"><center>51</center>
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div> 
+                                      <div class="col-sm-1"></div>            
+                                    </div>
+                                    <div class="col-sm-12">
+                                      <div class="col-sm-4"></div>
+                                      <div class="col-sm-1">21
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div> 
+                                      <div class="col-sm-1">22
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>   
+                                      <div class="col-sm-1">23
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>   
+                                      <div class="col-sm-1">24
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>   
+                                      <div class="col-sm-1">25
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>   
+                                      <div class="col-sm-1">26
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div> 
+                                      <div class="col-sm-1">27
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>   
+                                      <div class="col-sm-1">28
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>           
+                                    </div>
+                                    
+                                    <div class="col-sm-6">
+                                      <div class="col-sm-1"></div>
+                                      <div class="col-sm-1">61</div>
+                                      <div class="col-sm-1">62</div>  
+                                      <div class="col-sm-1">63</div>  
+                                      <div class="col-sm-1">64</div>  
+                                      <div class="col-sm-1">65</div>
+                                      <div class="col-sm-6"></div>            
+                                    </div>
+                                    <div class="col-sm-4">
+                                    <center><h3>DERECHO</h3></center>
+                                    </div>
+                                    <div class="col-sm-4">
+                                    <center><h3>LINGUALES</h3></center>
+                                    </div>
+                                    <div class="col-sm-4">
+                                    <center><h3>IZQUIERDO</h3></center>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="col-sm-6"></div>  
+                                      <div class="col-sm-1">85
+                                        <br>
+                                        <select  class='form-control select3'>
+                                          <option value='No'>No</option>
+                                          <option value='Si'>Si</option>
+                                      </select>
+                                      </div>  
+                                      <div class="col-sm-1">84</div>  
+                                      <div class="col-sm-1">83</div>  
+                                      <div class="col-sm-1">82</div>  
+                                      <div class="col-sm-1">81</div>
+                                      <div class="col-sm-1"></div>            
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="col-sm-1"></div>
+                                      <div class="col-sm-1">71 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>
+                                      <div class="col-sm-1">72 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>  
+                                      <div class="col-sm-1">73 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>  
+                                      <div class="col-sm-1">74 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>  
+                                      <div class="col-sm-1">75 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>
+                                      <div class="col-sm-6"></div>            
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="col-sm-3"></div>
+                                      <div class="col-sm-1">48 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>
+                                      <div class="col-sm-1">47 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>  
+                                      <div class="col-sm-1">46 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>  
+                                      <div class="col-sm-1">45 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>  
+                                      <div class="col-sm-1">44 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>  
+                                      <div class="col-sm-1">43 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>  
+                                      <div class="col-sm-1">42 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>  
+                                      <div class="col-sm-1">41 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>
+                                      <div class="col-sm-1"></div>            
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="col-sm-1"></div>
+                                      <div class="col-sm-1">31 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>
+                                      <div class="col-sm-1">32 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>  
+                                      <div class="col-sm-1">33 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>  
+                                      <div class="col-sm-1">34 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>  
+                                      <div class="col-sm-1">35 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>  
+                                      <div class="col-sm-1">36 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>  
+                                      <div class="col-sm-1">37 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>  
+                                      <div class="col-sm-1">38 <br><i class="fa fa-plus-square-o" aria-hidden="true"></i></div>
+                                      <div class="col-sm-3"></div>            
+                                    </div>
                                 </div>
                             </div>
                         </div>

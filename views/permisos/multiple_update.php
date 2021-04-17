@@ -2,10 +2,6 @@
 
 require_once '../../include/database_connection.php';
 
-
-
-
-
 if(isset($_POST['hidden_id']))
 {
  $gender = $_POST['gender'];

@@ -23,7 +23,9 @@ if (!isset($_SESSION)) {
 
 if (!empty($_SESSION['user'])) {
 
-
+    $urluri = str_replace('?'.$_SERVER["QUERY_STRING"],"", $_SERVER["REQUEST_URI"] );
+    $url = str_replace("/artedental/web/","../",  $urluri );
+    
     $queryfichaconsulta = "SELECT  count(c.FechaConsulta) as 'Listado', (SELECT count(p.Genero) FROM persona p INNER JOIN consulta c on c.IdPersona = p.IdPersona WHERE p.Genero = 'MASCULINO' and c.FechaConsulta = curdate()) as 'Hombre',
             (SELECT count(p.Genero) FROM persona p INNER JOIN consulta c on c.IdPersona = p.IdPersona WHERE p.Genero = 'FEMENINO' and c.FechaConsulta = curdate() ) as 'Mujer'
             FROM
@@ -93,14 +95,15 @@ if (!empty($_SESSION['user'])) {
         $TOTAL = $test['TOTAL'];
     }
 
-
     $this->title = 'Sistema TPV';
 ?>
 
     <div class="wrapper wrapper-content">
         <h1>
-            Centro Medico Familiar Shalom |
+            ArteDental °4Kids° |
             <small id="encabezado1"> </small>
+            <!-- <?php echo $url; ?> -->
+           
         </h1>
         <div class="row animated fadeInDown">
             <div class="col-lg-6">
@@ -349,7 +352,7 @@ if (!empty($_SESSION['user'])) {
             }); */
 
             <?php if ($_SESSION['IdIdioma'] == 1) { ?>
-                $("#encabezado1").text('Adminstración de Pacientes y Laboratorio');
+                $("#encabezado1").text('Adminstración de Pacientes y Contol Dental');
                 $("#widget1").text('Paciente Atendido');
                 $("#widget2").text('Adultos');
                 $("#widget3").text('Niños');
@@ -366,7 +369,7 @@ if (!empty($_SESSION['user'])) {
                 $("#").text('Adminstración de Pacientes y Laboratorio');
                 $("#").text('Adminstración de Pacientes y Laboratorio');
             <?php } else { ?>
-                $("#encabezado1").text('Patient and Laboratory Management');
+                $("#encabezado1").text('Patient and Dental Management');
                 $("#widget1").text('Patients Served');
                 $("#widget2").text('Adults');
                 $("#widget3").text('Children');
