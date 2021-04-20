@@ -87,6 +87,12 @@ foreach ($arrPreguntas as $iP => $vP) {
 					echo "</select>";
 					break;
 				}
+				case "3":
+					{
+						$IdPregunta = 'selPregunta'.$vP["IdPregunta"];
+					echo "<textarea id='$IdPregunta' name='$IdPregunta' class='form-control' row='1'></textarea>";
+					break;
+					}
 				default:
 
 					break;

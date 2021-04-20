@@ -44,7 +44,7 @@ session_start();
     $Parentesco = $_POST['txtParentesco'];
     $IdPais = $_POST['txtIdPais'];
 
-    $querybc = "SELECT MAX(CONCAT(9,'',LPAD((SELECT MAX(IDPERSONA) FROM persona), 7 , 0))) + 1 AS BC FROM persona";
+    $querybc = "SELECT CASE WHEN IdPersona IS NULL THEN 90000001 ELSE MAX(CONCAT(9,'',LPAD((SELECT MAX(IDPERSONA) FROM persona), 7 , 0))) + 1 END AS BC FROM persona";
     $resultadobc = $mysqli->query($querybc);
     while ($test = $resultadobc->fetch_assoc()) {
         $bc = $test['BC'];
@@ -80,6 +80,7 @@ session_start();
 
 
     $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
+    //echo $insertexpediente;
     $last_id = $mysqli->insert_id;
 
    
@@ -274,5 +275,5 @@ session_start();
 
     // }
 
-    header('Location: ../../web/persona/view?id='.$last_id);
+     header('Location: ../../web/persona/view?id='.$last_id);
     }

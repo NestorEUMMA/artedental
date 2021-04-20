@@ -352,7 +352,7 @@ if (!empty($_SESSION['user'])) {
             }); */
 
             <?php if ($_SESSION['IdIdioma'] == 1) { ?>
-                $("#encabezado1").text('Adminstración de Pacientes y Contol Dental');
+                $("#encabezado1").text('Administración de Pacientes y Contol Dental');
                 $("#widget1").text('Paciente Atendido');
                 $("#widget2").text('Adultos');
                 $("#widget3").text('Niños');
@@ -363,11 +363,6 @@ if (!empty($_SESSION['user'])) {
                 $("#widget8").text('Hombre Atendido');
                 $("#widget25").text('Expedientes Ingresados');
                 $("#calendarname").text('Calendario');
-                $("#").text('Adminstración de Pacientes y Laboratorio');
-                $("#").text('Adminstración de Pacientes y Laboratorio');
-                $("#").text('Adminstración de Pacientes y Laboratorio');
-                $("#").text('Adminstración de Pacientes y Laboratorio');
-                $("#").text('Adminstración de Pacientes y Laboratorio');
             <?php } else { ?>
                 $("#encabezado1").text('Patient and Dental Management');
                 $("#widget1").text('Patients Served');
@@ -380,11 +375,6 @@ if (!empty($_SESSION['user'])) {
                 $("#widget8").text('Men Served');
                 $("#widget25").text('Expedientes Ingresados');
                 $("#calendarname").text('Calendar');
-                $("#").text('Adminstración de Pacientes y Laboratorio');
-                $("#").text('Adminstración de Pacientes y Laboratorio');
-                $("#").text('Adminstración de Pacientes y Laboratorio');
-                $("#").text('Adminstración de Pacientes y Laboratorio');
-                $("#").text('Adminstración de Pacientes y Laboratorio');
             <?php } ?>
         });
 

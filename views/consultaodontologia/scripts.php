@@ -75,7 +75,7 @@
          };
          //alert(myData);
          $.ajax({
-            url: "../../views/consultamedico/cargarprocedimientoterminado.php",
+            url: "../../views/consultaodontologia/cargarprocedimientoterminado.php",
             type: "POST",
             data: myData,
             dataType: "JSON",
@@ -101,7 +101,7 @@
          };
          //alert(myData);
          $.ajax({
-            url: "../../views/consultamedico/cargarreceta.php",
+            url: "../../views/consultaodontologia/cargarreceta.php",
             type: "POST",
             data: myData,
             dataType: "JSON",
@@ -124,7 +124,7 @@
          };
          //alert(myData);
          $.ajax({
-            url: "../../views/consultamedico/cargarexamenesterminados.php",
+            url: "../../views/consultaodontologia/cargarexamenesterminados.php",
             type: "POST",
             data: myData,
             dataType: "JSON",
@@ -245,7 +245,7 @@
 
       <?php if ($_SESSION['IdIdioma'] == 1) { ?>
 
-         $.post("../../views/consultamedico/historicoesp.php", {
+         $.post("../../views/consultaodontologia/historicoesp.php", {
                IdFactor: "2",
                IdPersona: "<?php echo $idpersonaid; ?>"
             })
@@ -253,7 +253,7 @@
                $("#historialclinico").html(data);
 
             });
-         $.post("../../views/consultamedico/historicoesp.php", {
+         $.post("../../views/consultaodontologia/historicoesp.php", {
                IdFactor: "3",
                IdPersona: "<?php echo $idpersonaid; ?>"
             })
@@ -454,7 +454,7 @@
 
       <?php } else { ?>
 
-         $.post("../../views/consultamedico/historicoing.php", {
+         $.post("../../views/consultaodontologia/historicoing.php", {
                IdFactor: "2",
                IdPersona: "<?php echo $idpersonaid; ?>"
             })
@@ -462,7 +462,7 @@
                $("#historialclinico").html(data);
 
             });
-         $.post("../../views/consultamedico/historicoing.php", {
+         $.post("../../views/consultaodontologia/historicoing.php", {
                IdFactor: "3",
                IdPersona: "<?php echo $idpersonaid; ?>"
             })
