@@ -3,10 +3,10 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Consulta */
+/* @var $model app\models\Empresa */
 
-$this->title = $model->IdConsulta;
-$this->params['breadcrumbs'][] = ['label' => 'Consultas', 'url' => ['index']];
+$this->title = $model->IdEmpresa;
+$this->params['breadcrumbs'][] = ['label' => 'Empresas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 </br>
@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
       <div class="ibox-title">
         <h3><?= Html::encode($this->title) ?></h3>
         <p align="right">
-             <?= Html::a('Actualizar', ['update', 'id' => $model->IdConsulta], ['class' => 'btn btn-warning']) ?>
+             <?= Html::a('Actualizar', ['update', 'id' => $model->IdEmpresa], ['class' => 'btn btn-warning']) ?>
         </p>
       </div>
           <div class="ibox-content">
@@ -71,25 +71,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= DetailView::widget([
                     'model' => $model,
                     'attributes' => [
-                        'IdConsulta',
-            'IdUsuario',
-            'IdPersona',
-            'IdModulo',
-            'Diagnostico:ntext',
-            'Comentarios:ntext',
-            'Otros:ntext',
-            'IdEnfermedad',
-            'FechaConsulta',
-            'Activo',
-            'IdEstado',
-            'Status',
-            'EstadoNutricional:ntext',
-            'CirugiasPrevias:ntext',
-            'MedicamentosActuales:ntext',
-            'ExamenFisica:ntext',
-            'PlanTratamiento:ntext',
-            'FechaProxVisita',
-            'Alergias:ntext',
+                        'IdEmpresa',
+            'NombreEmpresa',
+            'NombreJuridico',
+            'Direccion',
+            'Telefono',
+            'Nit',
+            'Ruc',
+            'RepresentanteLegal',
+            'DuiRepresentante',
                     ],
                 ]) ?>
             </table>

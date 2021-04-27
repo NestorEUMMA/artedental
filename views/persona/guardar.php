@@ -394,10 +394,8 @@ session_start();
                 break;
             }
             default:
-
                 break;
         }
-
     }
 
     //Guardar infancia
@@ -405,7 +403,7 @@ session_start();
     $tblPregIN = $mysqli->query($query);
     $arrPregIN = array();
 
-    while ($f = $tblPregGE->fetch_assoc())
+    while ($f = $tblPregIN->fetch_assoc())
     {
         $IdPregunta = $f["IdPregunta"];
         $Ponderacion = $f["Ponderacion"];
@@ -460,7 +458,6 @@ session_start();
 
                 break;
         }
-
     }
 
     //Guardar amamantamiento
@@ -594,7 +591,7 @@ session_start();
     $tblPregEN = $mysqli->query($query);
     $arrPregEN = array();
 
-    while ($f = $tblPregGE->fetch_assoc())
+    while ($f = $tblPregEN->fetch_assoc())
     {
         $IdPregunta = $f["IdPregunta"];
         $Ponderacion = $f["Ponderacion"];

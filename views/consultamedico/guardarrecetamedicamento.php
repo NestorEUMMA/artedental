@@ -1,19 +1,16 @@
 <html>
 <head>
-	<script src="../web/plugins/jQuery/jQuery-2.2.0.min.js"></script>
-
+    <script src="../web/plugins/jQuery/jQuery-2.2.0.min.js"></script>
 </head>
+
 <body>
- <?php
+    <?php
 
 include '../include/dbconnect.php';
 session_start();
 
-
     $idconsulta = $_POST['txtconsultaID'];
-
     $totalfrascos = $_POST['txtTotal'];
-
     $idreceta = $_POST['txtIdReceta'];
     $idmedicamento = $_POST['txtIdMedicamento'];
     if(empty($_POST['txtCantidad'])){
@@ -41,30 +38,26 @@ session_start();
         }
     $total = round($total_dec);
 
-
-
     $insertmovimiento = "INSERT INTO receta_medicamentos(IdReceta,IdMedicamento,Cantidad,Horas,Dias,Total,Indicacion)"
     		                ."VALUES ('$idreceta','$idmedicamento','$cantidad','$horas','$dias','$total','$indicacion')";
     $resultadoinsertmovimiento = $mysqli->query($insertmovimiento);
 
-
-
 ?>
 
+    <form id="frm" action="medico_consulta_paciente.php" method="post">
+        <input type="hidden" id="IdConsulta" name="IdConsulta" value="<?php echo $idconsulta ?>" />
+    </form>
 
-        <form id="frm" action="medico_consulta_paciente.php" method="post">
-          <input type="hidden" id="IdConsulta" name="IdConsulta" value="<?php echo $idconsulta ?>" />
-        </form>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //alert($("#IdConsulta").val());
+            $("#frm").submit();
+        });
+    </script>
 
-				<script type="text/javascript">
-						$(document).ready(function(){
-										//alert($("#IdConsulta").val());
-										$("#frm").submit();
-						});
-				</script>
-
-<?php
+    <?php
 
 ?>
 </body>
+
 </html>

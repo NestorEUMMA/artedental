@@ -10,7 +10,8 @@ $query = "SELECT mu.IdMenuUsuario as 'id', m.DescripcionMenu as 'name', me.Descr
         INNER JOIN menudetalle me on mu.IdMenuDetalle = me.IdMenuDetalle
              INNER JOIN menu m on mu.IdMenu = m.IdMenu
              INNER JOIN usuario u on mu.IdUsuario = u.IdUsuario
-             WHERE u.IdUsuario = $IdUsuario";
+             WHERE u.IdUsuario = $IdUsuario
+             ORDER BY m.IdMenu asc";
 
 $statement = $connect->prepare($query);
 

@@ -29,6 +29,15 @@ include 'include/dbconnect.php';
 date_default_timezone_set('america/el_salvador');
 $fechas = date('Y-m-d G:i:s');
 
+$queryEmpresa = "SELECT NombreEmpresa, Direccion, Telefono from empresa where IdEmpresa = 1";
+
+$resultadoEmpresa = $mysqli->query($queryEmpresa);
+while ($test = $resultadoEmpresa->fetch_assoc()) {
+$empresa = $test['NombreEmpresa'];
+$direccion = $test['Direccion'];
+$telefono = $test['Telefono'];
+}
+
 if(isset($_POST['btn-login']))
 {
 $InicioSesion = $_POST['InicioSesion'];
@@ -138,7 +147,7 @@ if(mysqli_num_rows($resultado_usuario)==0){
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href=" ../dashboard.html ">Bienvenido a ArteDental</a>
+                <a class="navbar-brand" href=" ../dashboard.html ">Bienvenido a <?php echo $empresa; ?></a>
             </div>
 
         </div>
@@ -195,7 +204,7 @@ if(mysqli_num_rows($resultado_usuario)==0){
                         <script>
                             document.write(new Date().getFullYear())
                         </script>
-                        <a href=""> UQSolutions </a>, ArteDental 4 Kids
+                        <a href=""> UQSolutions </a>, <?php echo $empresa; ?>
                     </p>
                 </div>
             </footer>

@@ -1,8 +1,6 @@
 
 <?php if (Yii::$app->session->hasFlash("error")): ?>
 <?php
-
-
     $session = \Yii::$app->getSession();
     $session->setFlash("error", "Se a eliminado con Exito!"); ?>
     <?= \odaialali\yii2toastr\ToastrFlash::widget([
@@ -27,23 +25,14 @@
 
 
 
-
 use yii\helpers\Html;
 use yii\grid\GridView;
-use app\models\Persona;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\ConsultamedicoSearch */
+/* @var $searchModel app\models\EmpresaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-$titulo = '';
-if($_SESSION['IdIdioma'] == 1){
-  $titulo = 'Consullta - Medica';
-}
-else{
-   $titulo = 'Physician - Exams';
-}
 
-$this->title = $titulo;
+$this->title = 'Empresas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 </br>
@@ -52,29 +41,29 @@ $this->params['breadcrumbs'][] = $this->title;
       <div class="ibox float-e-margins">
       <div class="ibox-title">
         <h3><?= Html::encode($this->title) ?></h3>
+        <p align="right">
+           <?= Html::a('Ingresar Empresa', ['create'], ['class' => 'btn btn-primary']) ?>
+        </p>
       </div>
           <div class="ibox-content">
               <table class="table table-hover">
-                  <?= GridView::widget([
+                  <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+                                    <?= GridView::widget([
                       'dataProvider' => $dataProvider,
-                       'columns' => [
+'columns' => [
                         ['class' => 'yii\grid\SerialColumn'],
-                        [
-                            'attribute' => 'IdPersona',
-                            'value' => function ($model) {
-                                return $model->persona->getFullName();
-                            },
-                         ],
-                        [
-                            'attribute' => 'IdModulo',
-                            'value' => function ($model) {
-                                return $model->modulo->NombreModulo;
-                            },
-                         ],
-
+                          'IdEmpresa',
+'NombreEmpresa',
+'NombreJuridico',
+'Direccion',
+'Telefono',
+// 'Nit',
+// 'Ruc',
+// 'RepresentanteLegal',
+// 'DuiRepresentante',
                               ['class' => 'yii\grid\ActionColumn',
-                               'options' => ['style' => 'width:50px;'],
-                               'template' => "{medical}"
+                               'options' => ['style' => 'width:100px;'],
+                               'template' => " {view} {update} {delete} "
                               ],
                           ],
                       ]); ?>

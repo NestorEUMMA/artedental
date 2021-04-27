@@ -1,3 +1,20 @@
+<?php
+
+    include '../include/dbconnect.php';
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+
+    $queryEmpresa = "SELECT NombreEmpresa, Direccion, Telefono from empresa where IdEmpresa = 1";
+
+    $resultadoEmpresa = $mysqli->query($queryEmpresa);
+    while ($test = $resultadoEmpresa->fetch_assoc()) {
+    $empresa = $test['NombreEmpresa'];
+    $direccion = $test['Direccion'];
+    $telefono = $test['Telefono'];
+    }
+
+?>
 <script>
     $(function() {
         toastr.options = {
@@ -7,25 +24,23 @@
             timeOut: 4000
         };
         <?php if ($_SESSION['IdIdioma'] == 1) { ?>
-            toastr.success('Centro Medico Familiar Shalom', 'Bienvenido');
+            toastr.success('<?php echo $empresa; ?>', 'Bienvenido');
         <?php } else { ?>
-            toastr.success('Centro Medico Familiar Shalom', 'Welcome');
+            toastr.success('<?php echo $empresa; ?>', 'Welcome');
         <?php } ?>
     });
 </script>
 <?php
 /* @var $this yii\web\View */
 
-include '../include/dbconnect.php';
-if (!isset($_SESSION)) {
-    session_start();
-}
+
 
 if (!empty($_SESSION['user'])) {
 
     $urluri = str_replace('?'.$_SERVER["QUERY_STRING"],"", $_SERVER["REQUEST_URI"] );
     $url = str_replace("/artedental/web/","../",  $urluri );
     
+
     $queryfichaconsulta = "SELECT  count(c.FechaConsulta) as 'Listado', (SELECT count(p.Genero) FROM persona p INNER JOIN consulta c on c.IdPersona = p.IdPersona WHERE p.Genero = 'MASCULINO' and c.FechaConsulta = curdate()) as 'Hombre',
             (SELECT count(p.Genero) FROM persona p INNER JOIN consulta c on c.IdPersona = p.IdPersona WHERE p.Genero = 'FEMENINO' and c.FechaConsulta = curdate() ) as 'Mujer'
             FROM
@@ -100,7 +115,7 @@ if (!empty($_SESSION['user'])) {
 
     <div class="wrapper wrapper-content">
         <h1>
-            ArteDental °4Kids° |
+            <?php echo $empresa; ?> |
             <small id="encabezado1"> </small>
             <!-- <?php echo $url; ?> -->
            
@@ -352,7 +367,7 @@ if (!empty($_SESSION['user'])) {
             }); */
 
             <?php if ($_SESSION['IdIdioma'] == 1) { ?>
-                $("#encabezado1").text('Administración de Pacientes y Contol Dental');
+                $("#encabezado1").text('Administración de Pacientes y Control Dental');
                 $("#widget1").text('Paciente Atendido');
                 $("#widget2").text('Adultos');
                 $("#widget3").text('Niños');

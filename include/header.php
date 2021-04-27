@@ -2,6 +2,16 @@
 
 date_default_timezone_set('america/el_salvador');
 $fechas = date('Y-m-d G:i:s');
+
+$queryEmpresa = "SELECT NombreEmpresa, Direccion, Telefono from empresa where IdEmpresa = 1";
+
+$resultadoEmpresa = $mysqli->query($queryEmpresa);
+while ($test = $resultadoEmpresa->fetch_assoc()) {
+$empresa = $test['NombreEmpresa'];
+$direccion = $test['Direccion'];
+$telefono = $test['Telefono'];
+}
+
 ?>
 <div id="page-wrapper" class="gray-bg">
     <div class="row border-bottom">
@@ -13,10 +23,10 @@ $fechas = date('Y-m-d G:i:s');
       <ul class="nav navbar-top-links navbar-right">
           <li>
           <?php if($_SESSION['IdIdioma'] == 1) {?>
-              <span class="m-r-sm text-muted welcome-message">Bienvenidos ArteDental 4 Kids</span>
+              <span class="m-r-sm text-muted welcome-message">Bienvenidos <?php echo $empresa; ?> </span>
           <?php } else{
             ?>
-              <span class="m-r-sm text-muted welcome-message">Welcome ArteDental 4 Kids <?php echo $fechas ?> </span>  
+              <span class="m-r-sm text-muted welcome-message">Welcome <?php echo $empresa; ?> <?php echo $fechas ?> </span>  
             <?php } ?>
           
           </li>

@@ -101,9 +101,5 @@ foreach ($arrPreguntas as $iP => $vP) {
 	echo "<tr>";
 }
 
-
-//header("Content-Type","text/html");
-//print_r(json_encode($));
-
 ?>
 </table>

@@ -53,7 +53,7 @@
                            <li class=""><a data-toggle="tab" href="#tab-4">SOCIOECONOMICO</a></li>
                            <li class=""><a data-toggle="tab" href="#tab-5">HISTORIAL CLINICO</a></li> -->
                         <li class=""><a data-toggle="tab" href="#tab-6">EVALUACION DENTAL INFANTIL</a></li>
-                        <li class=""><a data-toggle="tab" href="#tab-7">ORTOGRAMA</a></li>
+                        <!-- <li class=""><a data-toggle="tab" href="#tab-7">ORTOGRAMA</a></li> -->
                         <li class="pull-right">
                            <button type="submit" class="btn btn-primary dim" name="guardarPaciente"><i class="fa fa-check"></i></button>
                         </li>
@@ -464,7 +464,9 @@
       </div>
    </div>
 </div>
+
 <script src="../template/js/plugins/select2/select2.full.min.js"></script>
+<script src="../template/js/plugins/daterangepicker/daterangepicker.js"></script>
 <script type="text/javascript">
    $(document).ready(function(){
    
@@ -478,6 +480,15 @@
        return true;
      });
    });
+
+   $('#txtFechaNacimiento').datepicker({
+                startView: 1,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true,
+                format: "yyyy-mm-dd"
+            });
    
    $('.tagsinput').tagsinput({
                  tagClass: 'label label-primary'
