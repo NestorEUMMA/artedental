@@ -17,11 +17,24 @@
 ?>
 <script src="../template/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 
-<link href="../template/css/plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
-<link href="../template/css/plugins/fullcalendar/fullcalendar.print.css" rel='stylesheet' media='print'>
+<!-- <link href="../template/css/plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
+<link href="../template/css/plugins/fullcalendar/fullcalendar.print.css" rel='stylesheet' media='print'> -->
+<!-- <link href='../js/calendar/packages/core/main.css' rel='stylesheet' />
+<link href='../js/calendar/packages/daygrid/main.css' rel='stylesheet' />
+<link href='../js/calendar/packages/list/main.css' rel='stylesheet' /> -->
 <link href="../template/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
-<script src="../template/js/plugins/fullcalendar/moment.js"></script>
-<script src="../template/js/plugins/fullcalendar/fullcalendar.js"></script>
+<link href='../js/calendar5.6/lib/main.css' rel='stylesheet' />
+<script src='../js/calendar5.6/lib/main.js'></script>
+<script src='../js/calendar5.6/lib/locales-all.js'></script>
+<!-- <script src="../template/js/plugins/fullcalendar/moment.js"></script>
+<script src="../template/js/plugins/fullcalendar/fullcalendar.js"></script> -->
+<!-- <script src='../js/calendar/packages/core/locales/es.js'></script>
+<script src='../js/calendar/packages/core/main.js'></script>
+<script src='../js/calendar/packages/interaction/main.js'></script>
+<script src='../js/calendar/packages/daygrid/main.js'></script>
+<script src='../js/calendar/packages/timegrid/main.js'></script>
+<script src='../js/calendar/packages/list/main.js'></script>
+<script src='../js/calendar/packages/google-calendar/main.js'></script> -->
 <script src="../template/js/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
 <script src="../template/js/es.js" type="text/javascript"></script>
 

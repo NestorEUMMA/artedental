@@ -110,7 +110,7 @@ if (!empty($_SESSION['user'])) {
         $TOTAL = $test['TOTAL'];
     }
 
-    $this->title = 'Sistema TPV';
+    $this->title =  $empresa;
 ?>
 
     <div class="wrapper wrapper-content">
@@ -260,33 +260,10 @@ if (!empty($_SESSION['user'])) {
                     </div>
                     <div class="ibox-content">
                         <div id="calendar"></div>
+                        <!-- <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FEl_Salvador&amp;src=cmFkYW1hbnRoeXMuZW9AZ21haWwuY29t&amp;src=bnVsbG9hQGludGVsaXRlY3NhLmNvbQ&amp;src=cXVlbmNoaWxhZGEuc3ZAZ21haWwuY29t&amp;src=dWxsb2EubmVzdG9yMjJAZ21haWwuY29t&amp;color=%23009688&amp;color=%238E24AA&amp;color=%23D50000&amp;color=%233F51B5" style="border:solid 1px #777" width="400" height="400" frameborder="0" scrolling="no"></iframe> -->
                     </div>
                 </div>
             </div>
-
-            <!-- LIMPIANDO EL DASHBOARD, DESPUES SE ARREGLARA PARA QUE FUNCIONE CON LAS VISITAS -->
-
-            <!-- <div class="col-lg-6">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>Visitas en Clinica <small>Visitas mensuales</small></h5>
-                    </div>
-                    <div class="ibox-content" style="position: relative">
-                        <div id="morris-area-chart"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>Visitas en Clinica <small>Visitas mensuales</small></h5>
-                    </div>
-                    <div class="ibox-content" style="position: relative">
-                        <div id="morris-area-chart2"></div>
-                    </div>
-                </div>
-            </div> -->
 
         </div>
     </div>
@@ -342,29 +319,6 @@ if (!empty($_SESSION['user'])) {
     <script type="text/javascript">
         $(document).ready(function() {
 
-           /*  JQUERY PARA LAS GRAFICAS */
-
-/*             Morris.Bar({
-                element: 'morris-area-chart',
-                data: [<?php echo $chartbar_data; ?>],
-                xkey: 'Mes',
-                ykeys: ['CountMasculino', 'CountFemenino'],
-                labels: ['Hombres', 'Mujeres'],
-                hideHover: 'auto',
-                resize: true,
-                barColors: ['#1ab394', '#87d6c6'],
-            });
-
-            Morris.Bar({
-                element: 'morris-area-chart2',
-                data: [<?php echo $chartline_data; ?>],
-                xkey: 'Mes',
-                ykeys: ['Conteo', 'Especialidad'],
-                labels: ['Pacientes', 'Especialidad'],
-                hideHover: 'auto',
-                resize: true,
-                lineColors: ['#54cdb4', '#1ab394'],
-            }); */
 
             <?php if ($_SESSION['IdIdioma'] == 1) { ?>
                 $("#encabezado1").text('Administración de Pacientes y Control Dental');
@@ -393,103 +347,37 @@ if (!empty($_SESSION['user'])) {
             <?php } ?>
         });
 
-        var calendar = $('#calendar').fullCalendar({
-            editable: true,
-            header: {
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+            locale: 'es',
+            headerToolbar: {
                 left: 'prev,next today',
                 center: 'title',
-                right: 'month,agendaWeek,agendaDay'
-            },
-            events: 'load.php',
-            selectable: true,
-            selectHelper: true,
-            select: function(start, end, allDay) {
-                var title = prompt("Ingrese Titulo de Evento");
-                if (title) {
-                    var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
-                    var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
-                    $.ajax({
-                        url: "insert.php",
-                        type: "POST",
-                        data: {
-                            title: title,
-                            start: start,
-                            end: end
-                        },
-                        success: function() {
-                            calendar.fullCalendar('refetchEvents');
-                            bootbox.alert({
-                                message: "Agregado Exitosamente!",
-                                size: 'small',
-                                callback: function() {
-                                    console.log('This was logged in the callback!');
-                                }
-                            })
-                        }
-                    })
-                }
-
-            },
-            editable: true,
-            eventResize: function(event) {
-                var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-                var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-                var title = event.title;
-                var id = event.id;
-                $.ajax({
-                    url: "update.php",
-                    type: "POST",
-                    data: {
-                        title: title,
-                        start: start,
-                        end: end,
-                        id: id
-                    },
-                    success: function() {
-                        calendar.fullCalendar('refetchEvents');
-                        alert('Evento Actualizado');
-                    }
-                })
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
             },
 
-            eventClick: function(event) {
+            displayEventTime: false, // don't show the time column in list view
 
-                bootbox.confirm({
-                    title: "Eliminar Evento",
-                    message: "Deseas eliminar este evento?",
-                    buttons: {
-                        cancel: {
-                            label: '<i class="fa fa-times"></i> Cancelar'
-                        },
-                        confirm: {
-                            label: '<i class="fa fa-check"></i> Confirmar'
-                        }
-                    },
-                    callback: function(result) {
-                        var id = event.id;
-                        $.ajax({
-                            url: "delete.php",
-                            type: "POST",
-                            data: {
-                                id: id
-                            },
-                            success: function() {
-                                calendar.fullCalendar('refetchEvents');
-                                // bootbox.alert("Evento Eliminado");
-                                bootbox.alert({
-                                    message: "Eliminado Exitosamente!",
-                                    size: 'small',
-                                    callback: function() {
-                                        console.log('This was logged in the callback!');
-                                    }
-                                })
-                            }
-                        })
-                        console.log('This was logged in the callback: ' + result);
-                    }
-                });
+            // THIS KEY WON'T WORK IN PRODUCTION!!!
+            // To make your own Google API key, follow the directions here:
+            // http://fullcalendar.io/docs/google_calendar/
+            googleCalendarApiKey: 'AIzaSyCMbFnaAV0Vh6X1sail7gRXVK614rVpJXg',
+
+            // US Holidays
+            events: 'radamanthys.eo@gmail.com',
+
+            eventClick: function(arg) {
+                // opens events in a popup window
+                window.open(arg.event.url, 'google-calendar-event', 'width=700,height=600');
+
+                arg.jsEvent.preventDefault() // don't navigate in main tab
             },
 
+            
+            });
+            calendar.setOption('locale', 'es');
+            calendar.render();
         });
     </script>
 

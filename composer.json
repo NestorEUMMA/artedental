@@ -15,7 +15,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": "~2.0.14",
+        "yiisoft/yii2": "~2.0.10",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "kartik-v/yii2-widget-select2": "^2.1@dev",
@@ -29,7 +29,8 @@
         "kartik-v/yii2-widget-datetimepicker": "^1.4@dev",
         "kartik-v/yii2-detail-view": "*",
         "2amigos/yii2-date-picker-widget": "~1.0",
-        "odaialali/yii2-toastr": "*"
+        "odaialali/yii2-toastr": "*",
+        "google/apiclient": "2.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
