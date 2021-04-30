@@ -485,7 +485,9 @@
       </div>
    </div>
 </div>
+
 <script src="../template/js/plugins/select2/select2.full.min.js"></script>
+<script src="../template/js/plugins/daterangepicker/daterangepicker.js"></script>
 <script type="text/javascript">
 
 $(document).ready(function(){
@@ -500,6 +502,15 @@ $(document).ready(function(){
        return true;
      });
    });
+
+   $('#txtFechaNacimiento').datepicker({
+                startView: 1,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true,
+                format: "yyyy-mm-dd"
+            });
    
    $('.tagsinput').tagsinput({
                  tagClass: 'label label-primary'

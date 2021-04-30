@@ -1,236 +1,6 @@
 <script type="text/javascript">
    $(document).ready(function() {
 
-      $(".btn-mdls").click(function() {
-         var id = $(this).attr("id").replace("btn", "");
-         var myData = {
-            "id": id
-         };
-         $.ajax({
-            url: "../../views/consultaodontologia/cargarconsultasignosvitales.php",
-            type: "POST",
-            data: myData,
-            dataType: "JSON",
-            beforeSend: function() {
-               $(this).html("Cargando");
-            },
-            success: function(data) {
-               $("#pacientes").val(data.Paciente);
-               $("#medicos").val(data.Medico);
-               $("#modulos").val(data.Especialidad);
-               $("#fechas").val(data.FechaConsulta);
-               $("#diagnosticoss").val(data.Diagnostico);
-               $("#enfermedads").val(data.Enfermedad);
-               $("#comentariosss").val(data.Comentarios);
-               $("#otrosss").val(data.Otros);
-               $("#pesos").val(data.Peso);
-               if (data.UnidadPeso == 1) {
-                  $("#unidadpesos").val("Kg");
-               } else {
-                  $("#unidadpesos").val("Lbs");
-               }
-               $("#alturas").val(data.Altura);
-               if (data.UnidadAltura == 1) {
-                  $("#unidadalturas").val("Mts");
-               } else {
-                  $("#unidadalturas").val("Cms");
-               }
-               $("#temperaturas").val(data.Temperatura);
-               if (data.UnidadTemperatura == 1) {
-                  $("#unidadtemperaturas").val("C");
-               } else {
-                  $("#unidadtemperaturas").val("F");
-               }
-               $("#pulsos").val(data.Pulso);
-               $("#maxs").val(data.Max);
-               $("#mins").val(data.Min);
-               $("#observacioness").val(data.Observaciones);
-
-               $("#frs").val(data.FR);
-               $("#glucotexs").val(data.Glucotex);
-               $("#ultimamenstruacions").val(data.PeriodoMeunstral);
-               $("#ultimapaps").val(data.PAP);
-               $("#pcs").val(data.PC);
-               $("#pts").val(data.PT);
-               $("#pas").val(data.PA);
-               $("#motivos").val(data.Motivo);
-               $("#estadonutricions").val(data.EstadoNutricional);
-               $("#alergiass").val(data.Alergias);
-               $("#cirugiaspreviass").val(data.CirugiasPrevias);
-               $("#medicamentotomados").val(data.MedicamentosActuales);
-               $("#plantratamientoss").val(data.PlanTratamiento);
-               $("#fechaproximass").val(data.FechaProxVisita);
-               $("#examenfisicas").val(data.ExamenFisica);
-
-               $("#modalCargarConsulta").modal("show");
-            }
-         });
-      });
-
-      $(".btn-proce").click(function() {
-         var id = $(this).attr("id").replace("btn", "");
-
-         var myData = {
-            "id": id
-         };
-         //alert(myData);
-         $.ajax({
-            url: "../../views/consultaodontologia/cargarprocedimientoterminado.php",
-            type: "POST",
-            data: myData,
-            dataType: "JSON",
-            beforeSend: function() {
-               $(this).html("Cargando");
-            },
-            success: function(data) {
-               $("#procepacientes").val(data.Paciente);
-               $("#procemedicos").val(data.Medico);
-               $("#procemodulos").val(data.Especialidad);
-               $("#procefechas").val(data.FechaConsulta);
-               $("#procemotivos").val(data.Motivo);
-               $("#proceobservacioness").val(data.Observaciones);
-               $("#modalCargarProcedimientos").modal("show");
-            }
-         });
-      });
-
-      $(".btn-mdlre").click(function() {
-         var id = $(this).attr("id").replace("btn", "");
-         var myData = {
-            "id": id
-         };
-         //alert(myData);
-         $.ajax({
-            url: "../../views/consultaodontologia/cargarreceta.php",
-            type: "POST",
-            data: myData,
-            dataType: "JSON",
-            beforeSend: function() {
-               $(this).html("Cargando");
-            },
-            success: function(data) {
-               $("#idreceta").val(data.IdReceta);
-
-               $("#modalAsignarMedicamentos").modal("show");
-            }
-         });
-      });
-
-
-      $(".btn-mdlrex").click(function() {
-         var id = $(this).attr("id").replace("btn", "");
-         var myData = {
-            "id": id
-         };
-         //alert(myData);
-         $.ajax({
-            url: "../../views/consultaodontologia/cargarexamenesterminados.php",
-            type: "POST",
-            data: myData,
-            dataType: "JSON",
-            beforeSend: function() {
-               $(this).html("Cargando");
-            },
-            success: function(data) {
-
-               if (data.IdTipoExamen == 1) {
-                  //alert('Este es un Examen Hemograma');
-                  $("#ExamenHemogramaPaciente").val(data.Paciente);
-                  $("#ExamenHemogramaMedico").val(data.Medico);
-                  $("#ExamenHemogramaNombreExamen").val(data.NombreExamen);
-                  $("#ExamenHemogramaFecha").val(data.ExamenHemogramaFecha);
-                  $("#ExamenHemogramaFechas").text(data.ExamenHemogramaFecha);
-                  $("#ExamenHemogramaGlobulosRojos").val(data.ExamenHemogramaGlobulosRojos);
-                  $("#ExamenHemogramaHemoglobina").val(data.ExamenHemogramaHemoglobina);
-                  $("#ExamenHemogramaHematocrito").val(data.ExamenHemogramaHematocrito);
-                  $("#ExamenHemogramaVgm").val(data.ExamenHemogramaVgm);
-                  $("#ExamenHemogramaHcm").val(data.ExamenHemogramaHcm);
-                  $("#ExamenHemogramaChcm").val(data.ExamenHemogramaChcm);
-                  $("#ExamenHemogramaLeucocitos").val(data.ExamenHemogramaLeucocitos);
-                  $("#ExamenHemogramaNeutrofilos").val(data.ExamenHemogramaNeutrofilos);
-                  $("#ExamenHemogramaLinfocitos").val(data.ExamenHemogramaLinfocitos);
-                  $("#ExamenHemogramaMonocitos").val(data.ExamenHemogramaMonocitos);
-                  $("#ExamenHemogramaEosinofilos").val(data.ExamenHemogramaEosinofilos);
-                  $("#ExamenHemogramaBasofilos").val(data.ExamenHemogramaBasofilos);
-                  $("#ExamenHemogramaPlaquetas").val(data.ExamenHemogramaPlaquetas);
-                  $("#ExamenHemogramaEritrosedimentacion").val(data.ExamenHemogramaEritrosedimentacion);
-                  $("#ExamenHemogramaOtros").val(data.ExamenHemogramaOtros);
-                  $("#ExamenHemogramaNeutrofilosSegmentados").val(data.ExamenHemogramaNeutrofilosSegmentados);
-                  $("#modalCargarExamenHemograma").modal("show");
-               } else if (data.IdTipoExamen == 2) {
-                  //alert('Este es un Examen Heces');
-                  $("#ExamenHecesPaciente").val(data.Paciente);
-                  $("#ExamenHecesMedico").val(data.Medico);
-                  $("#ExamenHecesNombreExamen").val(data.NombreExamen);
-                  $("#ExamenHecesFecha").val(data.ExamenHecesFecha);
-                  $("#ExamenHecesFechas").text(data.ExamenHecesFecha);
-                  $("#ExamenHecesColor").val(data.ExamenHecesColor);
-                  $("#ExamenHecesConsistencia").val(data.ExamenHecesConsistencia);
-                  $("#ExamenHecesMucus").val(data.ExamenHecesMucus);
-                  $("#ExamenHecesHematies").val(data.ExamenHecesHematies);
-                  $("#ExamenHecesLeucocitos").val(data.ExamenHecesLeucocitos);
-                  $("#ExamenHecesRestosAlimenticios").val(data.ExamenHecesRestosAlimenticios);
-                  $("#ExamenHecesMacrocopios").val(data.ExamenHecesMacrocopios);
-                  $("#ExamenHecesMicroscopicos").val(data.ExamenHecesMicroscopicos);
-                  $("#ExamenHecesFlora").val(data.ExamenHecesFlora);
-                  $("#ExamenHecesOtros").val(data.ExamenHecesOtros);
-                  $("#ExamenHecesPActivos").val(data.ExamenHecesPActivos);
-                  $("#ExamenHecesPQuistes").val(data.ExamenHecesPQuistes);
-                  $("#modalCargarExamenHeces").modal("show");
-               } else if (data.IdTipoExamen == 5) {
-                  $("#ExamenesVariosPaciente").val(data.Paciente);
-                  $("#ExamenesVariosMedico").val(data.Medico);
-                  $("#ExamenesVariosNombreExamen").val(data.NombreExamen);
-                  $("#ExamenesVariosFecha").val(data.ExamenesVariosFecha);
-                  $("#ExamenesVariosResultado").val(data.ExamenesVariosResultado);
-                  $("#modalCargarExamenVarios").modal("show");
-               } else if (data.IdTipoExamen == 3) {
-                  $("#ExamenOrinaPaciente").val(data.Paciente);
-                  $("#ExamenOrinaMedico").val(data.Medico);
-                  $("#ExamenOrinaNombreExamen").val(data.NombreExamen);
-                  $("#ExamenOrinaFecha").val(data.ExamenOrinaFecha);
-                  $("#ExamenOrinaFechas").text(data.ExamenOrinaFecha);
-                  $("#ExamenOrinaColor").val(data.ExamenOrinaColor);
-                  $("#ExamenOrinaOlor").val(data.ExamenOrinaOlor);
-                  $("#ExamenOrinaAspecto").val(data.ExamenOrinaAspecto);
-                  $("#ExamenOrinaDendisdad").val(data.ExamenOrinaDendisdad);
-                  $("#ExamenOrinaPh").val(data.ExamenOrinaPh);
-                  $("#ExamenOrinaProteinas").val(data.ExamenOrinaProteinas);
-                  $("#ExamenOrinaGlucosa").val(data.ExamenOrinaGlucosa);
-                  $("#ExamenOrinaSangreOculta").val(data.ExamenOrinaSangreOculta);
-                  $("#ExamenOrinaCuerposCetomicos").val(data.ExamenOrinaCuerposCetomicos);
-                  $("#ExamenOrinaUrobilinogeno").val(data.ExamenOrinaUrobilinogeno);
-                  $("#ExamenOrinaBilirrubina").val(data.ExamenOrinaBilirrubina);
-                  $("#ExamenOrinaEsterasaLeucocitaria").val(data.ExamenOrinaEsterasaLeucocitaria);
-                  $("#ExamenOrinaCilindros").val(data.ExamenOrinaCilindros);
-                  $("#ExamenOrinaHematies").val(data.ExamenOrinaHematies);
-                  $("#ExamenOrinaLeucocitos").val(data.ExamenOrinaLeucocitos);
-                  $("#ExamenOrinaCelulasEpiteliales").val(data.ExamenOrinaCelulasEpiteliales);
-                  $("#ExamenOrinaElementosMinerales").val(data.ExamenOrinaElementosMinerales);
-                  $("#ExamenOrinaParasitos").val(data.ExamenOrinaParasitos);
-                  $("#ExamenOrinaObservaciones").val(data.ExamenOrinaObservaciones);
-                  $("#modalCargarExamenOrina").modal("show");
-               } else if (data.IdTipoExamen == 4) {
-                  $("#ExamenQuimicaPaciente").val(data.Paciente);
-                  $("#ExamenQuimicaMedico").val(data.Medico);
-                  $("#ExamenQuimicaNombreExamen").val(data.NombreExamen);
-                  $("#ExamenQuimicaFecha").val(data.ExamenQuimicaFecha);
-                  $("#ExamenQuimicaGlucosa").val(data.ExamenQuimicaGlucosa);
-                  $("#ExamenQuimicaGlucosaPost").val(data.ExamenQuimicaGlucosaPost);
-                  $("#ExamenQuimicaColesterolTotal").val(data.ExamenQuimicaColesterolTotal);
-                  $("#ExamenQuimicaTriglicerido").val(data.ExamenQuimicaTriglicerido);
-                  $("#ExamenQuimicaAcidoUrico").val(data.ExamenQuimicaAcidoUrico);
-                  $("#ExamenQuimicaCreatinina").val(data.ExamenQuimicaCreatinina);
-                  $("#ExamenQuimicaNitrogenoUreico").val(data.ExamenQuimicaNitrogenoUreico);
-                  $("#ExamenQuimicaUrea").val(data.ExamenQuimicaUrea);
-                  $("#modalCargarExamenQuimica").modal("show");
-               } else {
-                  alert('Este modal no esta diseñado aun :) ');
-               }
-
-            }
-         });
-      });
 
       $('#demo-form').parsley().on('field:validated', function() {
             var ok = $('.parsley-error').length === 0;
@@ -262,6 +32,54 @@
 
             });
 
+            $.post( "../../views/consultaodontologia/historicoesp.php", { IdFactor: "4",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#gestacion").html(data);
+         });
+      
+         $.post( "../../views/consultaodontologia/historicoesp.php", { IdFactor: "5",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#nacimiento").html(data);
+         });
+      
+         $.post( "../../views/consultaodontologia/historicoesp.php", { IdFactor: "6",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#infancia").html(data);
+         });
+      
+         $.post( "../../views/consultaodontologia/historicoesp.php", { IdFactor: "7",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#amamantamiento").html(data);
+         });
+      
+         $.post( "../../views/consultaodontologia/historicoesp.php", { IdFactor: "8",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#alimentacion").html(data);
+         });
+      
+         $.post( "../../views/consultaodontologia/historicoesp.php", { IdFactor: "9",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#endulzantes").html(data);
+         });
+      
+         $.post( "../../views/consultaodontologia/historicoesp.php", { IdFactor: "10",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#alimentacionnocturna").html(data);
+         });
+      
+         $.post( "../../views/consultaodontologia/historicoesp.php", { IdFactor: "11",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#higienenocturna").html(data);
+         });
+
          // ENCABEZADO, PRIMER TAB Y BOTON DE FINALIZAR CONSULTA
          $("#encabezadoform1").text('INGRESO DE CONSULTA');
          $("#encabezadoform2").text('INGRESE LOS DATOS REQUERIDOS');
@@ -283,41 +101,7 @@
          $("#tab1tab1medico").text('Medico');
          $("#tab1tab1especialidad").text('Especialidad');
          $("#tab1tab1fecha").text('Fecha');
-         $("#tab1tab2peso").text('Peso');
-         $("#tab1tab2altura").text('Altura');
-         $("#tab1tab2temperatura").text('Temperatura');
-         $("#tab1tab2fr").text('F/R');
-         $("#tab1tab2pulso").text('Pulso');
-         $("#tab1tab2presion").text('Presion');
-         $("#tab1tab2glucotex").text('Glucotex');
-         $("#tab1tab3menstruacion").text('Ult. Menstruacion');
-         $("#tab1tab3pap").text('Ult. PAP');
-         $("#tab1tab3ofc").text('P/C');
-         $("#tab1tab3hl").text('P/T');
-         $("#tab1tab3w").text('P/A');
-         $("#tab1tab5observaciones").text('Observaciones');
-         $("#tab1tab5motivo").text('Motivo de Visita');
-         $("#btnmodalsignoscerrar").text('Cerrar');
-
-         $("#tab1consultamedica1").text('Enfermedades');
-         $("#tab1consultamedica2").text('Estado Nutricional');
-         $("#tab1consultamedica3").text('Alergias');
-         $("#tab1consultamedica4").text('Cirugias Previas');
-         $("#tab1consultamedica5").text('Medicamentos tomados Actualmente');
-         $("#tab1consultamedica6").text('Examen Fisica');
-         $("#tab1consultamedica7").text('Diagnostico');
-         $("#tab1consultamedica8").text('Comentarios');
-         $("#tab1consultamedica9").text('Otros');
-         $("#tab1consultamedica10").text('Plan de Tratamiento');
-         $("#tab1consultamedica11").text('Fecha de Proxima Visita');
-
-
-
-         $("#tblexamenasignado").text('EXAMENES DE LABORATORIO ASIGNADOS');
-         $("#tblexamenasignadoexamen").text('Tipo de Examen o Imagen');
-         $("#tblexamenasignadomedico").text('Doctor');
-         $("#tblexamenasignadoindicacion").text('Instricciones');
-         $("#tblexamenasignadoaccion").text('Accion');
+        
 
 
          // TAB EXPEDIENTE DATO GENERAL
@@ -346,15 +130,9 @@
          $("#tabexpediente15").text('Telefono');
 
 
-         // TAB EXPEDIENTE DATO MEDICO
-         $("#tabexpediente16").text('Enfermedades');
-         $("#tabexpediente17").text('Alergias');
-         $("#tabexpediente18").text('Medicamntos');
-
          // TAB HISTORIAL CONSULTAS
          $("#tab2historial1").text('CONSULTAS');
-         $("#tab2historial2").text('EXAMENES');
-         $("#tab2historial3").text('PROCEDIMIENTOS');
+
 
          // TABLA HISTORIAL CONSULTAS
          $("#tab2historialconsultabla6").text('CONSULTAS PREVIAS');
@@ -364,93 +142,15 @@
          $("#tab2historialconsultabla4").text('Especialidad');
          $("#tab2historialconsultabla5").text('Accion');
 
-         // TABLA HISTORIAL EXAMENES
-         $("#tab2historialexamabla1").text('EXAMENES PREVIOS');
-         $("#tab2historialexamabla2").text('Fecha');
-         $("#tab2historialexamabla3").text("Nombre de Paciente");
-         $("#tab2historialexamabla4").text('Nombre de Medico');
-         $("#tab2historialexamabla5").text('Examen');
-         $("#tab2historialexamabla6").text('Accion');
-
-
-         // TABLA HISTORIAL PROCEDIMIENTOS
-         $("#tab2historialexamabla1").text('PREVIOUS PROCEDURE');
-         $("#tab2historialexamabla2").text('Date');
-         $("#tab2historialexamabla3").text("Patient's name");
-         $("#tab2historialexamabla4").text('Treated by');
-         $("#tab2historialexamabla5").text('Exams');
-         $("#tab2historialexamabla6").text('Action');
-
-
-
-         // MODAL HISTORICO DE CONSULTA
-         $("#modaltabconsultamedicatitulo1").text('FICHA GENERAL DE CONSULTA');
-         $("#modaltabconsultamedicatitulo2").text('FICHA DE CONSULTA');
-         $("#modaltabconsultamedica1").text('FICHA DE CONSULTA');
-         $("#modaltabconsultamedica2").text('DATOS GENERALES');
-         $("#modaltabconsultamedica3").text('USO GINECOLOGICO');
-         $("#modaltabconsultamedica4").text('USO PEDIATRICO');
-         $("#modaltabconsultamedica5").text('OTROS');
-         $("#modaltabconsultamedica6").text('DATOS MEDICOS');
-         $("#modaltabconsultamedica7").text('Paciente');
-         $("#modaltabconsultamedica8").text('Medico');
-         $("#modaltabconsultamedica9").text('Especialidad');
-         $("#modaltabconsultamedica10").text('Fecha');
-         $("#modaltabconsultamedica11").text('Peso');
-         $("#modaltabconsultamedica12").text('Altura');
-         $("#modaltabconsultamedica13").text('Temperatura');
-         $("#modaltabconsultamedica14").text('F/R');
-         $("#modaltabconsultamedica15").text('Pulso');
-         $("#modaltabconsultamedica16").text('Presion');
-         $("#modaltabconsultamedica17").text('Glucotex');
-         $("#modaltabconsultamedica18").text('Ult. Menstruacion');
-         $("#modaltabconsultamedica19").text('Ult. PAP');
-         $("#modaltabconsultamedica20").text('P/C');
-         $("#modaltabconsultamedica21").text('P/T');
-         $("#modaltabconsultamedica22").text('P/A');
-         $("#modaltabconsultamedica23").text('Observaciones');
-         $("#modaltabconsultamedica24").text('Motivo de Visita');
-         $("#modaltabconsultamedica25").text('Enfermedades');
-         $("#modaltabconsultamedica26").text('Estado Nutricional');
-         $("#modaltabconsultamedica27").text('Alergias');
-         $("#modaltabconsultamedica28").text('Cirugias Previas');
-         $("#modaltabconsultamedica29").text('Medicamentos tomados Actualmente');
-         $("#modaltabconsultamedica30").text('Examen Fisica');
-         $("#modaltabconsultamedica31").text('Diagnostico');
-         $("#modaltabconsultamedica32").text('Comentarios');
-         $("#modaltabconsultamedica33").text('Otros');
-         $("#modaltabconsultamedica34").text('Plan de Tratamiento');
-         $("#modaltabconsultamedica35").text('Fecha de Proxima Visita');
-
-
-
          // MODAL PARA AGREGAR LA CONSULTA MEDICA DEL DIA
          $("#modaltabnuevaconsultamedica1").text('DATOS MEDICOS');
-         $("#modaltabnuevaconsultamedica2").text('Enfermedades');
-         $("#modaltabnuevaconsultamedica3").text('Estado Nutricional');
-         $("#modaltabnuevaconsultamedica4").text('Alergias');
-         $("#modaltabnuevaconsultamedica5").text('Cirugias Previas');
-         $("#modaltabnuevaconsultamedica6").text('Medicamentos tomados Actualmente');
-         $("#modaltabnuevaconsultamedica7").text('Examen Fisica');
-         $("#modaltabnuevaconsultamedica8").text('Diagnostico');
-         $("#modaltabnuevaconsultamedica9").text('Comentarios');
-         $("#modaltabnuevaconsultamedica10").text('Otros');
-         $("#modaltabnuevaconsultamedica11").text('Plan de Tratamiento');
-         $("#modaltabnuevaconsultamedica12").text('Fecha de Proxima Visita');
+
          $("#modaltabnuevaconsultamedica13").text("FICHA GENERAL DE CONSULTA");
          $("#modaltabnuevaconsultamedica14").text('FICHA DE CONSULTA:');
          $("#modaltabnuevaconsultamedica15").text("Cerrar");
          $("#modaltabnuevaconsultamedica16").text('Guardar Cambios');
 
 
-
-         // MODAL PARA AGREGAR LA EXAMENES A LA CONSULTA MEDICA DEL DIA
-         $("#modaltabnuevoexameneslab1").text('ASIGNACION DE EXAMENES DE LABORATORIO');
-         $("#modaltabnuevoexameneslab2").text('ASIGNACION DE EXAMENES:');
-         $("#modaltabnuevoexameneslab3").text("Examenes");
-         $("#modaltabnuevoexameneslab4").text('Indicaciones');
-         $("#modaltabnuevoexameneslab5").text("Close");
-         $("#modaltabnuevoexameneslab6").text('Save Changes');
 
       <?php } else { ?>
 
@@ -470,6 +170,54 @@
                $("#vacunacion").html(data);
 
             });
+
+         $.post( "../../views/consultaodontologia/historicoing.php", { IdFactor: "4",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#gestacion").html(data);
+         });
+      
+         $.post( "../../views/consultaodontologia/historicoing.php", { IdFactor: "5",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#nacimiento").html(data);
+         });
+      
+         $.post( "../../views/consultaodontologia/historicoing.php", { IdFactor: "6",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#infancia").html(data);
+         });
+      
+         $.post( "../../views/consultaodontologia/historicoing.php", { IdFactor: "7",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#amamantamiento").html(data);
+         });
+      
+         $.post( "../../views/consultaodontologia/historicoing.php", { IdFactor: "8",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#alimentacion").html(data);
+         });
+      
+         $.post( "../../views/consultaodontologia/historicoing.php", { IdFactor: "9",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#endulzantes").html(data);
+         });
+      
+         $.post( "../../views/consultaodontologia/historicoing.php", { IdFactor: "10",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#alimentacionnocturna").html(data);
+         });
+      
+         $.post( "../../views/consultaodontologia/historicoing.php", { IdFactor: "11",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#higienenocturna").html(data);
+         });
          // ENCABEZADO, PRIMER TAB Y BOTON DE FINALIZAR CONSULTA
          $("#encabezadoform1").text("ENTRY OF TODAY'S MEDICAL VISIT");
          $("#encabezadoform2").text('ENTER THE DATA REQUIRED');
@@ -568,212 +316,237 @@
          $("#tab2historialconsultabla4").text('Department');
          $("#tab2historialconsultabla5").text('Action');
 
-         // TABLA HISTORIAL EXAMENES
-         $("#tab2historialexamabla1").text('PREVIOUS EXAMS');
-         $("#tab2historialexamabla2").text('Date');
-         $("#tab2historialexamabla3").text("Patient's name");
-         $("#tab2historialexamabla4").text('Treated by');
-         $("#tab2historialexamabla5").text('Exams');
-         $("#tab2historialexamabla6").text('Action');
 
-
-         // TABLA HISTORIAL PROCEDIMIENTOS
-         $("#tab2historialprocetabla1").text('PREVIOUS PROCEDURE');
-         $("#tab2historialprocetabla2").text('Date');
-         $("#tab2historialprocetabla3").text("Patient's name");
-         $("#tab2historialprocetabla4").text('Treated by');
-         $("#tab2historialprocetabla5").text('Department');
-         $("#tab2historialprocetabla6").text('Motive');
-         $("#tab2historialprocetabla7").text('Action');
-
-         // MODAL HISTORICO DE CONSULTA
-         $("#modaltabconsultamedicatitulo1").text('PREVIOUS VISITS');
-         $("#modaltabconsultamedicatitulo2").text('PREVIOUS VISITS');
-         $("#modaltabconsultamedica1").text('DATE OF VISIT');
-         $("#modaltabconsultamedica2").text('GENERAL INFO');
-         $("#modaltabconsultamedica3").text('OB-GYN INFO');
-         $("#modaltabconsultamedica4").text('PEDIATRIC INFO');
-         $("#modaltabconsultamedica5").text('OTHER');
-         $("#modaltabconsultamedica6").text('MEDICAL INFO');
-         $("#modaltabconsultamedica7").text("Patient's name");
-         $("#modaltabconsultamedica8").text('Physician');
-         $("#modaltabconsultamedica9").text('Type of visit');
-         $("#modaltabconsultamedica10").text('Date');
-         $("#modaltabconsultamedica11").text('Weight');
-         $("#modaltabconsultamedica12").text('Height');
-         $("#modaltabconsultamedica13").text('Temperature');
-         $("#modaltabconsultamedica14").text('Respiration');
-         $("#modaltabconsultamedica15").text('Pulse');
-         $("#modaltabconsultamedica16").text('Blood Pressure');
-         $("#modaltabconsultamedica17").text('Glucose');
-         $("#modaltabconsultamedica18").text('Last Menstrua.');
-         $("#modaltabconsultamedica19").text('Last PAP');
-         $("#modaltabconsultamedica20").text('OFC - Occipital Frontal Circumference.');
-         $("#modaltabconsultamedica21").text('Height/length');
-         $("#modaltabconsultamedica22").text('Weight');
-         $("#modaltabconsultamedica23").text('Observations');
-         $("#modaltabconsultamedica24").text('Reason for Visit');
-         $("#modaltabconsultamedica25").text('Illnesses');
-         $("#modaltabconsultamedica26").text('Nutritional state');
-         $("#modaltabconsultamedica27").text('Allergies');
-         $("#modaltabconsultamedica28").text('Previous surgeries');
-         $("#modaltabconsultamedica29").text('Current medications');
-         $("#modaltabconsultamedica30").text('Physical exam');
-         $("#modaltabconsultamedica31").text('Diagnosis');
-         $("#modaltabconsultamedica32").text('Comments');
-         $("#modaltabconsultamedica33").text('Other');
-         $("#modaltabconsultamedica34").text('Treatment plan');
-         $("#modaltabconsultamedica35").text('Next visit');
-
-
-         // MODAL PARA AGREGAR LA CONSULTA MEDICA DEL DIA
-         $("#modaltabnuevaconsultamedica1").text('MEDICAL INFO');
-         $("#modaltabnuevaconsultamedica2").text('Illnesses');
-         $("#modaltabnuevaconsultamedica3").text('Nutritional state');
-         $("#modaltabnuevaconsultamedica4").text('Allergies');
-         $("#modaltabnuevaconsultamedica5").text('Previous surgeries');
-         $("#modaltabnuevaconsultamedica6").text('Current medications');
-         $("#modaltabnuevaconsultamedica7").text('Physical exam');
-         $("#modaltabnuevaconsultamedica8").text('Diagnosis');
-         $("#modaltabnuevaconsultamedica9").text('Comments');
-         $("#modaltabnuevaconsultamedica10").text('Other');
-         $("#modaltabnuevaconsultamedica11").text('Treatment plan');
-         $("#modaltabnuevaconsultamedica12").text('Next visit');
-         $("#modaltabnuevaconsultamedica13").text("TODAY'S MEDICAL VISIT");
-         $("#modaltabnuevaconsultamedica14").text('MEDICAL VISIT:');
-         $("#modaltabnuevaconsultamedica15").text("Close");
-         $("#modaltabnuevaconsultamedica16").text('Save Changes');
-
-
-         // MODAL PARA AGREGAR LA EXAMENES A LA CONSULTA MEDICA DEL DIA
-         $("#modaltabnuevoexameneslab1").text('ASSIGNMENT OF LABORATORY EXAMS');
-         $("#modaltabnuevoexameneslab2").text('LABORATORY EXAMS');
-         $("#modaltabnuevoexameneslab3").text("Exams");
-         $("#modaltabnuevoexameneslab4").text('Indication');
-         $("#modaltabnuevoexameneslab5").text("Close");
-         $("#modaltabnuevoexameneslab6").text('Save Changes');
-
-
-         // MODAL CARGAR EXAMEN HEMOGRAMA
-         $("#modalconsultahemograma1").text('CBC - Complete Blood Count Report');
-         $("#modalconsultahemograma2").text('Results of Exam');
-         $("#modalconsultahemograma3").text("Patient's Name");
-         $("#modalconsultahemograma4").text('Physician');
-         $("#modalconsultahemograma5").text('Date');
-         $("#modalconsultahemograma6").text('Page 1');
-         $("#modalconsultahemograma7").text('Page 2');
-         $("#modalconsultahemograma8").text('Red blood cell count');
-         $("#modalconsultahemograma9").text('Hemoglobin');
-         $("#modalconsultahemograma10").text('Hematocrit');
-         $("#modalconsultahemograma11").text('MCV');
-         $("#modalconsultahemograma12").text('MCH');
-         $("#modalconsultahemograma13").text("MCHC");
-         $("#modalconsultahemograma14").text('Leukocytes');
-         $("#modalconsultahemograma15").text("Neutrophils");
-         $("#modalconsultahemograma16").text('Lymphocytes');
-         $("#modalconsultahemograma17").text('Monocytes');
-         $("#modalconsultahemograma18").text('Eusenophil');
-         $("#modalconsultahemograma19").text('Basophil');
-         $("#modalconsultahemograma20").text('Platelets');
-         $("#modalconsultahemograma21").text('Eritrosedimentation');
-         $("#modalconsultahemograma21").text('Other');
-         $("#modalconsultahemograma22").text('Segmented Neutrophils ');
-         $("#modalconsultahemograma23").text('Close');
-
-
-         // MODAL CARGAR EXAMEN HECES
-         $("#modalconsultaheces1").text('Stool Analysis Report');
-         $("#modalconsultaheces2").text('Results of Exam');
-         $("#modalconsultaheces3").text("Patient's Name");
-         $("#modalconsultaheces4").text('Physician');
-         $("#modalconsultaheces5").text('Date');
-         $("#modalconsultaheces6").text('Page 1');
-         $("#modalconsultaheces7").text('Page 2');
-         $("#modalconsultaheces8").text('Color');
-         $("#modalconsultaheces9").text('Consistency');
-         $("#modalconsultaheces10").text('Mucous');
-         $("#modalconsultaheces11").text('Hematies');
-         $("#modalconsultaheces12").text('Leukocytes');
-         $("#modalconsultaheces13").text("Undigested food");
-         $("#modalconsultaheces14").text('Macroscopics');
-         $("#modalconsultaheces15").text("Microscopics");
-         $("#modalconsultaheces16").text('Bacterial Flora');
-         $("#modalconsultaheces17").text('Other');
-         $("#modalconsultaheces18").text('Pactives');
-         $("#modalconsultaheces19").text('Ova & Parasites');
-         $("#modalconsultaheces20").text('Close');
-
-
-
-         // MODAL CARGAR EXAMEN QUIMICO
-         $("#modalconsultaquimico1").text('Quimic Exam');
-         $("#modalconsultaquimico2").text('Results of Exam');
-         $("#modalconsultaquimico3").text("Patient's Name");
-         $("#modalconsultaquimico4").text('Physician');
-         $("#modalconsultaquimico5").text('Date');
-         $("#modalconsultaquimico6").text('Glucose');
-         $("#modalconsultaquimico7").text('Glucose tolerance');
-         $("#modalconsultaquimico8").text('Total Cholesterol');
-         $("#modalconsultaquimico9").text('Triglycerides');
-         $("#modalconsultaquimico10").text('Uric Acid');
-         $("#modalconsultaquimico11").text('Creatinine');
-         $("#modalconsultaquimico12").text('Uric Nitrogen');
-         $("#modalconsultaquimico13").text("Urea");
-         $("#modalconsultaquimico14").text("Close");
-
-
-
-         // MODAL CARGAR EXAMEN ORINA
-         $("#modalconsultaorina1").text('Urinalys');
-         $("#modalconsultaorina2").text('Results of Exam');
-         $("#modalconsultaorina3").text("Patient's Name");
-         $("#modalconsultaorina4").text('Physician');
-         $("#modalconsultaorina5").text('Date');
-         $("#modalconsultaorina6").text('Page 1');
-         $("#modalconsultaorina7").text('Page 2');
-         $("#modalconsultaorina8").text('Color');
-         $("#modalconsultaorina9").text('Appearance');
-         $("#modalconsultaorina10").text('Density');
-         $("#modalconsultaorina11").text('pH');
-         $("#modalconsultaorina12").text('Protein');
-         $("#modalconsultaorina13").text("Glucose");
-         $("#modalconsultaorina14").text('Blood');
-         $("#modalconsultaorina15").text("Ketones");
-         $("#modalconsultaorina16").text('Urobilinogen');
-         $("#modalconsultaorina17").text('Bilirubin');
-         $("#modalconsultaorina18").text('Close');
-
-
-         // MODAL CARGAR EXAMEN QUIMICO
-         $("#modalconsultavarios1").text('Various Exam');
-         $("#modalconsultavarios2").text('Results of Exam');
-         $("#modalconsultavarios3").text("Patient's Name");
-         $("#modalconsultavarios4").text('Physician');
-         $("#modalconsultavarios5").text('Date');
-         $("#modalconsultavarios6").text('Result');
-         $("#modalconsultavarios7").text("Close");
-
-
-         // MODAL CARGAR PROCEDIMIENTO
-         $("#modalcargaprocedimiento1").text('Report of Procedure');
-         $("#modalcargaprocedimiento2").text('Procedure Sheet');
-         $("#modalcargaprocedimiento3").text("Patient's Name");
-         $("#modalcargaprocedimiento4").text('Physician');
-         $("#modalcargaprocedimiento5").text('Type of visit');
-         $("#modalcargaprocedimiento6").text('Date');
-         $("#modalcargaprocedimiento7").text("Observation");
-         $("#modalcargaprocedimiento8").text("Close");
-
-
-         // MODAL ASIGNAR EXAMENES MEDICOS
-         $("#modalasignarexamen1").text("Laboratory Exam's");
-         $("#modalasignarexamen2").text('Exams');
-         $("#modalasignarexamen3").text("Type of Exam");
-         $("#modalasignarexamen4").text('Indication');
-         $("#modalasignarexamen5").text('Close');
-         $("#modalasignarexamen6").text('Save Changes');
 
       <?php } ?>
 
+      
+
    });
+
+    function replaceAll(find, replace, str) {
+        return str.replace(new RegExp(find, 'g'), replace);
+    }
+   
+    function createOdontogram() {
+        var htmlLecheLeft = "",
+            htmlLecheRight = "",
+            htmlLeft = "",
+            htmlRight = "",
+            a = 1;
+        
+        //AQUI COMIENZA A LLENARSE DINAMICAMENTE EL CADA PIEZA DEL ORTOGRAMA
+        for (var i = 9 - 1; i >= 1; i--) {
+            //Dientes Definitivos Cuandrante Derecho (Superior/Inferior)
+            htmlRight += '<div data-name="value" id="dienteindex' + i + '" class="diente">' +
+                '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + i + '</span>' +
+                '<div id="tindex' + i + '" class="cuadro click">' +
+                '</div>' +
+                '<div id="lindex' + i + '" class="cuadro izquierdo click">' +
+                '</div>' +
+                '<div id="bindex' + i + '" class="cuadro debajo click">' +
+                '</div>' +
+                '<div id="rindex' + i + '" class="cuadro derecha click click">' +
+                '</div>' +
+                '<div id="cindex' + i + '" class="centro click">' +
+                '</div>' +
+                '</div>';
+            //Dientes Definitivos Cuandrante Izquierdo (Superior/Inferior)
+            htmlLeft += '<div id="dienteindex' + a + '" class="diente">' +
+                '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + a + '</span>' +
+                '<div id="tindex' + a + '" class="cuadro click">' +
+                '</div>' +
+                '<div id="lindex' + a + '" class="cuadro izquierdo click">' +
+                '</div>' +
+                '<div id="bindex' + a + '" class="cuadro debajo click">' +
+                '</div>' +
+                '<div id="rindex' + a + '" class="cuadro derecha click click">' +
+                '</div>' +
+                '<div id="cindex' + a + '" class="centro click">' +
+                '</div>' +
+                '</div>';
+            if (i <= 5) {
+                //Dientes Temporales Cuandrante Derecho (Superior/Inferior)
+                htmlLecheRight += '<div id="dienteLindex' + i + '" style="left: -25%;" class="diente-leche">' +
+                    '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-primary">index' + i + '</span>' +
+                    '<div id="tlecheindex' + i + '" class="cuadro-leche top-leche click">' +
+                    '</div>' +
+                    '<div id="llecheindex' + i + '" class="cuadro-leche izquierdo-leche click">' +
+                    '</div>' +
+                    '<div id="blecheindex' + i + '" class="cuadro-leche debajo-leche click">' +
+                    '</div>' +
+                    '<div id="rlecheindex' + i + '" class="cuadro-leche derecha-leche click click">' +
+                    '</div>' +
+                    '<div id="clecheindex' + i + '" class="centro-leche click">' +
+                    '</div>' +
+                    '</div>';
+            }
+            if (a < 6) {
+                //Dientes Temporales Cuandrante Izquierdo (Superior/Inferior)
+                htmlLecheLeft += '<div id="dienteLindex' + a + '" class="diente-leche">' +
+                    '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-primary">index' + a + '</span>' +
+                    '<div id="tlecheindex' + a + '" class="cuadro-leche top-leche click">' +
+                    '</div>' +
+                    '<div id="llecheindex' + a + '" class="cuadro-leche izquierdo-leche click">' +
+                    '</div>' +
+                    '<div id="blecheindex' + a + '" class="cuadro-leche debajo-leche click">' +
+                    '</div>' +
+                    '<div id="rlecheindex' + a + '" class="cuadro-leche derecha-leche click click">' +
+                    '</div>' +
+                    '<div id="clecheindex' + a + '" class="centro-leche click">' +
+                    '</div>' +
+                    '</div>';
+            }
+            a++;
+        }
+        //HASTA AQUI TERMINA
+   
+        // SE REEMPLAZA  LA PALABRA INDEX EN LOS DIVS PARA AGREGARLE EL NUMERO QUE 
+        // CORRESPONDE A CADA BLOQUE DEL ORTOGRAMA
+        $("#tr").append(replaceAll('index', '1', htmlRight));
+        $("#tl").append(replaceAll('index', '2', htmlLeft));
+        $("#tlr").append(replaceAll('index', '5', htmlLecheRight));
+        $("#tll").append(replaceAll('index', '6', htmlLecheLeft));
+   
+   
+        $("#bl").append(replaceAll('index', '3', htmlLeft));
+        $("#br").append(replaceAll('index', '4', htmlRight));
+        $("#bll").append(replaceAll('index', '7', htmlLecheLeft));
+        $("#blr").append(replaceAll('index', '8', htmlLecheRight));
+        //HASTA AQUI TERMINA
+    }
+    //AQUI COMIENZA CADA ACCION QUE SE REALIZA EN EL ORTOGRAMA
+    var arrayPuente = [];
+    $(document).ready(function() {
+        createOdontogram();
+        $(".click").click(function(event) {
+            var control = $("#controls").children().find('.active').attr('id');
+            var cuadro = $(this).find("input[name=cuadro]:hidden").val();
+            console.log($(this).attr('id'))
+            switch (control) {
+                case "fractura":
+                    if ($(this).hasClass("click-blue")) {
+                        $(this).removeClass('click-blue');
+                        $(this).addClass('click-red');
+                    } else {
+                        if ($(this).hasClass("click-red")) {
+                            $(this).removeClass('click-red');
+                        } else {
+                            $(this).addClass('click-red');
+                        }
+                    }
+                    break;
+                case "restauracion":
+                    if ($(this).hasClass("click-red")) {
+                        $(this).removeClass('click-red');
+                        $(this).addClass('click-blue');
+                    } else {
+                        if ($(this).hasClass("click-blue")) {
+                            $(this).removeClass('click-blue');
+                        } else {
+                            $(this).addClass('click-blue');
+                        }
+                    }
+                    break;
+                case "extraccion":
+                    var dientePosition = $(this).position();
+                    console.log($(this))
+                    console.log(dientePosition)
+                    $(this).parent().children().each(function(index, el) {
+                        if ($(el).hasClass("click")) {
+                            $(el).addClass('click-delete');
+                        }
+                    });
+                    break;
+                case "extraer":
+                    var dientePosition = $(this).position();
+                    console.log($(this))
+                    console.log(dientePosition)
+                    $(this).parent().children().each(function(index, el) {
+                        if ($(el).hasClass("centro") || $(el).hasClass("centro-leche")) {
+                            $(this).parent().append('<i style="color:red;" class="fa fa-times fa-3x fa-fw"></i>');
+                            if ($(el).hasClass("centro")) {
+                                //console.log($(this).parent().children("i"))
+                                $(this).parent().children("i").css({
+                                    "position": "absolute",
+                                    "top": "24%",
+                                    "left": "18.58ex"
+                                });
+                            } else {
+                                $(this).parent().children("i").css({
+                                    "position": "absolute",
+                                    "top": "21%",
+                                    "left": "1.2ex"
+                                });
+                            }
+                            //
+                        }
+                    });
+                    break;
+                case "puente":
+                    var dientePosition = $(this).offset(), leftPX;
+                    console.log($(this)[0].offsetLeft)
+                    var noDiente = $(this).parent().children().first().text();
+                    var cuadrante = $(this).parent().parent().attr('id');
+                    var left = 0,
+                        width = 0;
+                    if (arrayPuente.length < 1) {
+                        $(this).parent().children('.cuadro').css('border-color', 'red');
+                        arrayPuente.push({
+                            diente: noDiente,
+                            cuadrante: cuadrante,
+                            left: $(this)[0].offsetLeft,
+                            father: null
+                        });
+                    } else {
+                        $(this).parent().children('.cuadro').css('border-color', 'red');
+                        arrayPuente.push({
+                            diente: noDiente,
+                            cuadrante: cuadrante,
+                            left: $(this)[0].offsetLeft,
+                            father: arrayPuente[0].diente
+                        });
+                        var diferencia = Math.abs((parseInt(arrayPuente[1].diente) - parseInt(arrayPuente[1].father)));
+                        if (diferencia == 1) width = diferencia * 60;
+                        else width = diferencia * 50;
+   
+                        if(arrayPuente[0].cuadrante == arrayPuente[1].cuadrante) {
+                            if(arrayPuente[0].cuadrante == 'tr' || arrayPuente[0].cuadrante == 'tlr' || arrayPuente[0].cuadrante == 'br' || arrayPuente[0].cuadrante == 'blr') {
+                                if (arrayPuente[0].diente > arrayPuente[1].diente) {
+                                    console.log(arrayPuente[0])
+                                    leftPX = (parseInt(arrayPuente[0].left)+10)+"px";
+                                }else {
+                                    leftPX = (parseInt(arrayPuente[1].left)+10)+"px";
+                                    //leftPX = "45px";
+                                }
+                            }else {
+                                if (arrayPuente[0].diente < arrayPuente[1].diente) {
+                                    leftPX = "-45px";
+                                }else {
+                                    leftPX = "45px";
+                                }
+                            }
+                        }
+                        console.log(leftPX)
+                        /*$(this).parent().append('<div style="z-index: 9999; height: 5px; width:' + width + 'px;" id="puente" class="click-red"></div>');
+                        $(this).parent().children().last().css({
+                            "position": "absolute",
+                            "top": "80px",
+                            "left": "50px"
+                        });*/
+                        $(this).parent().append('<div style="z-index: 9999; height: 5px; width:' + width + 'px;" id="puente" class="click-red"></div>');
+                        $(this).parent().children().last().css({
+                            "position": "absolute",
+                            "top": "80px",
+                            "left": leftPX
+                        });
+                    }
+                    break;
+                default:
+                    console.log("borrar case");
+            }
+            return false;
+        });
+        return false;
+    });
 </script>
