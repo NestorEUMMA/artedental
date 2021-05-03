@@ -112,161 +112,153 @@ if (!empty($_SESSION['user'])) {
 
     $this->title =  $empresa;
 ?>
+<div class="wrapper wrapper-content">
+    <h1>
+        <?php echo $empresa; ?> |
+        <small id="encabezado1"> </small>
+        <!-- <?php echo $url; ?> -->
 
-    <div class="wrapper wrapper-content">
-        <h1>
-            <?php echo $empresa; ?> |
-            <small id="encabezado1"> </small>
-            <!-- <?php echo $url; ?> -->
-           
-        </h1>
-        <div class="row animated fadeInDown">
-            <div class="col-lg-6">
-                <div class="row animated fadeInDown">
-                   <!--  <div class="col-lg-6">
-                        <div class="widget style1 default-bg">
-                            <div class="row">
-                                <div class="col-xs-4 text-center">
-                                    <i class="fa fa-address-book-o fa-5x"></i>
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <span id='widget25'></span>
-                                    <h2 class="font-bold"><?php echo $TOTAL; ?></h2>
-                                </div>
+    </h1>
+    <div class="row animated fadeInDown">
+        <br><br>
+        <div class="col-lg-12">
+            <div class="row animated fadeInDown">
+                <div class="col-lg-3">
+                    <div class="widget style1 default-bg">
+                        <div class="row">
+                            <div class="col-xs-4 text-center">
+                                <i class="fa fa-address-book-o fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span id='widget25'></span>
+                                <h2 class="font-bold"><?php echo $TOTAL; ?></h2>
                             </div>
                         </div>
-                    </div> -->
-                    <div class="col-lg-6">
+                    </div>
+                </div>
+                <div class="col-lg-6">
 
-                    </div>
                 </div>
-                <div class="row animated fadeInDown">
-                    <div class="col-lg-6">
-                        <div class="widget style1 blue-bg">
-                            <div class="row">
-                                <div class="col-xs-4 text-center">
-                                    <i class="fa fa-hospital-o fa-5x"></i>
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <span id='widget1'></span>
-                                    <h2 class="font-bold"><?php echo $listado; ?></h2>
-                                </div>
+            </div>
+            <div class="row animated fadeInDown">
+                <div class="col-lg-3">
+                    <div class="widget style1 blue-bg">
+                        <div class="row">
+                            <div class="col-xs-4 text-center">
+                                <i class="fa fa-hospital-o fa-5x"></i>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="widget style1 blue-bg">
-                            <div class="row">
-                                <div class="col-xs-4 text-center">
-                                    <i class="fa fa-user fa-5x"></i>
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <span id='widget2'></span>
-                                    <h2 class="font-bold"><?php echo $adulto; ?></h2>
-                                </div>
+                            <div class="col-xs-8 text-right">
+                                <span id='widget1'></span>
+                                <h2 class="font-bold"><?php echo $listado; ?></h2>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row animated fadeInDown">
-                    <div class="col-lg-6">
-                        <div class="widget style1 red-bg">
-                            <div class="row">
-                                <div class="col-xs-4 text-center">
-                                    <i class="fa fa-smile-o fa-5x"></i>
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <span id='widget3'></span>
-                                    <h2 class="font-bold"><?php echo $nino; ?></h2>
-                                </div>
+                <div class="col-lg-3">
+                    <div class="widget style1 blue-bg">
+                        <div class="row">
+                            <div class="col-xs-4 text-center">
+                                <i class="fa fa-user fa-5x"></i>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="widget style1 red-bg">
-                            <div class="row">
-                                <div class="col-xs-4 text-center">
-                                    <i class="fa fa-stethoscope fa-5x"></i>
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <span id='widget4'></span>
-                                    <h2 class="font-bold"><?php echo $activo; ?></h2>
-                                </div>
+                            <div class="col-xs-8 text-right">
+                                <span id='widget2'></span>
+                                <h2 class="font-bold"><?php echo $adulto; ?></h2>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row animated fadeInDown">
-                    <div class="col-lg-6">
-                        <div class="widget style1 yellow-bg">
-                            <div class="row">
-                                <div class="col-xs-4 text-center">
-                                    <i class="fa fa-female fa-5x"></i>
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <span id='widget5'></span>
-                                    <h2 class="font-bold"> <?php echo $mujeres; ?></h2>
-                                </div>
+                <div class="col-lg-3">
+                    <div class="widget style1 red-bg">
+                        <div class="row">
+                            <div class="col-xs-4 text-center">
+                                <i class="fa fa-smile-o fa-5x"></i>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="widget style1 yellow-bg">
-                            <div class="row">
-                                <div class="col-xs-4 text-center">
-                                    <i class="fa fa-male fa-5x"></i>
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <span id='widget6'></span>
-                                    <h2 class="font-bold"><?php echo $hombres ?></h2>
-                                </div>
+                            <div class="col-xs-8 text-right">
+                                <span id='widget3'></span>
+                                <h2 class="font-bold"><?php echo $nino; ?></h2>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row animated fadeInDown">
-                    <div class="col-lg-6">
-                        <div class="widget style1 navy-bg">
-                            <div class="row">
-                                <div class="col-xs-4 text-center">
-                                    <i class="fa fa-area-chart fa-5x"></i>
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <span id='widget7'></span>
-                                    <h2 class="font-bold"><?php echo $mujeresPor; ?>%</h2>
-                                </div>
+                <div class="col-lg-3">
+                    <div class="widget style1 red-bg">
+                        <div class="row">
+                            <div class="col-xs-4 text-center">
+                                <i class="fa fa-stethoscope fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span id='widget4'></span>
+                                <h2 class="font-bold"><?php echo $activo; ?></h2>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="widget style1 navy-bg">
-                            <div class="row">
-                                <div class="col-xs-4 text-center">
-                                    <i class="fa fa-line-chart fa-5x"></i>
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <span id='widget8'></span>
-                                    <h2 class="font-bold"><?php echo $hombresPor; ?>%</h2>
-                                </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget style1 yellow-bg">
+                        <div class="row">
+                            <div class="col-xs-4 text-center">
+                                <i class="fa fa-female fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span id='widget5'></span>
+                                <h2 class="font-bold"> <?php echo $mujeres; ?></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget style1 yellow-bg">
+                        <div class="row">
+                            <div class="col-xs-4 text-center">
+                                <i class="fa fa-male fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span id='widget6'></span>
+                                <h2 class="font-bold"><?php echo $hombres ?></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget style1 navy-bg">
+                        <div class="row">
+                            <div class="col-xs-4 text-center">
+                                <i class="fa fa-area-chart fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span id='widget7'></span>
+                                <h2 class="font-bold"><?php echo $mujeresPor; ?>%</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget style1 navy-bg">
+                        <div class="row">
+                            <div class="col-xs-4 text-center">
+                                <i class="fa fa-line-chart fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span id='widget8'></span>
+                                <h2 class="font-bold"><?php echo $hombresPor; ?>%</h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5 id='calendarname'></h5>
-                    </div>
-                    <div class="ibox-content">
-                        <div id="calendar"></div>
-                        <!-- <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FEl_Salvador&amp;src=cmFkYW1hbnRoeXMuZW9AZ21haWwuY29t&amp;src=bnVsbG9hQGludGVsaXRlY3NhLmNvbQ&amp;src=cXVlbmNoaWxhZGEuc3ZAZ21haWwuY29t&amp;src=dWxsb2EubmVzdG9yMjJAZ21haWwuY29t&amp;color=%23009688&amp;color=%238E24AA&amp;color=%23D50000&amp;color=%233F51B5" style="border:solid 1px #777" width="400" height="400" frameborder="0" scrolling="no"></iframe> -->
-                    </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5 id='calendarname'></h5>
+                </div>
+                <div class="ibox-content">
+                    <div id="calendar"></div>
                 </div>
             </div>
-
         </div>
     </div>
+</div>
     <?php
     $querybar = "SELECT 
       CASE WHEN per.Genero = 'Masculino' THEN COUNT(per.Genero) ELSE 0 END as 'CountMasculino', 
