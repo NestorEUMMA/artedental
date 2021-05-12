@@ -127,6 +127,14 @@ $telefonoresponsable = $test['TelefonoResponsable'];
 $date = date("Y-m-d H:i:s");
 }
 
+//QUERY PARA OBTENER EL IDORTOGRAMA
+$queryidortograma = "SELECT IdDienteOrtograma FROM dienteortograma WHERE IdPersona = '$idpersonaid'";
+$resultadoidortograma = $mysqli->query($queryidortograma);
+while ($test = $resultadoidortograma->fetch_assoc()) {
+$IdDienteOrtograma = $test['IdDienteOrtograma'];
+}
+
+
 // CONSULTA PARA CARGAR EL CBO DE LOS EXAMENES
 $querytiporayosx = "SELECT IdTipoRayosx, NombreRayosx, DescripcionRayosx FROM tiporayosx";
 $resultadotiporayosx = $mysqli->query($querytiporayosx);
