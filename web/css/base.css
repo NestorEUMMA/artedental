@@ -98,7 +98,7 @@
 #bll {
     border-left: 1px solid black;
 }
-.click-red {
+/* .click-red {
     background-color: red !important;
 }
 
@@ -106,9 +106,13 @@
     background-color: blue;
 }
 
+.click-yellow {
+    background-color: yellow;
+}
+
 .click-delete {
     background-color: #747F7D !important;
-}
+} */
 
 .kill {
     background-color: green;

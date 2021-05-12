@@ -131,14 +131,13 @@ $date = date("Y-m-d H:i:s");
 $querytiporayosx = "SELECT IdTipoRayosx, NombreRayosx, DescripcionRayosx FROM tiporayosx";
 $resultadotiporayosx = $mysqli->query($querytiporayosx);
 
+// CONSULTA PARA CARGAR EL CBO DE LOS PROCEDIMIENTOS
+$querydienteprocedimiento = "SELECT IdDienteProcedimiento, DescripcionProcedimiento FROM dienteprocedimiento";
+$resultadodienteprocedimiento = $mysqli->query($querydienteprocedimiento);
+
 // CONSULTA PARA CARGAR DEPARTAMENTOS EN EL EXPEDIENTE
 $querydepartamentos = "SELECT * FROM geografia WHERE IdGeografia='$geografia'";
 $resultadodepartamentos = $mysqli->query($querydepartamentos);
-
-
-// CONSULTA PARA CARGAR EL ESTADO CIVIL EN EL EXPEDIENTE
-// $queryestadocivil = "SELECT * FROM estadocivil WHERE IdEstadoCivil = '$estadocivil'";
-// $resultadoestadocivil = $mysqli->query($queryestadocivil);
 
 
 // CONSULTA PARA CARGAR LA TABLA DE LAS CONSULTAS EN EL EXPEDIENTE DEL PACIENTE
@@ -261,40 +260,5 @@ $querytablaprocedimientos = "SELECT ep.IdEnfermeriaProcedimiento As 'ID', CONCAT
 
 $resultadotablaprocedimientos = $mysqli->query($querytablaprocedimientos);
 
-
-// $ListarMedicamentosMT = "SELECT d.Nombre as 'BODEGA',  p.Descripcion as 'PRODUCTO', p.NoBasico as 'BASICO', e.existencia as 'EXISTENCIA', e.disponible as 'DISPONIBLE', 
-//             CASE  
-//               WHEN g.Nombre = 'vAMPOLLA' THEN 'AMPOLLA'
-//                WHEN g.Nombre = 'vFRASCO' THEN 'FRASCO' 
-//               WHEN g.Nombre = 'vSOBRES' THEN 'SOBRES'
-//               WHEN g.Nombre = 'vTABLETA' THEN 'TABLETA'
-//               WHEN g.Nombre = 'vCAPSULA' THEN 'CAPSULA'
-//               WHEN g.Nombre = 'vVIAL' THEN 'VIAL'
-//               WHEN g.Nombre = 'vBOLSA' THEN 'BOLSA'
-//               WHEN g.Nombre = 'vTUBO' THEN 'TUBO'
-//               WHEN g.Nombre = 'vFRACO O BOLSA' THEN 'FRASCO/BOLSA'
-//               WHEN g.Nombre = 'vTARRO' THEN 'TARRO'
-//               WHEN g.Nombre = 'dAMPOLLA' THEN 'AMPOLLA'
-//               WHEN g.Nombre = 'dSOBRES' THEN 'SOBRES'
-//               WHEN g.Nombre = 'dTABLETA' THEN 'TABLETA'
-//               WHEN g.Nombre = 'dCAPSULA' THEN 'CAPSULA'
-//               WHEN g.Nombre = 'dVIAL' THEN 'VIAL'
-//               WHEN g.Nombre = 'dBOLSA' THEN 'BOLSA'
-//               WHEN g.Nombre = 'dTUBO' THEN 'TUBO'
-//               WHEN g.Nombre = 'dFRASCO' THEN 'FRASCO'
-//               WHEN g.Nombre = 'dFRACO O BOLSA' THEN 'FRASCO/BOLSA'
-//               WHEN g.Nombre = 'dSUPOSITORIO' THEN 'SUPOSITORIO'
-//               WHEN g.Nombre = 'dTARRO' THEN 'TARRO'
-//               WHEN g.Nombre = 'dGRAJEA' THEN 'GRAJEA'
-//               WHEN g.Nombre = 'VARIOS' THEN 'ARREGLAR PRESENTACION'
-//             END as 'PRESENTACION'
-//             FROM prg.existencias e
-//             INNER JOIN prg.productos p on e.PLUProducto = p.PLUProducto
-//             INNER JOIN prg.divisiones d on e.PLUDivision = d.PLUDivision
-//             INNER JOIN prg.pGrupos g on p.PLUGrupo = g.GrupoId
-//             WHERE p.PLUEmpresa = 2 AND e.disponible > 0 AND  g.Nombre <> 'VARIOS'
-// ORDER BY p.Descripcion
-// ";
-// $ResultadoConsultaProdMT = odbc_exec($conn, $ListarMedicamentosMT);
 
 ?>

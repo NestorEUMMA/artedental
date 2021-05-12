@@ -68,13 +68,13 @@ include  'styles.php';
                            <div class="panel-body">
                               <div class="tabs-container">
                                  <ul class="nav nav-tabs">
-                                    <li class="active"><a data-toggle="tab" href="#tab-6" id='tab1signosvitales1'>FICHA
+                                    <li class=""><a data-toggle="tab" href="#tab-6" id='tab1signosvitales1'>FICHA
                                           DE CONSULTA</a></li>
-                                    <li class=""><a data-toggle="tab" href="#tab-7" id=''>ODONTOGRAMA</a></li>
+                                    <li class="active"><a data-toggle="tab" href="#tab-7" id=''>ODONTOGRAMA</a></li>
                                  </ul>
                                  <form class="form-horizontal">
                                     <div class="tab-content">
-                                       <div id="tab-6" class="tab-pane active">
+                                       <div id="tab-6" class="tab-pane ">
                                           <div class="panel-body">
                                              <div class="form-group hidden">
                                                 <div class="col-sm-5"><input type="text" name="txtIdConsulta"
@@ -190,11 +190,12 @@ include  'styles.php';
                                              </table> -->
                                           </div>
                                        </div>
-                                       <div id="tab-7" class="tab-pane">
+                                       <div id="tab-7" class="tab-pane active">
                                           <div class="panel-body">
                                              <div class="row">
-                                                <div class="col-md-10 col-md-offset-1">
-                                                   <div id="controls" class="panel panel-default">
+                                                <br>
+                                                <!-- <div class="col-md-10 col-md-offset-1">
+                                                   <div class="">
                                                       <div class="panel-body">
                                                          <div class="btn-group" data-toggle="buttons">
                                                             <div class="col-sm-2">
@@ -235,7 +236,7 @@ include  'styles.php';
                                                          </div>
                                                       </div>
                                                    </div>
-                                                </div>
+                                                </div> -->
                                                 <!-- TR, TL, TLR, TLL TODO LO QUE ESTA DENTRO DE ESOS IDS SE SUSTITUYE CON 
                                     LA FUNCION DE JAVA PARA REEMPLAZAR LA PALABRA INDEX POR EL NUMERO QUE LE CORRESPONDE DE LA FILA, LUEGO 
                                     SE HACE UN BARRIDO HACIA ATRAS O HACIA ADELANTE, DEPENDIENDO DE COMO ESTE EN EL PDF DEL ORTOGRAMA  -->
@@ -630,7 +631,6 @@ include  'styles.php';
                               </div>
                            </div>
                         </div>
-
                      </div>
                   </div>
                </div>

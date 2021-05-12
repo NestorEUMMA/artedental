@@ -69,6 +69,33 @@
     </div>
 </div>
 
+<div class="modal inmodal" id="modalCargarDiente" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content animated fadeIn">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <i class="fa fa-stethoscope modal-icon"></i>
+                <h4 class="modal-title" id='modaltabconsultamedicatitulo1'>PROCEDIMIENTO</h4>
+                <small id='modaldientetitulo2'></small>
+
+            </div>
+            <div class="modal-body">
+                <select class="form-control select2" style="width: 100%;" name="cboEnfermedad">
+                    <?php
+                        while ($row = $resultadodienteprocedimiento->fetch_assoc()) {
+                            echo "<option value = '" . $row['IdDienteProcedimiento'] . "'>" . $row['DescripcionProcedimiento'] . "</option>";
+                        }
+                    ?>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary" name="">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- MODAL PARA GUARDAR DIAGNOSTICO -->
 <div class="modal inmodal" id="modalGuardarDiagnostico" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-md">
