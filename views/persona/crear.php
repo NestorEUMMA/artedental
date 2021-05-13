@@ -97,7 +97,7 @@
                                     </div>
                                  </div>
                               </div>
-                              <div class="form-group">
+                              <!-- <div class="form-group">
                                  <label for="txtIdEstadoCivil" class="col-sm-1 control-label">Estado Civil</label>
                                  <div class="col-sm-5">
                                     <div class="input-group">
@@ -122,8 +122,8 @@
                                        </center>
                                     </div>
                                  </div>
-                              </div>
-                              <div class="form-group">
+                              </div> -->
+                              <!-- <div class="form-group">
                                  <label for="txtIdPais" class="col-sm-1 control-label">Pais</label>
                                  <div class="col-sm-5">
                                     <div class="input-group">
@@ -169,7 +169,7 @@
                                        <select class="form-control select2" style="width: 100%;" name="txtCanton" id="txtCanton"></select>
                                     </div>
                                  </div>
-                              </div>
+                              </div> -->
                               <div class="form-group">
                                  <label for="txtDireccion" class="col-sm-1 control-label">Dirección</label>
                                  <div class="col-sm-11">

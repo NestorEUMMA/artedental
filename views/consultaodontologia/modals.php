@@ -80,22 +80,29 @@
 
             </div>
             <div class="modal-body">
-            <form class="form-horizontal" method="POST" action="/" id="demo-form" data-parsley-validate="">
+            <form class="form-horizontal" method="POST" action="../../views/consultaodontologia/actualizarortogramadetalle.php" id="demo-form" data-parsley-validate="">
                 <div class="form-group">
-                    <div class="">
+                    <div class="hidden">
+                        IDPERSONA
                         <textarea type="text" rows="4" class="form-control" name="txtpersonaID"> <?php echo $idpersonaid ?> </textarea>
                     </div>
-                    <div class="">
+                    <div class="hidden">
+                        IDCONSULTA
+                        <textarea type="text" rows="4" class="form-control" name="txtconsultaID"> <?php echo $idconsulta ?> </textarea>
+                    </div>
+                    <div class="hidden">
+                        IDDIENTEORTOGRAMA
                         <textarea type="text" rows="4" class="form-control" name="txtIdDienteOrtograma"> <?php echo $IdDienteOrtograma ?> </textarea>
                     </div>
-                    <div class="">
-                        <textarea type="text" rows="4" class="form-control" id='modaldientetitulo2' name="txtpersonaID"> </textarea>
+                    <div class="hidden">
+                        IDDIENTEORTOGRAMADETALLE
+                        <textarea type="text" rows="4" class="form-control" id='modaldientetitulo2' name="txtidortogramadetalle"> </textarea>
                     </div>
                     <div class="col-sm-3"><label for="inputEmail3" class="control-label" id=''>PROCEDIMIENTO</label></div>
                     <div class="col-sm-9">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-search"></i></div>
-                            <select class="form-control select2" style="width: 100%;" name="cboEnfermedad">
+                            <select class="form-control select2" style="width: 100%;" name="cboProcedimiento">
                                 <?php
                                     while ($row = $resultadodienteprocedimiento->fetch_assoc()) {
                                         echo "<option value = '" . $row['IdDienteProcedimiento'] . "'>" . $row['DescripcionProcedimiento'] . "</option>";

@@ -17,9 +17,9 @@ while ($f = $tblDientes->fetch_assoc())
 }
 
 
-$query = "SELECT DP.IdDientePosicion, DP.IdDiente as IdDiente, D.diente, DP.Posicion as Posicion, DP.Clase, 
+$query = "SELECT DOD.IdDienteOrtogramaDetalle, DP.IdDientePosicion, DP.IdDiente as IdDiente, D.diente, DP.Posicion as Posicion, DP.Clase, 
             DOD.IdDienteProcedimiento, DPR.DescripcionProcedimiento, DC.CodigoColor,
-            DOR.IdPersona
+            DOR.IdPersona, DC.ColorObjeto, DC.Class, DC.validar
             FROM dienteortogramadetalle DOD
             INNER JOIN dienteposicion DP on DP.IdDientePosicion = DOD.IdDientePosicion
             INNER JOIN diente D on D.IdDiente = DP.IdDiente
@@ -50,8 +50,14 @@ foreach ($arrDientes as $iP => $vP) {
                     border-radius: 10px !important;' class='label label-info'> ".$vP["Valor"]." </span>";
                     foreach ($arrPosiciondiente as $iR => $vR) {
                         if(	$vR["IdDiente"] == $vP["IdDiente"] ){
-                            echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDientePosicion"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                            echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDienteOrtogramaDetalle"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                            if($vR["validar"] == 1){
+                            echo "<i style='color: red; position: absolute;  margin: auto; left: 0;' right: 0; botton: 0; class='fa fa-times fa-2x fa-fw'></i>";
+                               //echo "X";
+                            }
                             echo "</div>";
+                            
+                            
                         }
                     }
                     echo "</div>"; 
@@ -66,7 +72,11 @@ foreach ($arrDientes as $iP => $vP) {
                     border-radius: 10px !important;' class='label label-success'> ".$vP["Valor"]." </span>";
                     foreach ($arrPosiciondiente as $iR => $vR) {
                         if(	$vR["IdDiente"] == $vP["IdDiente"] ){
-                            echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDientePosicion"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                            echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDienteOrtogramaDetalle"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                            if($vR["validar"] == 1){
+                                echo "<i style='color: red; position: absolute;  margin: auto; left: 0;' right: 0; botton: 0; class='fa fa-times fa-2x fa-fw'></i>";
+                                   //echo "X";
+                                }
                             echo "</div>";
                         }
                     }
@@ -81,7 +91,11 @@ foreach ($arrDientes as $iP => $vP) {
                     border-radius: 10px !important;' class='label label-info'> ".$vP["Valor"]." </span>";
                     foreach ($arrPosiciondiente as $iR => $vR) {
                         if(	$vR["IdDiente"] == $vP["IdDiente"] ){
-                            echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDientePosicion"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                            echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDienteOrtogramaDetalle"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                            if($vR["validar"] == 1){
+                                echo "<i style='color: red; position: absolute;  margin: auto; left: 0;' right: 0; botton: 0; class='fa fa-times fa-2x fa-fw'></i>";
+                                   //echo "X";
+                                }
                             echo "</div>";
                         }
                     }
@@ -96,7 +110,11 @@ foreach ($arrDientes as $iP => $vP) {
                     border-radius: 10px !important;' class='label label-info'> ".$vP["Valor"]." </span>";
                     foreach ($arrPosiciondiente as $iR => $vR) {
                         if(	$vR["IdDiente"] == $vP["IdDiente"] ){
-                            echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDientePosicion"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                            echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDienteOrtogramaDetalle"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                            if($vR["validar"] == 1){
+                                echo "<i style='color: red; position: absolute;  margin: auto; left: 0;' right: 0; botton: 0; class='fa fa-times fa-2x fa-fw'></i>";
+                                   //echo "X";
+                                }
                             echo "</div>";
                         }
                     }
@@ -111,7 +129,11 @@ foreach ($arrDientes as $iP => $vP) {
                         border-radius: 10px !important;' class='label label-success'> ".$vP["Valor"]." </span>";
                         foreach ($arrPosiciondiente as $iR => $vR) {
                             if(	$vR["IdDiente"] == $vP["IdDiente"] ){
-                                echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDientePosicion"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                                echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDienteOrtogramaDetalle"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                                if($vR["validar"] == 1){
+                                    echo "<i style='color: red; position: absolute;  margin: auto; left: 0;' right: 0; botton: 0; class='fa fa-times fa-2x fa-fw'></i>";
+                                       //echo "X";
+                                    }
                                 echo "</div>";
                             }
                         }
@@ -127,7 +149,11 @@ foreach ($arrDientes as $iP => $vP) {
                         border-radius: 10px !important;' class='label label-info'> ".$vP["Valor"]." </span>";
                         foreach ($arrPosiciondiente as $iR => $vR) {
                             if(	$vR["IdDiente"] == $vP["IdDiente"] ){
-                                echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDientePosicion"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                                echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDienteOrtogramaDetalle"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                                if($vR["validar"] == 1){
+                                    echo "<i style='color: red; position: absolute;  margin: auto; left: 0;' right: 0; botton: 0; class='fa fa-times fa-2x fa-fw'></i>";
+                                       //echo "X";
+                                    }
                                 echo "</div>";
                             }
                         }
@@ -142,7 +168,11 @@ foreach ($arrDientes as $iP => $vP) {
                         border-radius: 10px !important;' class='label label-success'> ".$vP["Valor"]." </span>";
                         foreach ($arrPosiciondiente as $iR => $vR) {
                             if(	$vR["IdDiente"] == $vP["IdDiente"] ){
-                                echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDientePosicion"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                                echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDienteOrtogramaDetalle"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                                if($vR["validar"] == 1){
+                                    echo "<i style='color: red; position: absolute;  margin: auto; left: 0;' right: 0; botton: 0; class='fa fa-times fa-2x fa-fw'></i>";
+                                       //echo "X";
+                                    }
                                 echo "</div>";
                             }
                         }
@@ -157,7 +187,11 @@ foreach ($arrDientes as $iP => $vP) {
                         border-radius: 10px !important;' class='label label-success'> ".$vP["Valor"]." </span>";
                         foreach ($arrPosiciondiente as $iR => $vR) {
                             if(	$vR["IdDiente"] == $vP["IdDiente"] ){
-                                echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDientePosicion"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                                echo "<div id='".$vR["Posicion"]."' data-id='".$vR["IdDienteOrtogramaDetalle"]."'  data-toggle='modal' data-target='#modalCargarDiente' style='background-color: ".$vR["CodigoColor"]."' value='".$vR["Posicion"]."' class='".$vR["Clase"]."'>";
+                                if($vR["validar"] == 1){
+                                    echo "<i style='color: red; position: absolute;  margin: auto; left: 0;' right: 0; botton: 0; class='fa fa-times fa-2x fa-fw'></i>";
+                                       //echo "X";
+                                    }
                                 echo "</div>";
                             }
                         }

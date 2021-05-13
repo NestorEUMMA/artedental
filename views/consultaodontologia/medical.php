@@ -41,26 +41,12 @@ include  'styles.php';
                      <li class=""><a data-toggle="tab" href="#tab-EXPEDIENTE" id='tabgeneral2'></a></li>
                      <li class=""><a data-toggle="tab" href="#tab-HISTORIAL" id='tabgeneral3'></a></li>
                      <!-- <li class=""><a data-toggle="tab" href="#tab-MEDICAMENTO" id='tabgeneral4'></a></li> -->
-                  </ul>
-                  <div class="row">
-                     </br>
-                     <center>
-                        <?php if ($_SESSION['IdIdioma'] == 1) { ?>
-                        <button type="button" class="btn  btn-danger dim" data-toggle="modal"
-                           data-target="#modalGuardarDiagnostico">Ingresar Diagnostico<i
+                     <li class="pull-right">
+                     <button type="button" class="btn  btn-danger dim" data-toggle="modal"
+                           data-target="#modalGuardarDiagnostico">Diagnostico<i
                               class="fa fa-heart"></i></button>
-                        <!-- <button type="button" class="btn  btn-info dim" data-toggle="modal" data-target="#modalGuardarExamenes"> Ingresa Examen <i class="fa fa-bars"></i></button> -->
-                        <?php } else {
-                        ?>
-                        <button type="button" class="btn  btn-danger dim" data-toggle="modal"
-                           data-target="#modalGuardarDiagnostico">Data<i class="fa fa-heart"></i></button>
-                        <!-- <button type="button" class="btn  btn-info dim" data-toggle="modal" data-target="#modalGuardarExamenes"> LAB <i class="fa fa-bars"></i></button> -->
-                        <!-- <button type="button" class="btn  btn-warning dim" data-toggle="modal" data-target="#modalGuardarExamenes"> REF <i class="fa fa-folder-o"></i></button>
-                           <button type="button" class="btn  btn-default dim" data-toggle="modal" data-target="#modalGuardarRayosX"> X-Rays <i class="fa fa-times"></i></button>
-                           <button type="button" class="btn  btn-primary dim" data-toggle="modal" data-target="#modalRecetas"> Recipe <i class="fa fa-list-ol"></i></button> -->
-                        <?php } ?>
-                     </center>
-                  </div>
+                        </li>
+                  </ul>
                   <div class="tab-content">
                      <div class="tab-content">
                         <!--  TABLA DE CONSULTA AQUI ESTAN LOS PANELES DE VISITA, INFORMACION GENERAL, GINECOLOGIA PEDIATRIA, OTROS E INFO MEDICO -->

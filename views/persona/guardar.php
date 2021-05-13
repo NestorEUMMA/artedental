@@ -23,16 +23,16 @@ session_start();
     $FechaNacimiento = $_POST['txtFechaNacimiento'];
     $Direccion = $_POST['txtDireccion'];
     $Correo = $_POST['txtCorreo'];
-    $IdGeografia = $geografia;
-    $Genero = $_POST['txtGenero'];
-    $IdEstadoCivil = $_POST['txtIdEstadoCivil'];
+    // $IdGeografia = $geografia;
+     $Genero = $_POST['txtGenero'];
+    // $IdEstadoCivil = $_POST['txtIdEstadoCivil'];
     //$IdParentesco = 1; //$_POST['txt'];
     $Telefono = $_POST['txtTelefono'];
     $Celular = $_POST['txtCelular'];
     $Alergias = $_POST['txtAlergias'];
     $Medicamentos = $_POST['txtMedicamentos'];
     $Enfermedad = $_POST['txtEnfermedad'];
-    $Dui = $_POST['txtDui'];
+    //$Dui = $_POST['txtDui'];
     $TelefonoResponsable = $_POST['txtTelefonoResponsable'];
     $IdEstado = "1";
     $Categoria = $_POST['txtCategoria'];
@@ -42,7 +42,7 @@ session_start();
     $ApellidosResponsable = $_POST['txtApellidosResponsable'];
     $DuiResponsable = $_POST['txtDuiResponsable'];
     $Parentesco = $_POST['txtParentesco'];
-    $IdPais = $_POST['txtIdPais'];
+    // $IdPais = $_POST['txtIdPais'];
 
     $querybc = "SELECT CASE WHEN IdPersona IS NULL THEN 90000001 ELSE MAX(CONCAT(9,'',LPAD((SELECT MAX(IDPERSONA) FROM persona), 7 , 0))) + 1 END AS BC FROM persona";
     $resultadobc = $mysqli->query($querybc);
@@ -50,40 +50,30 @@ session_start();
         $bc = $test['BC'];
     }
 
-    $query = "select Dui from persona where Dui = '".$Dui."'";
-    $results = $mysqli->query( $query) or die('ok');
-
-    if($results->fetch_assoc() > 0) // not available
-    {  
-        echo '<script>window.location="../../web/persona/index"</script>';  
-
-    } else{ 
 
            $insertexpediente = "INSERT INTO persona
                         (
                              Nombres,Apellidos,FechaNacimiento,Direccion
-                            ,Correo,IdGeografia,Genero,IdEstadoCivil
-                            ,Telefono,Celular,Alergias
-                            ,Medicamentos,Enfermedad,Dui,TelefonoResponsable
+                            ,Correo,Genero
+                            ,Telefono,Celular,Alergias, IdGeografia
+                            ,Medicamentos,Enfermedad,TelefonoResponsable
                             ,IdEstado,Categoria,NombresResponsable
-                            ,ApellidosResponsable,Parentesco,DuiResponsable,IdPais,CodigoPaciente
+                            ,ApellidosResponsable,Parentesco,DuiResponsable,CodigoPaciente
                         )
                         VALUES
                         (
                              '$Nombres','$Apellidos','$FechaNacimiento','$Direccion'
-                            ,'$Correo','$IdGeografia','$Genero','$IdEstadoCivil'
-                            ,'$Telefono','$Celular','$Alergias'
-                            ,'$Medicamentos','$Enfermedad','$Dui','$TelefonoResponsable'
+                            ,'$Correo','$Genero'
+                            ,'$Telefono','$Celular','$Alergias', 0
+                            ,'$Medicamentos','$Enfermedad','$TelefonoResponsable'
                             ,'$IdEstado','$Categoria','$NombresResponsable'
-                            ,'$ApellidosResponsable','$Parentesco','$DuiResponsable',$IdPais,$bc
+                            ,'$ApellidosResponsable','$Parentesco','$DuiResponsable',$bc
                         )";
 
 
     $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
-    //echo $insertexpediente;
     $last_id = $mysqli->insert_id;
 
-   
 
     $query = "select IdPersona from persona order by 1 desc limit 1";
 
@@ -99,18 +89,48 @@ session_start();
 
     echo "<h1>$IdPersona</h1>";
 
+
+    //CREACION DEL ORTOGRAMA
+    $strOdontograma = "INSERT INTO dienteortograma (IdPersona,Fecha,Hora) VALUES ($IdPersona,NOW(),NOW())";
+    $resultTest = $mysqli->query($strOdontograma);
+
+    //OBTIENE EL ULTIMO IDORTOGRAMA CREADO
+    $query = "SELECT IdDienteOrtograma FROM dienteortograma order by 1 desc limit 1";
+    $tbl = $mysqli->query($query);
+    $arrTest = array();
+    while ($f = $tbl->fetch_assoc())
+    {
+      $arrTest[] = $f;
+    }
+    $IdDienteOrtograma = $arrTest[0]["IdDienteOrtograma"];
+
+    //OBTENER LA POSICION DE LOS DIENTES
+    $queryDientePosicion = "SELECT IdDientePosicion FROM dienteposicion";
+    $tblDientePosicion = $mysqli->query($queryDientePosicion);
+    //BARRIDO Y CREACION DEL CAREOGRAMA DETALLADO
+    while ($test = $tblDientePosicion->fetch_assoc())
+	           {
+                   $IdDientePosicion =  $test['IdDientePosicion'];
+
+
+	               $queryInsResp = "INSERT INTO dienteortogramadetalle
+	                                   (IdDientePosicion, IdDienteProcedimiento, IdDienteOrtograma)
+	                               VALUES
+	                                   ($IdDientePosicion, 1, $IdDienteOrtograma)
+	                               ";
+	               $resultInsResp = $mysqli->query($queryInsResp);
+
+	           }
+
+
     ////Insertando el registro para el test de la persona
-    $strTest = "insert into test
-                    (IdPersona,IdClase,Fecha,Hora)
-                VALUES
-                    ($IdPersona,1,NOW(),NOW())
-                ";
+    $strTest = "INSERT INTO test (IdPersona,IdClase,Fecha,Hora) VALUES ($IdPersona,1,NOW(),NOW())";
     $resultTest = $mysqli->query($strTest);
 
     echo "<h2>$strTest</h2>";
 
     ////Determinando el IdTest
-    $query = "select IdTest from test order by 1 desc limit 1";
+    $query = "SELECT IdTest FROM test order by 1 desc limit 1";
 
     $tbl = $mysqli->query($query);
     $arrTest = array();
@@ -125,7 +145,7 @@ session_start();
 
 
     //Guardar gestacion
-    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 4;";
+    $query = "SELECT IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 4;";
     $tblPregGE = $mysqli->query($query);
     $arrPregGE = array();
 
@@ -141,7 +161,7 @@ session_start();
             case "0":
             {
                 //Insertar una respuesta por pregunta
-                $queryInsResp = "insert into testdetalle
+                $queryInsResp = "INSERT into testdetalle
                             (IdTest,IdFactor,IdPregunta,IdRespuesta)
                         values
                             ($IdTest,$IdFactor,$IdPregunta,$IdRespuesta);
@@ -153,7 +173,7 @@ session_start();
             case "1":
             {
                 //Insertar la respuesta abierta
-                $queryInsResp = "insert into testdetalle
+                $queryInsResp = "INSERT into testdetalle
                             (IdTest,IdFactor,IdPregunta,Detalle)
                         values
                             ($IdTest,$IdFactor,$IdPregunta,'$IdRespuesta');
@@ -625,5 +645,5 @@ session_start();
 
     }
 
-     header('Location: ../../web/persona/view?id='.$last_id);
-    }
+    header('Location: ../../web/persona/view?id='.$last_id);
+

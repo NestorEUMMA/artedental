@@ -21,28 +21,28 @@ if ($_SESSION['IdIdioma'] == 1) {
      LEFT JOIN enfermedad e ON e.IdEnfermedad = c.IdEnfermedad
      where c.IdConsulta = '$id' and c.Activo = 1";
      
-//echo  $queryfichaconsulta;
-$resultadofichaconsulta = $mysqli->query($queryfichaconsulta);
-while ($test = $resultadofichaconsulta->fetch_assoc()) {
-$idconsulta = $test['IdConsulta'];
-$idusuario = $test['Medico'];
-$idusuarioid = $test['IdUsuario'];
-$idpersona = $test['Paciente'];
-$idpersonaid = $test['id'];
-$idmodulo = $test['Especialidad'];
-$idmoduloing = $test['Descripcion'];
-$fechaconsulta = $test['Fecha'];
-$diagnostico = $test['Diagnostico'];
-$comentarios = $test['Comentarios'];
-$otros = $test['Otros'];
-$EstadoNutricional = $test['EstadoNutricional'];
-$CirugiasPrevias = $test['CirugiasPrevias'];
-$MedicamentosActuales = $test['MedicamentosActuales'];
-$ExamenFisica = $test['ExamenFisica'];
-$PlanTratamiento = $test['PlanTratamiento'];
-$FechaProxVisita = $test['FechaProxVisita'];
-$Alergias = $test['Alergias'];
-$Enfermedad = $test['Enfermedad'];
+   //echo  $queryfichaconsulta;
+   $resultadofichaconsulta = $mysqli->query($queryfichaconsulta);
+   while ($test = $resultadofichaconsulta->fetch_assoc()) {
+   $idconsulta = $test['IdConsulta'];
+   $idusuario = $test['Medico'];
+   $idusuarioid = $test['IdUsuario'];
+   $idpersona = $test['Paciente'];
+   $idpersonaid = $test['id'];
+   $idmodulo = $test['Especialidad'];
+   $idmoduloing = $test['Descripcion'];
+   $fechaconsulta = $test['Fecha'];
+   $diagnostico = $test['Diagnostico'];
+   $comentarios = $test['Comentarios'];
+   $otros = $test['Otros'];
+   $EstadoNutricional = $test['EstadoNutricional'];
+   $CirugiasPrevias = $test['CirugiasPrevias'];
+   $MedicamentosActuales = $test['MedicamentosActuales'];
+   $ExamenFisica = $test['ExamenFisica'];
+   $PlanTratamiento = $test['PlanTratamiento'];
+   $FechaProxVisita = $test['FechaProxVisita'];
+   $Alergias = $test['Alergias'];
+   $Enfermedad = $test['Enfermedad'];
 }
 
 // CONSULTA PARA CARGAR LOS SIGNOS VITALES
