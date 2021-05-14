@@ -2,7 +2,6 @@
    $(document).ready(function() {
       $('#modalCargarDiente').on('show.bs.modal', function(e) {
          var id = $(e.relatedTarget).data('id');
-         
          $("#modaldientetitulo2").text(id);
       });
 

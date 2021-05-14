@@ -97,79 +97,6 @@
                                     </div>
                                  </div>
                               </div>
-                              <!-- <div class="form-group">
-                                 <label for="txtIdEstadoCivil" class="col-sm-1 control-label">Estado Civil</label>
-                                 <div class="col-sm-5">
-                                    <div class="input-group">
-                                       <div class="input-group-addon"><i class="fa fa-circle-o"></i></div>
-                                       <select class="form-control select2" style="width: 100%;" id="txtIdEstadoCivil" name="txtIdEstadoCivil" required="">
-                                          <option value=""></option>
-                                          <?php
-                                             while ($row = $resultadoestadocivil->fetch_assoc()) {
-                                               echo "<option value = '".$row['IdEstadoCivil']."'>".$row['Nombre']."</option>";
-                                             }
-                                             ?>
-                                       </select>
-                                    </div>
-                                 </div>
-                                 <label for="txtDui" class="col-sm-1 control-label">Dui</label>
-                                 <div class="col-sm-5">
-                                    <div class="input-group">
-                                       <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
-                                       <input type="text" class="form-control" data-mask="99999999-9" name="txtDui" id="username"  >
-                                       <center>
-                                          <div id="Info"></div>
-                                       </center>
-                                    </div>
-                                 </div>
-                              </div> -->
-                              <!-- <div class="form-group">
-                                 <label for="txtIdPais" class="col-sm-1 control-label">Pais</label>
-                                 <div class="col-sm-5">
-                                    <div class="input-group">
-                                       <div class="input-group-addon"><i class="fa fa-flag"></i></div>
-                                       <select class="form-control select2" style="width: 100%;" id="txtIdPais" name="txtIdPais" required="">
-                                          <option value=""></option>
-                                          <?php
-                                             while ($row = $resultPais->fetch_assoc()) {
-                                               $idPais = ($row['IdPais'] == 54)? 'selected':'';
-                                               echo "<option $idPais value = '".$row['IdPais']."'>".$row['NombrePais']."</option>";
-                                             }
-                                             ?>
-                                       </select>
-                                    </div>
-                                 </div>
-                                 <label for="txtDepartamento" class="col-sm-1 control-label">Departamento</label>
-                                 <div class="col-sm-5">
-                                    <div class="input-group">
-                                       <div class="input-group-addon"><i class="fa fa-flag"></i></div>
-                                       <select class="form-control select2" style="width: 100%;" id="txtDepartamento" name="txtDepartamento" required="" >
-                                          <option value=""></option>
-                                          <?php
-                                             while ($row = $resultadodepartamentos->fetch_assoc()) {
-                                               echo "<option value = '".$row['IdGeografia']."'>".$row['Nombre']."</option>";
-                                             }
-                                             ?>
-                                       </select>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="form-group">
-                                 <label for="txtMunicipio" class="col-sm-1 control-label">Municipio</label>
-                                 <div class="col-sm-5">
-                                    <div class="input-group">
-                                       <div class="input-group-addon"><i class="fa fa-flag"></i></div>
-                                       <select class="form-control select2" style="width: 100%;" id="txtMunicipio" name="txtMunicipio" required=""></select>
-                                    </div>
-                                 </div>
-                                 <label for="txtCanton" class="col-sm-1 control-label">Cantón</label>
-                                 <div class="col-sm-5">
-                                    <div class="input-group">
-                                       <div class="input-group-addon"><i class="fa fa-flag"></i></div>
-                                       <select class="form-control select2" style="width: 100%;" name="txtCanton" id="txtCanton"></select>
-                                    </div>
-                                 </div>
-                              </div> -->
                               <div class="form-group">
                                  <label for="txtDireccion" class="col-sm-1 control-label">Dirección</label>
                                  <div class="col-sm-11">
@@ -608,49 +535,6 @@ $(document).ready(function(){
          $(".select2-container").css("width","100%");
        });
 
-       // ***************************************************************
-       //CREACION DE ORTOGRAMA
-      //  $.post( "../../views/persona/ortograma.php", { posicion: 1})
-      //  .done(function( data ) {
-      //    $("#tr").html(data);
-      //  });
-   
-      //  $.post( "../../views/persona/ortograma.php", { posicion: 2})
-      //  .done(function( data ) {
-      //    $("#tl").html(data);
-      //  });
-   
-      //  $.post( "../../views/persona/ortograma.php", { posicion: 3})
-      //  .done(function( data ) {
-      //    $("#tlr").html(data);
-      //  });
-   
-      //  $.post( "../../views/persona/ortograma.php", { posicion: 4})
-      //  .done(function( data ) {
-      //    $("#tll").html(data);
-      //  });
-   
-      //  $.post( "../../views/persona/ortograma.php", { posicion: 5})
-      //  .done(function( data ) {
-      //    $("#blr").html(data);
-      //  });
-   
-      //  $.post( "../../views/persona/ortograma.php", { posicion: 6})
-      //  .done(function( data ) {
-      //    $("#bll").html(data);
-      //  });
-   
-      //  $.post( "../../views/persona/ortograma.php", { posicion: 7})
-      //  .done(function( data ) {
-      //    $("#br").html(data);
-      //  });
-   
-      //  $.post( "../../views/persona/ortograma.php", { posicion: 8})
-      //  .done(function( data ) {
-      //    $("#bl").html(data);
-      //  });
-       //************************************************************************
-
        $("#txtDepartamento").change(function(){
          var id = '';
          id = $("#txtDepartamento").val();
@@ -704,8 +588,6 @@ $(document).ready(function(){
            placeholder: "Select a state",
            allowClear: true
        });
-
-      
        
 });
 

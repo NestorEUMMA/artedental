@@ -21,7 +21,7 @@ use kartik\file\FileInput;
     ]); ?>
 
 <div class="form-group">
-  <div class="col-lg-4">
+  <div class="col-lg-7">
     <?php echo $form->field($model, 'IdPersona')->widget(Select2::classname(), [
         'data' => ArrayHelper::map(Persona::find()->all(), 'IdPersona', 'fullName'),
         'language' => 'es',
@@ -32,11 +32,11 @@ use kartik\file\FileInput;
     ]);
     ?>
  </div>
- <div class="col-lg-3">
+ <!-- <div class="col-lg-3">
  <?= $form->field($model, 'Dui')->widget(\yii\widgets\MaskedInput::className(), [
                 'mask' => '99999999-9',
             ]) ?>
- </div>
+ </div> -->
   <div class="col-lg-3">
  <?= $form->field($model, 'DuiResponsable')->widget(\yii\widgets\MaskedInput::className(), [
         'mask' => '99999999-9',

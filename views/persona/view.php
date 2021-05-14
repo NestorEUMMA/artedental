@@ -168,13 +168,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         //     'value' => $Departamento,
                         // ],
                         'Genero',
-                        'estadoCivil.Nombre',
+                        //'estadoCivil.Nombre',
                         'Telefono',
                         'Celular',
                     ],
                 ]) ?>
             </table>
-            <h3>    DATOS MEDICOS </h3>
+            <!-- <h3>    DATOS MEDICOS </h3>
               <table class="table table-hover">
                 <?= DetailView::widget([
                     'model' => $model,
@@ -184,7 +184,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'Enfermedad',
                     ],
                 ]) ?>
-            </table>
+            </table> -->
 
                <h3> DATOS RESPONSABLE</h3>
             <table class="table table-hover">

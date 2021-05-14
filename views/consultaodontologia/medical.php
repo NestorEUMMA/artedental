@@ -42,9 +42,9 @@ include  'styles.php';
                      <li class=""><a data-toggle="tab" href="#tab-HISTORIAL" id='tabgeneral3'></a></li>
                      <!-- <li class=""><a data-toggle="tab" href="#tab-MEDICAMENTO" id='tabgeneral4'></a></li> -->
                      <li class="pull-right">
-                     <button type="button" class="btn  btn-danger dim" data-toggle="modal"
-                           data-target="#modalGuardarDiagnostico">Diagnostico<i
-                              class="fa fa-heart"></i></button>
+                     <button type="button" class="btn  btn-primary dim" data-toggle="modal"
+                           data-target="#modalGuardarDiagnostico">Plan de Tratamiento <i
+                              class="fa fa-user-md"></i></button>
                         </li>
                   </ul>
                   <div class="tab-content">
@@ -330,6 +330,17 @@ include  'styles.php';
                                                 </div>
                                              </div>
                                              <label for="txtGenero" class="col-sm-2 control-label"
+                                                id=''>Edad</label>
+                                             <div class="col-sm-4">
+                                                <div class="input-group">
+                                                   <div class="input-group-addon"><i class="fa fa-genderless"></i></div>
+                                                   <input type="text" class="form-control" name=""
+                                                      id="" value="Años: <?php echo $anios ?>, Meses: <?php echo $meses?>, Dias: <?php echo $dias ?>"  disabled="disabled">
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="form-group">
+                                          <label for="txtGenero" class="col-sm-2 control-label"
                                                 id='tabexpediente4'></label>
                                              <div class="col-sm-4">
                                                 <div class="input-group">
@@ -338,34 +349,9 @@ include  'styles.php';
                                                       id="txtGenero" value="<?php echo $genero ?>" disabled="disabled">
                                                 </div>
                                              </div>
-                                          </div>
-                                          <div class="form-group">
-                                             <label for="txtIdEstadoCivil" class="col-sm-2 control-label"
-                                                id='tabexpediente5'></label>
-                                             <div class="col-sm-4">
-                                                <div class="input-group">
-                                                   <div class="input-group-addon"><i class="fa fa-circle-o"></i></div>
-                                                   <input type="text" class="form-control" name="txtFechaNacimiento"
-                                                      id="txtFechaNacimiento" required=""
-                                                      value="<?php echo $estadocivil ?>" disabled="disabled">
-                                                </div>
-                                             </div>
-                                             <label for="txtDui" class="col-sm-2 control-label"
-                                                id='tabexpediente6'></label>
-                                             <div class="col-sm-4">
-                                                <div class="input-group">
-                                                   <div class="input-group-addon"><i class="fa fa-credit-card"></i>
-                                                   </div>
-                                                   <input type="text" class="form-control" data-mask="99999999-9"
-                                                      name="txtDui" id="txtDui" value="<?php echo $dui ?>"
-                                                      disabled="disabled">
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="form-group">
                                              <label for="txtDireccion" class="col-sm-2 control-label"
                                                 id='tabexpediente7'></label>
-                                             <div class="col-sm-10">
+                                             <div class="col-sm-4">
                                                 <div class="input-group">
                                                    <div class="input-group-addon"><i class="fa fa-arrows"></i></div>
                                                    <input type="text" class="form-control" id="txtDireccion"

@@ -130,161 +130,37 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <i class="fa fa-stethoscope modal-icon"></i>
-                <h4 class="modal-title" id='modaltabnuevaconsultamedica13'></h4>
+                <h4 class="modal-title" id=''>PLAN DE TRATAMIENTO</h4>
                 <small id='modaltabnuevaconsultamedica14'></small><small> <?php echo $idpersona; ?></small>
             </div>
-            <form class="form-horizontal" method="POST" action="../../views/consultamedico/actualizarconsulta.php" id="demo-form" data-parsley-validate="">
+            <form class="form-horizontal" method="POST" action="" id="demo-form" data-parsley-validate="">
                 <div class="modal-body">
-                    <div class="tabs-container">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#MDLDIAGNOSTICOMEDICO1" id='modaltabnuevaconsultamedica1'></a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div id="MDLDIAGNOSTICOMEDICO1" class="tab-pane active">
-                                <div class="panel-body">
-                                    <div class="tabs-container">
-                                        <ul class="nav nav-tabs">
-                                            <li class="active"><a data-toggle="tab" href="#MDLDIAGMED1">PANEL 1</a></li>
-                                            <li class=""><a data-toggle="tab" href="#MDLDIAGMED2">PANEL 2</a></li>
-                                            <li class=""><a data-toggle="tab" href="#MDLDIAGMED3">PANEL 3</a></li>
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div id="MDLDIAGMED1" class="tab-pane active">
-                                                <div class="panel-body">
-                                                    <div class="form-group">
-                                                        <div class="hidden">
-                                                            <textarea type="text" rows="4" class="form-control" name="txtconsultaID"> <?php echo $idconsulta ?> </textarea>
-                                                        </div>
-                                                        <div class="hidden">
-                                                            <textarea type="text" rows="4" class="form-control" name="txtpersonaID"> <?php echo $idpersonaid ?> </textarea>
-                                                        </div>
-                                                        <div class="col-sm-3"><label for="inputEmail3" class="control-label" id='modaltabnuevaconsultamedica2'></label></div>
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <div class="input-group-addon"><i class="fa fa-search"></i></div>
-                                                                <textarea type="text" rows="1" class="form-control" id="enfermedads" name="txtDiagnostico" required="">  </textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3"><label for="inputEmail3" class="control-label" id='modaltabnuevaconsultamedica3'> </label></div>
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <div class="input-group-addon"><i class="fa fa-comment-o"></i></div>
-                                                                <textarea type="text" rows="2" class="form-control" id="estadonutricions" name="txtEstadoNutriconal" required="">  </textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3"><label for="inputEmail3" class="control-label" id='modaltabnuevaconsultamedica4'></label></div>
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <div class="input-group-addon"><i class="fa fa-comment-o"></i></div>
-                                                                <textarea type="text" rows="2" id="alergiass" class="form-control" name="txtAlergiass" required="">  </textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3"><label for="inputEmail3" class="control-label" id='modaltabnuevaconsultamedica5'> </label></div>
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <div class="input-group-addon"><i class="fa fa-comment-o"></i></div>
-                                                                <textarea type="text" rows="2" id="cirugiaspreviass" class="form-control" name="txtCirugiasPrevias" required="">  </textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="MDLDIAGMED2" class="tab-pane">
-                                                <div class="panel-body">
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3"><label for="inputEmail3" class="control-label" id='modaltabnuevaconsultamedica6'> </label></div>
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <div class="input-group-addon"><i class="fa fa-comment-o"></i></div>
-                                                                <textarea type="text" rows="2" id="medicamentotomados" class="form-control" name="txtMedicamentosTomados">  </textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3"><label for="inputEmail3" class="control-label" id='modaltabnuevaconsultamedica7'> Fisica</label></div>
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <div class="input-group-addon"><i class="fa fa-comment-o"></i></div>
-                                                                <textarea type="text" rows="2" id="examenfisicas" class="form-control" name="txtExamenFisica">  </textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3"><label for="inputEmail3" class="control-label" id='modaltabnuevaconsultamedica8'></label></div>
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <div class="input-group-addon"><i class="fa fa-comment-o"></i></div>
-                                                                <select class="form-control select2" style="width: 100%;" name="cboEnfermedad">
-                                                                    <?php
-                                                                    if ($_SESSION['IdIdioma'] == 1) {
-                                                                        while ($row = $resultadotablaenfermedad->fetch_assoc()) {
-                                                                            echo "<option value = '" . $row['IdEnfermedad'] . "'>" . $row['Nombre'] . "</option>";
-                                                                        }
-                                                                    } else {
-                                                                        while ($row = $resultadotablaenfermedad2->fetch_assoc()) {
-                                                                            echo "<option value = '" . $row['IdEnfermedad'] . "'>" . $row['Nombre'] . "</option>";
-                                                                        }
-                                                                    }
-
-                                                                    ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3"><label for="inputEmail3" class="control-label" id='modaltabnuevaconsultamedica9'></label></div>
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <div class="input-group-addon"><i class="fa fa-comment-o"></i></div>
-                                                                <textarea type="text" rows="5" class="form-control" id="comentarioss" name="txtComentarios"" >  </textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="MDLDIAGMED3" class="tab-pane">
-                                                <div class="panel-body">
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3"><label for="inputEmail3" class="control-label" id='modaltabnuevaconsultamedica10'> </label></div>
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <div class="input-group-addon"><i class="fa fa-comment-o"></i></div>
-                                                                <textarea type="text" rows="2" class="form-control" id="otross" name="txtOtros" ></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3"><label for="inputEmail3" class="control-label" id='modaltabnuevaconsultamedica11'></label></div>
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <div class="input-group-addon"><i class="fa fa-comment-o"></i></div>
-                                                                <textarea type="text" rows="2" id="plantratamientos" class="form-control" name="txtPlanTratamiento">  </textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3"><label for="inputEmail3" class="control-label" id='modaltabnuevaconsultamedica12'> </label></div>
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <div class="input-group-addon"><i class="fa fa-comment-o"></i></div>
-                                                                <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtFechaProxima" required="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <table id="example2" class="table table-bordered table-hover">
+                        <?php
+                        echo "<thead>";
+                        echo "<tr>";
+                        echo "<th id=''>N°</th>";
+                        echo "<th id=''>PROCEDIMIENTO</th>";
+                        echo "<th id=''>DIENTE</th>";
+                        echo "<th id=''>POSICION</th>";
+                        echo "<th id=''>PRECIO</th>";
+                        echo "</tr>";
+                        echo "</thead>";
+                        echo "<tbody>";
+                        $nr = 0;
+                        while ($row = $resultadotablaplantratamiento->fetch_assoc()) {
+                            $nr ++;
+                            echo "<tr>";
+                            echo "<td> <input type='hidden' name=''>" .$nr. "</td>";
+                            echo "<td> <input type='hidden' value='". $row['DescripcionProcedimiento'] ."' name='DescripcionProcedimiento[".$nr."]'>"  . $row['DescripcionProcedimiento'] . "</td>";
+                            echo "<td> <input type='hidden' value='". $row['Diente'] ."' name='Diente[".$nr."]'>" . $row['Diente'] . "</td>";
+                            echo "<td> <input type='hidden' value='". $row['Posicion']."' name='Posicion[".$nr."]'>" . $row['Posicion'] . "</td>";
+                            echo "<td contenteditable='true'><input name='Valor' class='form-control'></td></tr>";
+                        }
+                        echo "</tr>";
+                        echo "</body>  ";
+                        ?>
+                    </table>                 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>

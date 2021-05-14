@@ -65,7 +65,7 @@
                             return $model->getFullName();
                         },
                      ],
-                     'Dui',
+                     //'Dui',
                      'DuiResponsable',
                      'CodigoPaciente',
                      

@@ -96,7 +96,10 @@ $resultadoexamenestabla = $mysqli->query($queryexamenestabla);
 
 // CONSULTA PARA CARGAR EXPEDIENTE DEL PACIENTE
 $queryexpedientes = "SELECT PER.IdPersona as 'IdPersona', PER.Nombres as 'Nombres', PER.APellidos as 'Apellidos', PER.FechaNacimiento, Direccion, PER.Dui, PER.IdGeografia, GEO.Nombre as 'NombreDepartamento', PER.Genero, EC.Nombre as 'IdEstadoCivil', Correo, IdParentesco, Telefono, Celular, Alergias, Medicamentos, Enfermedad, TelefonoResponsable, NombresResponsable, 
-ApellidosResponsable, Parentesco, DuiResponsable, PA.NombrePais as 'Pais'
+ApellidosResponsable, Parentesco, DuiResponsable, PA.NombrePais as 'Pais',
+(SELECT TIMESTAMPDIFF(YEAR,FechaNacimiento,CURDATE()))  AS ANIOS,
+(SELECT (TIMESTAMPDIFF(MONTH,FechaNacimiento,CURDATE())) - (TIMESTAMPDIFF(YEAR,FechaNacimiento,CURDATE()) * 12)) AS MESES,
+(SELECT DATEDIFF(CURDATE(),DATE_ADD(DATE_ADD(FechaNacimiento, INTERVAL TIMESTAMPDIFF(YEAR,FechaNacimiento,CURDATE()) YEAR), INTERVAL (TIMESTAMPDIFF(MONTH,FechaNacimiento,CURDATE())) - (TIMESTAMPDIFF(YEAR,FechaNacimiento,CURDATE()) * 12) MONTH))) AS DIAS
 FROM persona PER
 INNER JOIN geografia GEO on PER.IdGeografia = GEO.IdGeografia
 LEFT JOIN estadocivil EC on PER.IdEstadoCivil = EC.IdEstadoCivil
@@ -125,6 +128,9 @@ $enfermedad = $test['Enfermedad'];
 $pais = $test['Pais'];
 $telefonoresponsable = $test['TelefonoResponsable'];
 $date = date("Y-m-d H:i:s");
+$anios = $test['ANIOS'];
+$meses = $test['MESES'];
+$dias = $test['DIAS'];
 }
 
 //QUERY PARA OBTENER EL IDORTOGRAMA
@@ -265,8 +271,18 @@ $querytablaprocedimientos = "SELECT ep.IdEnfermeriaProcedimiento As 'ID', CONCAT
        INNER JOIN motivoprocedimiento mp ON mp.IdMotivoProcedimiento = ep.IdMotivoProcedimiento
        WHERE p.IdPersona = '$idpersonaid'
        order by ep.IdEnfermeriaProcedimiento DESC";
-
 $resultadotablaprocedimientos = $mysqli->query($querytablaprocedimientos);
 
+$numero = 0;
+$querytablaplantratamiento = "SET @numero=0;";
+$querytablaplantratamiento = "SELECT DP.DescripcionProcedimiento, D.Diente, DPO.Posicion FROM dienteortogramadetalle DOD
+      INNER JOIN dienteortograma DO ON DO.IdDienteOrtograma = DOD.IdDienteOrtograma
+      INNER JOIN dienteprocedimiento DP ON DOD.IdDienteProcedimiento = DP.IdDienteProcedimiento
+      INNER JOIN dienteposicion DPO ON DPO.IdDientePosicion = DOD.IdDientePosicion
+      INNER JOIN diente D ON D.IdDiente = DPO.IdDiente
+      INNER JOIN persona P ON P.IdPersona = DO.IdPersona
+      WHERE DO.IdPersona = $idpersonaid AND DP.IdDienteProcedimiento > 1
+      ORDER BY DPO.IdDientePosicion ASC";
+$resultadotablaplantratamiento = $mysqli->query($querytablaplantratamiento);
 
 ?>

@@ -116,13 +116,14 @@ if (!empty($_SESSION['user'])) {
     <h1>
         <?php echo $empresa; ?> |
         <small id="encabezado1"> </small>
-        <!-- <?php echo $url; ?> -->
 
     </h1>
     <div class="row animated fadeInDown">
         <br><br>
         <div class="col-lg-12">
             <div class="row animated fadeInDown">
+                <div class="col-lg-9">
+                </div>
                 <div class="col-lg-3">
                     <div class="widget style1 default-bg">
                         <div class="row">
@@ -136,12 +137,9 @@ if (!empty($_SESSION['user'])) {
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-
-                </div>
             </div>
             <div class="row animated fadeInDown">
-                <div class="col-lg-3">
+                <!-- <div class="col-lg-3">
                     <div class="widget style1 blue-bg">
                         <div class="row">
                             <div class="col-xs-4 text-center">
@@ -244,7 +242,7 @@ if (!empty($_SESSION['user'])) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="col-lg-12">

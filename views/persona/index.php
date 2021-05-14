@@ -67,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 // 'Alergias',
                                 // 'Medicamentos',
                                 // 'Enfermedad',
-                                 'Dui',
+                                // 'Dui',
                                 // 'TelefonoResponsable',
                                 // 'IdEstado',
                                // 'Categoria',
