@@ -18,7 +18,7 @@ session_start();
     $insertexpediente2 = "UPDATE persona SET IdEstado=7  WHERE IdPersona='$persona'";
     $resultadoinsertmovimiento2 = $mysqli->query($insertexpediente2);
 
-    $insertexpediente3 = "UPDATE consulta SET IdEstado=2, Status=1 WHERE IdConsulta='$insert_id'";
+    $insertexpediente3 = "UPDATE consulta SET IdEstado=7, Status=1 WHERE IdConsulta='$insert_id'";
     $resultadoinsertmovimiento3 = $mysqli->query($insertexpediente3);
 
     header('Location: ../../web/consultaodontologica/index');

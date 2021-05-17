@@ -645,5 +645,69 @@ session_start();
 
     }
 
+
+    //Guardar primera visita
+    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 12;";
+    $tblPregHD = $mysqli->query($query);
+    $arrPregHD = array();
+
+    while ($f = $tblPregHD->fetch_assoc())
+    {
+        $IdPregunta = $f["IdPregunta"];
+        $Ponderacion = $f["Ponderacion"];
+
+        $IdFactor = 12;
+        $IdRespuesta = $_POST["selPregunta". $f["IdPregunta"]];
+
+        switch ($Ponderacion) {
+            case "0":
+            {
+                //Insertar una respuesta por pregunta
+                $queryInsResp = "insert into testdetalle
+                            (IdTest,IdFactor,IdPregunta,IdRespuesta)
+                        values
+                            ($IdTest,$IdFactor,$IdPregunta,$IdRespuesta);
+                        ";
+                $resultInsResp = $mysqli->query($queryInsResp);
+                //echo "<h3>$queryInsResp</h3>";
+                break;
+            }
+            case "1":
+            {
+                //Insertar la respuesta abierta
+                $queryInsResp = "insert into testdetalle
+                            (IdTest,IdFactor,IdPregunta,Detalle)
+                        values
+                            ($IdTest,$IdFactor,$IdPregunta,'$IdRespuesta');
+                        ";
+                $resultInsResp = $mysqli->query($queryInsResp);
+                //echo "<h3>$queryInsResp</h3>";
+                break;
+            }
+            case "2":
+            {
+                //Insertar múltiples respuestas
+                echo "<h1>$IdRespuesta</h1>";
+                for ($i=0;$i<count($IdRespuesta);$i++)
+                {
+                    $idResp = $IdRespuesta[$i];
+                    $queryInsResp = "insert into testdetalle
+                            (IdTest,IdFactor,IdPregunta,IdRespuesta)
+                        values
+                            ($IdTest,$IdFactor,$IdPregunta,$idResp);
+                        ";
+                    $resultInsResp = $mysqli->query($queryInsResp);
+                    //echo "<h3>$queryInsResp</h3>";
+                }
+
+                break;
+            }
+            default:
+
+                break;
+        }
+
+    }
+
     header('Location: ../../web/persona/view?id='.$last_id);
 

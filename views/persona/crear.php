@@ -293,93 +293,9 @@
                                  <h4>HIGIENE NOCTURNA</h4>
                                  <div id="higienenocturna"></div>
                               </div>
-                           </div>
-                        </div>
-                        <div id="tab-7" class="tab-pane">
-                           <div class="panel-body">
-                              <div class="row">
-                                 <div class="col-md-10 col-md-offset-1">
-                                    <div id="controls" class="panel panel-default">
-                                       <div class="panel-body">
-                                          <div class="btn-group" data-toggle="buttons">
-                                             <div class="col-sm-2">
-                                                <label id="fractura" class="btn btn-danger active">
-                                                <input type="radio" name="options" id="option1" autocomplete="off" checked>Fractura</label>
-                                             </div>
-                                             <div class="col-sm-2">
-                                                <label id="restauracion" class="btn btn-primary">
-                                                <input type="radio" name="options" id="option2" autocomplete="off">Obturación
-                                                </label>
-                                             </div>
-                                             <div class="col-sm-2">
-                                                <label id="extraccion" class="btn btn-warning">
-                                                <input type="radio" name="options" id="option3" autocomplete="off">Extracción
-                                                </label>
-                                             </div>
-                                             <div class="col-sm-2">
-                                                <label id="extraer" class="btn btn-warning">
-                                                <input type="radio" name="options" id="option4" autocomplete="off">A Extraer
-                                                </label>
-                                             </div>
-                                             <div class="col-sm-2">
-                                                <label id="puente" class="btn btn-primary">
-                                                <input type="radio" name="options" id="option5" autocomplete="off">Puente
-                                                </label>
-                                             </div>
-                                             <div class="col-sm-2">
-                                                <label id="borrar" class="btn btn-default">
-                                                <input type="radio" name="options" id="option6" autocomplete="off">Borrar
-                                                </label>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <!-- TR, TL, TLR, TLL TODO LO QUE ESTA DENTRO DE ESOS IDS SE SUSTITUYE CON 
-                                    LA FUNCION DE JAVA PARA REEMPLAZAR LA PALABRA INDEX POR EL NUMERO QUE LE CORRESPONDE DE LA FILA, LUEGO 
-                                    SE HACE UN BARRIDO HACIA ATRAS O HACIA ADELANTE, DEPENDIENDO DE COMO ESTE EN EL PDF DEL ORTOGRAMA  -->
-                                 <div id="tr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                 </div>
-                                 <div id="tl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                 </div>
-                                 <div id="tlr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
-                                 </div>
-                                 <div id="tll" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                 </div>
-                              </div>
-                              <div class="row">
-                                 <div id="blr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
-                                 </div>
-                                 <div id="bll" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                 </div>
-                                 <div id="br" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                 </div>
-                                 <div id="bl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                 </div>
-                              </div>
-                              <!-- HASTA AQUI TERMINA EL ORTOGRAMA -->
-                              <div class="row">
-                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <div class="panel panel-default">
-                                       <div class="panel-body">
-                                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-                                             <div style="height: 20px; width:20px; display:inline-block;" class="click-red"></div>
-                                             = Fractura/Carie
-                                             <br>
-                                             <div style="height: 5px; width:20px; display:inline-block;" class="click-red"></div>
-                                             = Puente Entre Piezas
-                                          </div>
-                                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
-                                             <div style="height: 20px; width:20px; display:inline-block;" class="click-blue"></div>
-                                             = Obturación
-                                          </div>
-                                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-                                             <span style="display:inline:block;"> Pieza Extraída</span> = <img style="display:inline:block;" src="../template/img/extraccion.png">
-                                             <br> Idicada Para Extracción = <i style="color:red;" class="fa fa-times fa-2x"></i>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
+                              <div class="panel-body">
+                                 <h4>PRIMERA VISITA</h4>
+                                 <div id="primeravisita"></div>
                               </div>
                            </div>
                         </div>
@@ -392,25 +308,6 @@
    </div>
 
 
-   <div class="modal inmodal fade" id="myModal6" tabindex="-1" role="dialog"  aria-hidden="true">
-      <div class="modal-dialog modal-sm">
-         <div class="modal-content">
-               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                  <h4 class="modal-title">Modal title</h4>
-               </div>
-               <div class="modal-body">
-                  <p><strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                     printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-                     remaining essentially unchanged.</p>
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-               </div>
-         </div>
-      </div>
-   </div>
 </div>
 
 <script src="../template/js/plugins/select2/select2.full.min.js"></script>
@@ -531,6 +428,13 @@ $(document).ready(function(){
        $.post( "../../views/persona/test.php", { IdFactor: 11})
        .done(function( data ) {
          $("#higienenocturna").html(data);
+         $(".select3").select2();
+         $(".select2-container").css("width","100%");
+       });
+
+       $.post( "../../views/persona/test.php", { IdFactor: 12})
+       .done(function( data ) {
+         $("#primeravisita").html(data);
          $(".select3").select2();
          $(".select2-container").css("width","100%");
        });

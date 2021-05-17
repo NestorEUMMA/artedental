@@ -23,7 +23,11 @@ $this->params['breadcrumbs'][] = $this->title;
 include  'styles.php';
 
 ?>
+
+<link href="../template/css/plugins/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
+<link href="../template/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 <link href="../css/base.css" rel="stylesheet">
+<script src="../template/js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
 <div class="wrapper wrapper-content animated fadeIn">
    <div class="row">
@@ -42,8 +46,10 @@ include  'styles.php';
                      <li class=""><a data-toggle="tab" href="#tab-HISTORIAL" id='tabgeneral3'></a></li>
                      <!-- <li class=""><a data-toggle="tab" href="#tab-MEDICAMENTO" id='tabgeneral4'></a></li> -->
                      <li class="pull-right">
+                     <button type='button' id='btn" . <?php $idconsulta ?> . "' class='btn  btn-success dim btn-btnconsulta' >Consulta <i
+                              class="fa fa-user-md"></i></button>
                      <button type="button" class="btn  btn-primary dim" data-toggle="modal"
-                           data-target="#modalGuardarDiagnostico">Plan de Tratamiento <i
+                           data-target="#modalGuardarPlantratamiento">Plan de Tratamiento <i
                               class="fa fa-user-md"></i></button>
                         </li>
                   </ul>
@@ -493,6 +499,10 @@ include  'styles.php';
                                              <h4>HIGIENE NOCTURNA</h4>
                                              <div id="higienenocturna"></div>
                                           </div>
+                                          <div class="panel-body">
+                                             <h4>PRIMERA VISITA</h4>
+                                             <div id="primeravisita"></div>
+                                          </div>
                                        </div>
                                     </div>
                                  </div>
@@ -505,6 +515,8 @@ include  'styles.php';
                                  <ul class="nav nav-tabs">
                                     <li class="active"><a data-toggle="tab" href="#HISTDATOGEN"
                                           id='tab2historial1'>CONSULTAS</a></li>
+                                    <li class=""><a data-toggle="tab" href="#HISTPLAN"
+                                          id=''>PLAN DE TRATAMIENTO</a></li>
                                  </ul>
                                  <div class="tab-content">
                                     <div id="HISTDATOGEN" class="tab-pane active">
@@ -519,83 +531,78 @@ include  'styles.php';
                                                 <?php
                                                 echo "<thead>";
                                                 echo "<tr>";
-                                                echo "<th id='tab2historialconsultabla1'></th>";
-                                                echo "<th id='tab2historialconsultabla2'></th>";
-                                                echo "<th id='tab2historialconsultabla3'></th>";
-                                                echo "<th id='tab2historialconsultabla4'></th>";
-                                                echo "<th style = 'width:150px' id='tab2historialconsultabla5'></th>";
+                                                echo "<th id=''>N°</th>";
+                                                echo "<th id=''>PACIENTE</th>";
+                                                echo "<th id=''>DORTOR</th>";
+                                                echo "<th id=''>ESPECIALIDAD</th>";
+                                                echo "<th id=''>FECHA</th>";
+                                                echo "<th style = 'width:150px' id=''>ACCION</th>";
                                                 echo "</tr>";
                                                 echo "</thead>";
                                                 echo "<tbody>";
-                                                if ($row['Estado'] == 1) {
+                                                $nr = 0;
                                                    while ($row = $resultadotablaconsulta->fetch_assoc()) {
-                                                      $idSignosVitales = $row['IdConsulta'];
+                                                      $nr ++;
+                                                      $IdConsulta = $row['IdConsulta'];
                                                       echo "<tr>";
-                                                      echo "<td>" . $row['FechaConsulta'] . "</td>";
+                                                      echo "<td>".$nr."</td>";
                                                       echo "<td>" . $row['Paciente'] . "</td>";
                                                       echo "<td>" . $row['Medico'] . "</td>";
                                                       echo "<td>" . $row['Especialidad'] . "</td>";
-                                                      if ($row['Estado'] == 1) {
-                                                         if ($_SESSION['IdIdioma'] == 1) {
-                                                            echo "<td>" .
-                                                               "<span id='btn" . $idSignosVitales . "' style='width:140px' class='btn  btn-success btn-mdl'> Ver Consulta</span>" .
-                                                               "</td>";
-                                                         } else {
-                                                            echo "<td>" .
-                                                               "<span id='btn" . $idSignosVitales . "' style='width:140px' class='btn  btn-success btn-mdl'> See Visits </span>" .
-                                                               "</td>";
-                                                         }
-                                                      } else {
-                                                         if ($_SESSION['IdIdioma'] == 1) {
-                                                            echo "<td>" .
-                                                               "<span id='btn" . $idSignosVitales . "' style='width:140px' class='btn btn-warning btn-mdls'>Ver Consulta</span>" .
-                                                               "</td>";
-                                                         } else {
-                                                            echo "<td>" .
-                                                               "<span id='btn" . $idSignosVitales . "' style='width:140px' class='btn btn-warning btn-mdls'>See Visits </span>" .
-                                                               "</td>";
-                                                         }
+                                                      echo "<td>" . $row['FechaConsulta'] . "</td>";
+                                                      echo "<td width='100'>" .
+                                                         "<span id='btn" . $IdConsulta . "' class='btn-xs btn-success btn-cargarconsulta'><i class='fa fa-search'></i></span>
+                                                         <span id='btn" . $IdConsulta . "' class='btn-xs btn-danger btn-eliminarconsulta'><i class='fa fa-remove'></i></span>" .
+                                                         "</td>";
                                                       }
 
                                                       echo "</tr>";
                                                       echo "</body>  ";
-                                                   }
-                                                } else {
-                                                   while ($row = $resultadotablaconsulta2->fetch_assoc()) {
-                                                      $idSignosVitales = $row['IdConsulta'];
-                                                      echo "<tr>";
-                                                      echo "<td>" . $row['FechaConsulta'] . "</td>";
-                                                      echo "<td>" . $row['Paciente'] . "</td>";
-                                                      echo "<td>" . $row['Medico'] . "</td>";
-                                                      echo "<td>" . $row['Especialidad'] . "</td>";
-                                                      if ($row['Estado'] == 1) {
-                                                         if ($_SESSION['IdIdioma'] == 1) {
-                                                            echo "<td>" .
-                                                               "<span id='btn" . $idSignosVitales . "' style='width:140px' class='btn  btn-success btn-mdl'> + Signo Vital</span>" .
-                                                               "</td>";
-                                                         } else {
-                                                            echo "<td>" .
-                                                               "<span id='btn" . $idSignosVitales . "' style='width:140px' class='btn  btn-success btn-mdl'> + Vital Signs</span>" .
-                                                               "</td>";
-                                                         }
-                                                      } else {
-                                                         if ($_SESSION['IdIdioma'] == 1) {
-                                                            echo "<td>" .
-                                                               "<span id='btn" . $idSignosVitales . "' style='width:140px' class='btn btn-warning btn-mdls'>Ver Consulta </span>" .
-                                                               "</td>";
-                                                         } else {
-                                                            echo "<td>" .
-                                                               "<span id='btn" . $idSignosVitales . "' style='width:140px' class='btn btn-warning btn-mdls'> See Visits </span>" .
-                                                               "</td>";
-                                                         }
-                                                      }
+                                                   
 
-                                                      echo "</tr>";
-                                                      echo "</body>  ";
-                                                   }
-                                                }
                                                 ?>
                                              </table>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div id="HISTPLAN" class="tab-pane">
+                                       <div class="panel-body">
+                                          <div class="box-header with-border">
+                                             <h3 class="box-title" id=''>HISTORIAL DE PLANES DE TRATAMIENTO
+                                             </h3>
+                                          </div>
+                                          <!-- /.box-header -->
+                                          <div class="box-body">
+                                          <table id="example2" class="table table-bordered table-hover">
+                                                <?php
+                                                echo "<thead>";
+                                                echo "<tr>";
+                                                echo "<th id=''>N°</th>";
+                                                echo "<th id=''>PACIENTE</th>";
+                                                echo "<th id=''>FECHA</th>";
+                                                echo "<th id=''>HORA</th>";
+                                                echo "<th id=''>ACCION</th>";
+                                                echo "</tr>";
+                                                echo "</thead>";
+                                                echo "<tbody>";
+                                                $nr = 0;
+                                                while ($row = $resultadotablaplantratamientohistorico->fetch_assoc()) {
+                                                   $nr ++;
+                                                   $IdPlanTratamiento = $row['IdPlanTratamiento'];
+                                                   echo "<tr>";
+                                                   echo "<td>".$nr."</td>";
+                                                   echo "<td>".$row['NombreCompleto']."</td>";
+                                                   echo "<td>".$row['Fecha']."</td>";
+                                                   echo "<td>".$row['Hora']."</td>";
+                                                   echo "<td width='100'>" .
+                                                   "<span id='btn" . $IdPlanTratamiento . "' class='btn-xs btn-success btn-histver'><i class='fa fa-search'></i></span>
+                                                    <span id='btn" . $IdPlanTratamiento . "' class='btn-xs btn-danger btn-histeli'><i class='fa fa-remove'></i></span>" .
+                                                   "</td>";
+                                                }
+                                                echo "</tr>";
+                                                echo "</body>  ";
+                                                ?>
+                                          </table> 
                                           </div>
                                        </div>
                                     </div>
@@ -626,7 +633,7 @@ include  'styles.php';
       </div>
    </div>
 </div>
-
+<script src="../template/js/plugins/daterangepicker/daterangepicker.js"></script>
 <?php
 /* AGREGA TODOS LOS MODALES */
 include 'modals.php';

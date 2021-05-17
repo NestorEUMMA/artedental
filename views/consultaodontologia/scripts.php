@@ -5,6 +5,109 @@
          $("#modaldientetitulo2").text(id);
       });
 
+
+      $(".btn-histver").click(function() {
+         var id = $(this).attr("id").replace("btn", "");
+
+         var myData = {
+            "id": id
+         };
+         //alert(myData);
+         $.ajax({
+            url: "../../views/consultaodontologia/cargarplantratamientoterminado.php",
+            type: "POST",
+            data: myData,
+            dataType: "JSON",
+            beforeSend: function() {
+               $(this).html("Cargando");
+            },
+            success: function(data) {
+               var htmlText = "";
+               var nr = 0;
+            for ( var key in data ) {
+               nr ++;
+               htmlText += "<tr class=''>"; 
+               htmlText += "<td>" + data[ key ].Diente + "</td>";
+               htmlText += "<td>" + data[ key ].Procedimiento + "</td>";
+               htmlText += "<td>" + data[ key ].Posicion + "</td>";
+               htmlText += "<td> $" + data[ key ].Precio + "</td>";
+               htmlText += "</tr> ";
+          }
+                  $( "#DataResult" ).append( htmlText );
+                  $("#modalCargarHistoricoPlanTratamiento").modal("show");
+               }
+               
+         });
+      });
+
+
+      $(".btn-cargarconsulta").click(function() {
+         var id = $(this).attr("id").replace("btn", "");
+         var myData = {
+            "id": id
+         };
+         //alert(id);
+         $.ajax({
+            url: "../../views/consultaodontologia/cargarconsulta.php",
+            type: "POST",
+            data: myData,
+            dataType: "JSON",
+            beforeSend: function() {
+               $(this).html("Cargando");
+            },
+            success: function(data) {
+               $("#cargardiagnostico").val(data.diagnostico);
+               $("#cargarcomentarios").val(data.comentarios);
+               $("#cargartxtFechaProxima").val(data.FechaProxVisita);
+               $("#modalCargarDiagnostico").modal("show");
+            }
+         });
+      });
+
+      $(".btn-btnconsulta").click(function() {
+         var id = <?php echo $idconsulta ?>;
+         var myData = {
+            "id": id
+         };
+         //alert(id);
+         $.ajax({
+            url: "../../views/consultaodontologia/cargarconsulta.php",
+            type: "POST",
+            data: myData,
+            dataType: "JSON",
+            beforeSend: function() {
+               $(this).html("Cargando");
+            },
+            success: function(data) {
+               $("#diagnostico").val(data.diagnostico);
+               $("#comentarios").val(data.comentarios);
+               $("#txtFechaProxima").val(data.FechaProxVisita);
+               $("#modalGuardarDiagnostico").modal("show");
+            }
+         });
+      });
+
+      $('#txtFechaProxima').datepicker({
+                startView: 1,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true,
+                format: "yyyy-mm-dd"
+            });
+
+
+      $(".btn-histeli").click(function() {
+         var id = $(this).attr("id").replace("btn", "");
+         var myData = {
+            "id": id
+         };
+         $("#plantratamiento").text(id);
+         $("#modalEliminarHistoricoPlanTratamiento").modal("show");
+         
+      });
+
+
       $('#demo-form').parsley().on('field:validated', function() {
             var ok = $('.parsley-error').length === 0;
             $('.bs-callout-info').toggleClass('hidden', !ok);
@@ -81,6 +184,12 @@
                IdPersona: "<?php echo $idpersonaid; ?>"})
          .done(function( data ) {
             $("#higienenocturna").html(data);
+         });
+
+         $.post( "../../views/consultaodontologia/historicoesp.php", { IdFactor: "12",
+               IdPersona: "<?php echo $idpersonaid; ?>"})
+         .done(function( data ) {
+            $("#primeravisita").html(data);
          });
 
          // ENCABEZADO, PRIMER TAB Y BOTON DE FINALIZAR CONSULTA
@@ -368,134 +477,6 @@
        .done(function( data ) {
          $("#bl").html(data);
        });
-    // $(".click").click(function(event) {
-    //     var control = $("#controls").children().find('.active').attr('id');
-    //     var cuadro = $(this).find("input[name=cuadro]:hidden").val();
-    //     console.log($(this).attr('id'))
-    //     switch (control) {
-    //         case "fractura":
-    //             if ($(this).hasClass("click-blue")) {
-    //                 $(this).removeClass('click-blue');
-    //                 $(this).addClass('click-red');
-    //             } else {
-    //                 if ($(this).hasClass("click-red")) {
-    //                     $(this).removeClass('click-red');
-    //                 } else {
-    //                     $(this).addClass('click-red');
-    //                 }
-    //             }
-    //             break;
-    //         case "restauracion":
-    //             if ($(this).hasClass("click-red")) {
-    //                 $(this).removeClass('click-red');
-    //                 $(this).addClass('click-blue');
-    //             } else {
-    //                 if ($(this).hasClass("click-blue")) {
-    //                     $(this).removeClass('click-blue');
-    //                 } else {
-    //                     $(this).addClass('click-blue');
-    //                 }
-    //             }
-    //             break;
-    //         case "extraccion":
-    //             var dientePosition = $(this).position();
-    //             console.log($(this))
-    //             console.log(dientePosition)
-    //             $(this).parent().children().each(function(index, el) {
-    //                 if ($(el).hasClass("click")) {
-    //                     $(el).addClass('click-delete');
-    //                 }
-    //             });
-    //             break;
-    //         case "extraer":
-    //             var dientePosition = $(this).position();
-    //             console.log($(this))
-    //             console.log(dientePosition)
-    //             $(this).parent().children().each(function(index, el) {
-    //                 if ($(el).hasClass("centro") || $(el).hasClass("centro-leche")) {
-    //                     $(this).parent().append('<i style="color:red;" class="fa fa-times fa-3x fa-fw"></i>');
-    //                     if ($(el).hasClass("centro")) {
-    //                         //console.log($(this).parent().children("i"))
-    //                         $(this).parent().children("i").css({
-    //                             "position": "absolute",
-    //                             "top": "24%",
-    //                             "left": "18.58ex"
-    //                         });
-    //                     } else {
-    //                         $(this).parent().children("i").css({
-    //                             "position": "absolute",
-    //                             "top": "21%",
-    //                             "left": "1.2ex"
-    //                         });
-    //                     }
-    //                     //
-    //                 }
-    //             });
-    //             break;
-    //         case "puente":
-    //             var dientePosition = $(this).offset(), leftPX;
-    //             console.log($(this)[0].offsetLeft)
-    //             var noDiente = $(this).parent().children().first().text();
-    //             var cuadrante = $(this).parent().parent().attr('id');
-    //             var left = 0,
-    //                 width = 0;
-    //             if (arrayPuente.length < 1) {
-    //                 $(this).parent().children('.cuadro').css('border-color', 'red');
-    //                 arrayPuente.push({
-    //                     diente: noDiente,
-    //                     cuadrante: cuadrante,
-    //                     left: $(this)[0].offsetLeft,
-    //                     father: null
-    //                 });
-    //             } else {
-    //                 $(this).parent().children('.cuadro').css('border-color', 'red');
-    //                 arrayPuente.push({
-    //                     diente: noDiente,
-    //                     cuadrante: cuadrante,
-    //                     left: $(this)[0].offsetLeft,
-    //                     father: arrayPuente[0].diente
-    //                 });
-    //                 var diferencia = Math.abs((parseInt(arrayPuente[1].diente) - parseInt(arrayPuente[1].father)));
-    //                 if (diferencia == 1) width = diferencia * 60;
-    //                 else width = diferencia * 50;
-
-    //                 if(arrayPuente[0].cuadrante == arrayPuente[1].cuadrante) {
-    //                     if(arrayPuente[0].cuadrante == 'tr' || arrayPuente[0].cuadrante == 'tlr' || arrayPuente[0].cuadrante == 'br' || arrayPuente[0].cuadrante == 'blr') {
-    //                         if (arrayPuente[0].diente > arrayPuente[1].diente) {
-    //                             console.log(arrayPuente[0])
-    //                             leftPX = (parseInt(arrayPuente[0].left)+10)+"px";
-    //                         }else {
-    //                             leftPX = (parseInt(arrayPuente[1].left)+10)+"px";
-    //                             //leftPX = "45px";
-    //                         }
-    //                     }else {
-    //                         if (arrayPuente[0].diente < arrayPuente[1].diente) {
-    //                             leftPX = "-45px";
-    //                         }else {
-    //                             leftPX = "45px";
-    //                         }
-    //                     }
-    //                 }
-    //                 console.log(leftPX)
-    //                 /*$(this).parent().append('<div style="z-index: 9999; height: 5px; width:' + width + 'px;" id="puente" class="click-red"></div>');
-    //                 $(this).parent().children().last().css({
-    //                     "position": "absolute",
-    //                     "top": "80px",
-    //                     "left": "50px"
-    //                 });*/
-    //                 $(this).parent().append('<div style="z-index: 9999; height: 5px; width:' + width + 'px;" id="puente" class="click-red"></div>');
-    //                 $(this).parent().children().last().css({
-    //                     "position": "absolute",
-    //                     "top": "80px",
-    //                     "left": leftPX
-    //                 });
-    //             }
-    //             break;
-    //         default:
-    //             console.log("borrar case");
-    //     }
-    //     return false;
-    // });
-    // return false;
+   
     });
 </script>

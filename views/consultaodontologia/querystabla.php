@@ -273,9 +273,8 @@ $querytablaprocedimientos = "SELECT ep.IdEnfermeriaProcedimiento As 'ID', CONCAT
        order by ep.IdEnfermeriaProcedimiento DESC";
 $resultadotablaprocedimientos = $mysqli->query($querytablaprocedimientos);
 
-$numero = 0;
-$querytablaplantratamiento = "SET @numero=0;";
-$querytablaplantratamiento = "SELECT DP.DescripcionProcedimiento, D.Diente, DPO.Posicion FROM dienteortogramadetalle DOD
+//TABLA PARA CARGAR PLAN DE TRATAMIENTO SELECCIONADO POR EL CAREOGRAMA
+$querytablaplantratamiento = "SELECT CONCAT(UPPER(LEFT(D.Diente, 1)), LOWER(SUBSTRING(D.Diente, 2))) AS 'Diente', DP.DescripcionProcedimiento, DPO.NombrePosicion FROM dienteortogramadetalle DOD
       INNER JOIN dienteortograma DO ON DO.IdDienteOrtograma = DOD.IdDienteOrtograma
       INNER JOIN dienteprocedimiento DP ON DOD.IdDienteProcedimiento = DP.IdDienteProcedimiento
       INNER JOIN dienteposicion DPO ON DPO.IdDientePosicion = DOD.IdDientePosicion
@@ -284,5 +283,11 @@ $querytablaplantratamiento = "SELECT DP.DescripcionProcedimiento, D.Diente, DPO.
       WHERE DO.IdPersona = $idpersonaid AND DP.IdDienteProcedimiento > 1
       ORDER BY DPO.IdDientePosicion ASC";
 $resultadotablaplantratamiento = $mysqli->query($querytablaplantratamiento);
+
+//TABLA PARA CARGAR PLAN DE TRATAMIENTO GUARDADO EN LA BASE DE DATOS
+$querytablaplantratamientohistorico = "SELECT DPT.IdPlanTratamiento ,CONCAT(P.Nombres,' ',P.Apellidos) as 'NombreCompleto', DPT.Fecha, DPT.Hora FROM dienteplantratamiento DPT
+INNER JOIN PERSONA P ON P.IdPersona = DPT.IdPersona
+WHERE DPT.IdPersona =  $idpersonaid";
+$resultadotablaplantratamientohistorico = $mysqli->query($querytablaplantratamientohistorico);
 
 ?>

@@ -41,7 +41,11 @@ class ConsultaOdontologiaSearch extends Consulta
      */
     public function search($params)
     {
-        $query = Consulta::find();
+        $query = Consulta::find()
+        ->where([
+                '=','IdEstado', 7])
+        ->andWhere([
+                '=','Activo', 1]);  // FALTA AGREGAR LA VALIDACION DEL USUARIO.
 
         // add conditions that should always apply here
 
