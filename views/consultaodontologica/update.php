@@ -8,7 +8,7 @@ include '../include/dbconnect.php';
 $this->title = $model->fullName;
 $this->params['breadcrumbs'][] = ['label' => 'Pacientes', 'url' => ['index']];
 $this->params['breadcrumbs'][] = 'Nueva Consulta';
-
+include 'querystabla.php';
 $id = $model->IdPersona;
 $queryexpedientes = "SELECT * FROM persona WHERE IdPersona  = '$id'";
 $resultadoexpedientes = $mysqli->query($queryexpedientes);
@@ -88,7 +88,61 @@ while ($test = $resultadoexpedientes->fetch_assoc())
 			</div>
 			<div class="ibox-content">
 				<h3 class="box-title" id=''></h3>
+        NOTIFICACIONES:
+            <?php if ($direccion == 'ACTUALIZADO') {
+            ?>
+               <div class="alert alert-danger alert-dismissible" hidden='hidden'>
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>Atencion!</strong> <?php echo $direccion; ?>
+               </div>
+            <?php
+            } else if ($direccion == 'ACTUALIZAR DIRECCION') {
+            ?>
+               <div class="alert alert-danger alert-dismissible">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>Atencion!</strong> <?php echo $direccion; ?>
+               </div>
+            <?php
+            } ?>
 
+            <?php if ($responsable == 'ACTUALIZADO') {
+            ?>
+               <div class="alert alert-danger alert-dismissible " hidden='hidden'>
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>Atencion!</strong> <?php echo $responsable; ?>
+               </div>
+            <?php
+            } else if ($responsable == 'FECHA DE NACIMIENTO SIN REGISTRARSE') {
+            ?>
+               <div class="alert alert-danger alert-dismissible">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>Atencion!</strong> <?php echo $responsable; ?>
+               </div>
+            <?php
+            } else if ($responsable == 'ACTUALIZAR RESPONSABLE') {
+            ?>
+               <div class="alert alert-danger alert-dismissible">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>Atencion!</strong> <?php echo $responsable; ?>
+               </div>
+            <?php
+            } ?>
+
+            <?php if ($genero == 'ACTUALIZADO') {
+            ?>
+               <div class="alert alert-danger alert-dismissible" hidden="hidden">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>Atencion!</strong> <?php echo $genero; ?>
+               </div>
+            <?php
+            } else if ($genero == 'ACTUALIZAR GENERO') {
+            ?>
+               <div class="alert alert-danger alert-dismissible">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>Atencion!</strong> <?php echo $genero; ?>
+               </div>
+            <?php
+            } ?>
 			</div>
 		</div>
 	</div>

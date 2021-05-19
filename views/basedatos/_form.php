@@ -15,14 +15,15 @@ use yii\widgets\ActiveForm;
   <?php $form = ActiveForm::begin(); ?>
   <form class="form-horizontal">
   <div class="form-group">
-        <?= $form->field($model, 'IdLimpiarTabla')->textInput() ?>
+        <!-- <?= $form->field($model, 'IdLimpiarTabla')->textInput() ?> -->
 
     <?= $form->field($model, 'Query')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'Orden')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'Activo')->textInput(['maxlength' => true]) ?>
+    <!-- <?= $form->field($model, 'Activo')->textInput(['maxlength' => true]) ?> -->
 
+    <?= $form->field($model, 'Activo')->checkbox() ?>
    </div>
     <div class="form-group" align="right">
         <?= Html::submitButton($model->isNewRecord ? 'Ingresar' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-primary' : 'btn btn-warning']) ?>

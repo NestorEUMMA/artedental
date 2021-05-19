@@ -64,21 +64,13 @@
 <?php endif; ?>
 <!-- LLAMAMOS LOS CSS DEL FORMULARIO -->
 <?php include 'styles.php' ?>
+<link href="../css/base.css" rel="stylesheet">
 <div class="row">
    <div class="col-md-12">
       <div class="ibox float-e-margins">
          <div class="ibox-title">
             <h3>EXPEDIENTE DE: <?= Html::encode($this->title) ?></h3>
             <br>
-            <!-- <center>
-               <button type="button" class="btn  btn-danger dim" data-toggle="modal" data-target="#modalGuardarDiagnostico">+ CONSULTA<i class="fa fa-heart"></i></button>
-               <button type="button" class="btn  btn-success dim" data-toggle="modal" data-target="#modalGuardarImagenExamen">CONSULTAS <i class="fa fa-file-pdf-o"></i></button>
-               <button type="button" class="btn  btn-success dim" data-toggle="modal" data-target="#modalGuardarImagenExamen">EXAMENES <i class="fa fa-file-pdf-o"></i></button>
-               <button type="button" class="btn  btn-success dim" data-toggle="modal" data-target="#modalCargarProcedimientoIma">PROCEDIMIENTOS <i class="fa fa-file-pdf-o"></i></button>
-               <button type="button" class="btn  btn-success dim" data-toggle="modal" data-target="#modalCargarPediatriaIma">PEDIATRIA <i class="fa fa-file-pdf-o"></i></button>
-               <button type="button" class="btn  btn-success dim" data-toggle="modal" data-target="#modalCargarGinecologiaIma">GINECOLOGIA <i class="fa fa-file-pdf-o"></i></button>
-               <button type="button" class="btn  btn-success dim" data-toggle="modal" data-target="#modalCargarRecetasIma">RECETAS <i class="fa fa-file-pdf-o"></i></button>
-               </center> -->
             <br>
          </div>
          </br>
@@ -141,9 +133,6 @@
                   <ul class="nav nav-tabs">
                      <li class="active"><a data-toggle="tab" href="#tab-1">DATOS GENERALES</a></li>
                      <li class=""><a data-toggle="tab" href="#tab-2">CONSULTAS</a></li>
-                     <!-- <li class=""><a data-toggle="tab" href="#tab-3">EXAMENES</a></li>
-                        <li class=""><a data-toggle="tab" href="#tab-4">PROCEDIMIENTOS</a></li>
-                        <li class=""><a data-toggle="tab" href="#tab-5">CARGAS PDF</a></li> -->
                      <li class=""><a data-toggle="tab" href="#tab-6">CAREOGRAMA</a></li>
                   </ul>
                   <div class="tab-content">
@@ -171,25 +160,8 @@
                                                 'value' => $edad,
                                              ],
                                              'Direccion',
-                                             //'Dui',
                                              'Correo',
-                                             // [
-                                             //    'attribute' => 'Pais',
-                                             //    'format' => 'raw',
-                                             //    'value' => $Pais,
-                                             // ],
-                                             // [
-                                             //    'attribute' => 'Municipio',
-                                             //    'format' => 'raw',
-                                             //    'value' => $Municipio,
-                                             // ],
-                                             // [
-                                             //    'attribute' => 'Departamento',
-                                             //    'format' => 'raw',
-                                             //    'value' => $Departamento,
-                                             // ],
                                              'Genero',
-                                             //'estadoCivil.Nombre',
                                              'Telefono',
                                              'Celular',
                                              'CodigoPaciente',
@@ -200,24 +172,12 @@
                                     <center>
                                        <div id="barcode"></div>
                                     </center>
-                                    <!-- <h3> DATOS MEDICOS </h3>
-                                       <table class="table table-hover">
-                                          <?= DetailView::widget([
-                                          'model' => $model,
-                                          'attributes' => [
-                                             'Alergias',
-                                             'Medicamentos',
-                                             'Enfermedad',
-                                          ],
-                                          ]) ?>
-                                       </table> -->
                                     <h3> DATOS RESPONSABLE</h3>
                                     <table class="table table-hover">
                                        <?= DetailView::widget([
                                           'model' => $model,
                                           'attributes' => [
                                              'TelefonoResponsable',
-                                             //'Categoria',
                                              'NombresResponsable',
                                              'ApellidosResponsable',
                                              'Parentesco',
@@ -232,8 +192,8 @@
                               </div>
                               <div id="tab-12" class="tab-pane">
                                  <div class="panel-body">
-                                 <br>
-                                   <div class="panel-body">
+                                    <br>
+                                    <div class="panel-body">
                                        <h4>GESTACION</h4>
                                        <div id="gestacion"></div>
                                     </div>
@@ -268,7 +228,7 @@
                                     <div class="panel-body">
                                        <h4>PRIMERA VISITA</h4>
                                        <div id="primeravisita"></div>
-                                    </div>  
+                                    </div>
                                  </div>
                               </div>
                            </div>
@@ -279,8 +239,6 @@
                         <div class="tabs-container">
                            <ul class="nav nav-tabs">
                               <li class="active"><a data-toggle="tab" href="#tab-52">CONSULTAS GENERAL</a></li>
-                              <!-- <li class=""><a data-toggle="tab" href="#tab-62">CONSULTA PEDIATRICA</a></li>
-                                 <li class=""><a data-toggle="tab" href="#tab-72">CONSULTA GINECOLOGICA</a></li> -->
                               <li class=""><a data-toggle="tab" href="#tab-82">PLAN DE TRATAMIENTO</a></li>
                            </ul>
                            <div class="tab-content">
@@ -295,101 +253,34 @@
                                           <?php
                                              echo "<thead>";
                                              echo "<tr>";
-                                             echo "<th id='tab2historialconsultabla1'>FECHA</th>";
-                                             echo "<th id='tab2historialconsultabla2'>PACIENTE</th>";
-                                             echo "<th id='tab2historialconsultabla3'>MEDICO</th>";
-                                             echo "<th id='tab2historialconsultabla4'>ESPECIALIDAD</th>";
-                                             echo "<th style = 'width:150px' id='tab2historialconsultabla5'>ACCION</th>";
+                                             echo "<th id=''>N°</th>";
+                                             echo "<th id=''>PACIENTE</th>";
+                                             echo "<th id=''>DORTOR</th>";
+                                             echo "<th id=''>ESPECIALIDAD</th>";
+                                             echo "<th id=''>FECHA</th>";
+                                             echo "<th style = 'width:150px' id=''>ACCION</th>";
                                              echo "</tr>";
                                              echo "</thead>";
                                              echo "<tbody>";
-                                             while ($row = $resultadotablaconsulta->fetch_assoc()) {
-                                                $idSignosVitales = $row['IdConsulta'];
-                                                echo "<tr>";
-                                                echo "<td>" . $row['FechaConsulta'] . "</td>";
-                                                echo "<td>" . $row['Paciente'] . "</td>";
-                                                echo "<td>" . $row['Medico'] . "</td>";
-                                                echo "<td>" . $row['Especialidad'] . "</td>";
-                                                echo "<td>" .
-                                                   "<span id='btn" . $idSignosVitales . "' style='width:140px' class='btn  btn-success btn-mdl'> Ver Consulta</span>" .
-                                                   "</td>";
-                                             }
-                                             echo "</tr>";
-                                             echo "</body>  ";
-                                             ?>
-                                       </table>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div id="tab-62" class="tab-pane">
-                                 <div class="panel-body">
-                                    <div class="box-header with-border">
-                                       <h3 class="box-title" id='tab2historialexamabla1'>CONSULTA PEDIATRICA</h3>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                       <table id="example2" class="table table-bordered table-hover">
-                                          <?php
-                                             echo "<thead>";
-                                             echo "<tr>";
-                                             echo "<th id='tab2historialconsultabla1'>FECHA</th>";
-                                             echo "<th id='tab2historialconsultabla2'>PACIENTE</th>";
-                                             echo "<th id='tab2historialconsultabla3'>MEDICO</th>";
-                                             echo "<th id='tab2historialconsultabla4'>ESPECIALIDAD</th>";
-                                             echo "<th style = 'width:150px' id='tab2historialconsultabla5'>ACCION</th>";
-                                             echo "</tr>";
-                                             echo "</thead>";
-                                             echo "<tbody>";
-                                             while ($row = $resultadotablaconsultapediatria->fetch_assoc()) {
-                                                $idSignosVitales = $row['IdConsulta'];
-                                                echo "<tr>";
-                                                echo "<td>" . $row['FechaConsulta'] . "</td>";
-                                                echo "<td>" . $row['Paciente'] . "</td>";
-                                                echo "<td>" . $row['Medico'] . "</td>";
-                                                echo "<td>" . $row['Especialidad'] . "</td>";
-                                                echo "<td>" .
-                                                   "<span id='btn" . $idSignosVitales . "' style='width:140px' class='btn  btn-success btn-mdl'> Ver Consulta</span>" .
-                                                   "</td>";
-                                             }
-                                             echo "</tr>";
-                                             echo "</body>  ";
-                                             ?>
-                                       </table>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div id="tab-72" class="tab-pane">
-                                 <div class="panel-body">
-                                    <div class="box-header with-border">
-                                       <h3 class="box-title" id='tab2historialexamabla1'>CONSULTA GINECOLOGICA</h3>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                       <table id="example2" class="table table-bordered table-hover">
-                                          <?php
-                                             echo "<thead>";
-                                             echo "<tr>";
-                                             echo "<th id='tab2historialconsultabla1'>FECHA</th>";
-                                             echo "<th id='tab2historialconsultabla2'>PACIENTE</th>";
-                                             echo "<th id='tab2historialconsultabla3'>MEDICO</th>";
-                                             echo "<th id='tab2historialconsultabla4'>ESPECIALIDAD</th>";
-                                             echo "<th style = 'width:150px' id='tab2historialconsultabla5'>ACCION</th>";
-                                             echo "</tr>";
-                                             echo "</thead>";
-                                             echo "<tbody>";
-                                             while ($row = $resultadotablaconsultaginecologia->fetch_assoc()) {
-                                                $idSignosVitales = $row['IdConsulta'];
-                                                echo "<tr>";
-                                                echo "<td>" . $row['FechaConsulta'] . "</td>";
-                                                echo "<td>" . $row['Paciente'] . "</td>";
-                                                echo "<td>" . $row['Medico'] . "</td>";
-                                                echo "<td>" . $row['Especialidad'] . "</td>";
-                                                echo "<td>" .
-                                                   "<span id='btn" . $idSignosVitales . "' style='width:140px' class='btn  btn-success btn-mdl'> Ver Consulta</span>" .
-                                                   "</td>";
-                                             }
-                                             echo "</tr>";
-                                             echo "</body>  ";
+                                             $nr = 0;
+                                                while ($row = $resultadotablaconsulta->fetch_assoc()) {
+                                                   $nr ++;
+                                                   $IdConsulta = $row['IdConsulta'];
+                                                   echo "<tr>";
+                                                   echo "<td>".$nr."</td>";
+                                                   echo "<td>" . $row['Paciente'] . "</td>";
+                                                   echo "<td>" . $row['Medico'] . "</td>";
+                                                   echo "<td>" . $row['Especialidad'] . "</td>";
+                                                   echo "<td>" . $row['FechaConsulta'] . "</td>";
+                                                   echo "<td width='100'>" .
+                                                      "<span id='btn" . $IdConsulta . "' class='btn-xs btn-success btn-cargarconsulta'><i class='fa fa-search'></i></span>" .
+                                                      "</td>";
+                                                   }
+                                             
+                                                   echo "</tr>";
+                                                   echo "</body>  ";
+                                                
+                                             
                                              ?>
                                        </table>
                                     </div>
@@ -406,24 +297,26 @@
                                           <?php
                                              echo "<thead>";
                                              echo "<tr>";
-                                             echo "<th id='tab2historialconsultabla1'>FECHA</th>";
-                                             echo "<th id='tab2historialconsultabla2'>PACIENTE</th>";
-                                             echo "<th id='tab2historialconsultabla3'>MEDICO</th>";
-                                             echo "<th id='tab2historialconsultabla4'>ESPECIALIDAD</th>";
-                                             echo "<th style = 'width:150px' id='tab2historialconsultabla5'>ACCION</th>";
+                                             echo "<th id=''>N°</th>";
+                                             echo "<th id=''>PACIENTE</th>";
+                                             echo "<th id=''>FECHA</th>";
+                                             echo "<th id=''>HORA</th>";
+                                             echo "<th id=''>ACCION</th>";
                                              echo "</tr>";
                                              echo "</thead>";
                                              echo "<tbody>";
-                                             while ($row = $resultadotablaconsultaginecologia->fetch_assoc()) {
-                                                $idSignosVitales = $row['IdConsulta'];
+                                             $nr = 0;
+                                             while ($row = $resultadotablaplantratamientohistorico->fetch_assoc()) {
+                                                $nr ++;
+                                                $IdPlanTratamiento = $row['IdPlanTratamiento'];
                                                 echo "<tr>";
-                                                echo "<td>" . $row['FechaConsulta'] . "</td>";
-                                                echo "<td>" . $row['Paciente'] . "</td>";
-                                                echo "<td>" . $row['Medico'] . "</td>";
-                                                echo "<td>" . $row['Especialidad'] . "</td>";
-                                                echo "<td>" .
-                                                   "<span id='btn" . $idSignosVitales . "' style='width:140px' class='btn  btn-success btn-mdl'> Ver Consulta</span>" .
-                                                   "</td>";
+                                                echo "<td>".$nr."</td>";
+                                                echo "<td>".$row['NombreCompleto']."</td>";
+                                                echo "<td>".$row['Fecha']."</td>";
+                                                echo "<td>".$row['Hora']."</td>";
+                                                echo "<td width='100'>" .
+                                                "<span id='btn" . $IdPlanTratamiento . "' class='btn-xs btn-success btn-histver'><i class='fa fa-search'></i></span>" .
+                                                "</td>";
                                              }
                                              echo "</tr>";
                                              echo "</body>  ";
@@ -435,277 +328,59 @@
                            </div>
                         </div>
                      </div>
-                     <!-- TAB DE HISTORIAL DE EXAMENES (REVISAR PORQUE ESTA COMENTAREADO) -->
-                     <div id="tab-3" class="tab-pane">
-                        <div class="panel-body">
-                           <div class="box-header with-border">
-                              <h3 class="box-title" id='tab2historialexamabla1'>HISTORIAL DE EXAMENES</h3>
-                           </div>
-                           <!-- /.box-header -->
-                           <div class="box-body">
-                              <table id="example2" class="table table-bordered table-hover">
-                                 <?php
-                                    echo "<thead>";
-                                    echo "<tr>";
-                                    echo "<th id='tab2historialexamabla2'>FECHA</th>";
-                                    echo "<th id='tab2historialexamabla3'>PACIENTE</th>";
-                                    echo "<th id='tab2historialexamabla4'>MEDICOS</th>";
-                                    echo "<th id='tab2historialexamabla5'>EXAMEN</th>";
-                                    echo "<th style = 'width:150px' id='tab2historialexamabla6'>ACCION</th>";
-                                    echo "</tr>";
-                                    echo "</thead>";
-                                    echo "<tbody>";
-                                    while ($row = $resultadotablaexamenes->fetch_assoc()) {
-                                       $IdListaExamen = $row['IdListaExamen'];
-                                       echo "<tr>";
-                                       echo "<td>" . $row['Fecha'] . "</td>";
-                                       echo "<td>" . $row['Paciente'] . "</td>";
-                                       echo "<td>" . $row['Medico'] . "</td>";
-                                       echo "<td>" . $row['Examen'] . "</td>";
-                                       echo "<td>" .
-                                          "<span id='btn" . $IdListaExamen . "' style='width:140px' class='btn btn-md btn-success btn-mdlrex'>Ver Resultados</span>" .
-                                          "</td>";
-                                       echo "</tr>";
-                                       echo "</body>  ";
-                                    }
-                                    ?>
-                              </table>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- TAB DE HISTORIAL DE PROCEDIMIENTOS (REVISAR PORQUE ESTA COMENTAREADO) -->
-                     <div id="tab-4" class="tab-pane">
-                        <div class="panel-body">
-                           <div class="box-header with-border">
-                              <h3 class="box-title" id='tab2historialexamabla1'>HISTORIAL DE PROCEDIMIENTOS</h3>
-                           </div>
-                           <!-- /.box-header -->
-                           <div class="box-body">
-                              <table id="example2" class="table table-bordered table-hover">
-                                 <?php
-                                    echo "<thead>";
-                                    echo "<tr>";
-                                    echo "<th id='tab2historialexamabla2'>FECHA</th>";
-                                    echo "<th id='tab2historialexamabla3'>PACIENTE</th>";
-                                    echo "<th id='tab2historialexamabla4'>MEDICOS</th>";
-                                    echo "<th id='tab2historialexamabla5'>EXAMEN</th>";
-                                    echo "<th style = 'width:150px' id='tab2historialexamabla6'>ACCION</th>";
-                                    echo "</tr>";
-                                    echo "</thead>";
-                                    echo "<tbody>";
-                                    while ($row = $resultadotablaexamenes->fetch_assoc()) {
-                                       $IdListaExamen = $row['IdListaExamen'];
-                                       echo "<tr>";
-                                       echo "<td>" . $row['Fecha'] . "</td>";
-                                       echo "<td>" . $row['Paciente'] . "</td>";
-                                       echo "<td>" . $row['Medico'] . "</td>";
-                                       echo "<td>" . $row['Examen'] . "</td>";
-                                       echo "<td>" .
-                                          "<span id='btn" . $IdListaExamen . "' style='width:140px' class='btn btn-md btn-success btn-mdlrex'>Ver Resultados</span>" .
-                                          "</td>";
-                                       echo "</tr>";
-                                       echo "</body>  ";
-                                    }
-                                    ?>
-                              </table>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- TAB DE CARGA EXPEDIENTE POR PDF -->
-                     <div id="tab-5" class="tab-pane">
-                        <div class="tabs-container">
-                           <ul class="nav nav-tabs">
-                              <li class="active"><a data-toggle="tab" href="#tab-51">CONSULTAS PDF</a></li>
-                              <li class=""><a data-toggle="tab" href="#tab-61">PROCEDIMIENTOS PDF</a></li>
-                              <li class=""><a data-toggle="tab" href="#tab-71">PEDIATRIA PDF</a></li>
-                              <li class=""><a data-toggle="tab" href="#tab-81">GINECOLOGIA PDF</a></li>
-                              <li class=""><a data-toggle="tab" href="#tab-91">EXAMENES PDF</a></li>
-                              <li class=""><a data-toggle="tab" href="#tab-101">RECETAS PDF</a></li>
-                           </ul>
-                           <div class="tab-content">
-                              <div id="tab-51" class="tab-pane active">
-                                 <div class="panel-body">
-                                    <div class="box-header with-border">
-                                       <h3 class="box-title" id='tab2historialexamabla1'>CONSULTAS EN PDF</h3>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                       <table class="table table-bordered table-hover">
-                                          <!-- https://chrome.google.com/webstore/detail/enable-local-file-links/nikfmfgobenbhmocjaaboihbeocackld/related?hl=en -->
-                                          <?php
-                                             echo "<thead>";
-                                             echo "<tr>";
-                                             echo "<th id=''>FECHA</th>";
-                                             echo "<th id=''>URL</th>";
-                                             echo "<th style = 'width:150px' id=''>ACCION</th>";
-                                             echo "</tr>";
-                                             echo "</thead>";
-                                             echo "<tbody>";
-                                             while ($row = $resultadotablaconsultasima->fetch_assoc()) {
-                                                $urlprueba = $row['Consultaimaurl'];
-                                                echo "<tr>";
-                                                echo "<td>" . $row['FechaConsulta'] . "</td>";
-                                                echo "<td>" . $row['Consultaimaurl'] . "</td>";
-                                                echo "<td>" .
-                                                   "<a href='file://///" . $ip . "/" . $unidad . "/" . $row['Consultaimaurl'] . "'  target='_blank'>Ver</a>" .
-                                                   "</td>";
-                                                echo "</tr>";
-                                                echo "</body>  ";
-                                             }
-                                             ?>
-                                       </table>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div id="tab-61" class="tab-pane">
-                                 <div class="panel-body">
-                                    <div class="box-header with-border">
-                                       <h3 class="box-title" id='tab2historialexamabla1'>PROCEDIMIENTOS EN PDF</h3>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                       <table id="example2" class="table table-bordered table-hover">
-                                          <?php
-                                             echo "<thead>";
-                                             echo "<tr>";
-                                             echo "<th id=''>FECHA</th>";
-                                             echo "<th id=''>URL</th>";
-                                             echo "<th style = 'width:150px' id=''>ACCION</th>";
-                                             echo "</tr>";
-                                             echo "</thead>";
-                                             echo "<tbody>";
-                                             while ($row = $resultadotablaprocedimientoima->fetch_assoc()) {
-                                                $IdEnfermeriaProcedimiento = $row['IdEnfermeriaProcedimiento'];
-                                                echo "<tr>";
-                                                echo "<td>" . $row['FechaProcedimiento'] . "</td>";
-                                                echo "<td>" . $row['Procedimientoimaurl'] . "</td>";
-                                                echo "<td>" .
-                                                   "<a href='file://///" . $ip . "/" . $unidad . "/" . $row['Procedimientoimaurl'] . "'  target='_blank'>Ver</a>" .
-                                                   "</td>";
-                                                echo "</tr>";
-                                                echo "</body>  ";
-                                             }
-                                             ?>
-                                       </table>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div id="tab-71" class="tab-pane">
-                                 <div class="panel-body">
-                                    <div class="box-header with-border">
-                                       <h3 class="box-title" id='tab2historialexamabla1'>PEDIATRIA EN PDF</h3>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                       <table id="example2" class="table table-bordered table-hover">
-                                          <?php
-                                             echo "<thead>";
-                                             echo "<tr>";
-                                             echo "<th id=''>FECHA</th>";
-                                             echo "<th id=''>URL</th>";
-                                             echo "<th style = 'width:150px' id=''>ACCION</th>";
-                                             echo "</tr>";
-                                             echo "</thead>";
-                                             echo "<tbody>";
-                                             while ($row = $resultadotablaconsultasimaped->fetch_assoc()) {
-                                                $urlprueba = $row['Consultaimaurl'];
-                                                echo "<tr>";
-                                                echo "<td>" . $row['FechaConsulta'] . "</td>";
-                                                echo "<td>" . $row['Consultaimaurl'] . "</td>";
-                                                echo "<td>" .
-                                                   "<a href='file://///" . $ip . "/" . $unidad . "/" . $row['Consultaimaurl'] . "'  target='_blank'>Ver</a>" .
-                                                   "</td>";
-                                                echo "</tr>";
-                                                echo "</body>  ";
-                                             }
-                                             ?>
-                                       </table>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div id="tab-81" class="tab-pane">
-                                 <div class="panel-body">
-                                    <div class="box-header with-border">
-                                       <h3 class="box-title" id='tab2historialexamabla1'>GINECOLOGIA EN PDF</h3>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                       <table id="example2" class="table table-bordered table-hover">
-                                          <?php
-                                             echo "<thead>";
-                                             echo "<tr>";
-                                             echo "<th id=''>FECHA</th>";
-                                             echo "<th id=''>URL</th>";
-                                             echo "<th style = 'width:150px' id=''>ACCION</th>";
-                                             echo "</tr>";
-                                             echo "</thead>";
-                                             echo "<tbody>";
-                                             while ($row = $resultadotablaconsultasgineco->fetch_assoc()) {
-                                                $urlprueba = $row['Consultaimaurl'];
-                                                echo "<tr>";
-                                                echo "<td>" . $row['FechaConsulta'] . "</td>";
-                                                echo "<td>" . $row['Consultaimaurl'] . "</td>";
-                                                echo "<td>" .
-                                                   "<a href='file://///" . $ip . "/" . $unidad . "/" . $row['Consultaimaurl'] . "'  target='_blank'>Ver</a>" .
-                                                   "</td>";
-                                                echo "</tr>";
-                                                echo "</body>  ";
-                                             }
-                                             ?>
-                                       </table>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div id="tab-91" class="tab-pane">
-                                 <div class="panel-body">
-                                    <div class="box-header with-border">
-                                       <h3 class="box-title" id='tab2historialexamabla1'>EXAMENES EN PDF</h3>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                       <table id="example2" class="table table-bordered table-hover">
-                                       </table>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div id="tab-101" class="tab-pane">
-                                 <div class="panel-body">
-                                    <div class="box-header with-border">
-                                       <h3 class="box-title" id='tab2historialexamabla1'>RECETAS EN PDF</h3>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                       <table id="example2" class="table table-bordered table-hover">
-                                          <?php
-                                             echo "<thead>";
-                                             echo "<tr>";
-                                             echo "<th id=''>FECHA</th>";
-                                             echo "<th id=''>URL</th>";
-                                             echo "<th style = 'width:150px' id=''>ACCION</th>";
-                                             echo "</tr>";
-                                             echo "</thead>";
-                                             echo "<tbody>";
-                                             while ($row = $resultadotablarecetasima->fetch_assoc()) {
-                                                $urlprueba = $row['Consultaimaurl'];
-                                                echo "<tr>";
-                                                echo "<td>" . $row['Fecha'] . "</td>";
-                                                echo "<td>" . $row['Consultaimaurl'] . "</td>";
-                                                echo "<td>" .
-                                                   "<a href='file://///" . $ip . "/" . $unidad . "/" . $row['Consultaimaurl'] . "'  target='_blank'>Ver</a>" .
-                                                   "</td>";
-                                                echo "</tr>";
-                                                echo "</body>  ";
-                                             }
-                                             ?>
-                                       </table>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
                      <div id="tab-6" class="tab-pane">
-                        CAREOGRAMA
+                        <div class="row">
+                        <br>
+                        <br>
+                        <br>
+                           <div id="tr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                           </div>
+                           <div id="tl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                           </div>
+                           <div id="tlr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                           </div>
+                           <div id="tll" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div id="blr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                           </div>
+                           <div id="bll" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                           </div>
+                           <div id="br" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                           </div>
+                           <div id="bl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                              <div class="panel panel-default">
+                                 <div class="panel-body">
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+                                       <div style="height: 20px; width:20px; display:inline-block;"
+                                          class="click-red"></div>
+                                       = Fractura/Carie
+                                       <br>
+                                       <div style="height: 5px; width:20px; display:inline-block;"
+                                          class="click-red"></div>
+                                       = Puente Entre Piezas
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+                                       <div style="height: 20px; width:20px; display:inline-block;"
+                                          class="click-blue"></div>
+                                       = Obturación
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+                                       <span style="display:inline:block;"> Pieza Extraída</span> =
+                                       <img style="display:inline:block;"
+                                          src="../template/img/extraccion.png">
+                                       <br> Idicada Para Extracción = <i style="color:red;"
+                                          class="fa fa-times fa-2x"></i>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
                      </div>
                   </div>
                </div>
@@ -715,8 +390,8 @@
    </div>
 </div>
 <?php
-/* AGREGA TODOS LOS MODALES */
-include 'modal.php';
-/* AGREGA TODOS LOS SCRIPTS */
-include 'scripts.php';
-?>
+   /* AGREGA TODOS LOS MODALES */
+   include 'modal.php';
+   /* AGREGA TODOS LOS SCRIPTS */
+   include 'scripts.php';
+   ?>

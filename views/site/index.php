@@ -356,7 +356,9 @@ if (!empty($_SESSION['user'])) {
 
             // US Holidays
             events: 'radamanthys.eo@gmail.com',
-
+            //eventColor: 'red',
+            //eventTextColor: 'red',
+            eventBackgroundColor: 'white',
             eventClick: function(arg) {
                 // opens events in a popup window
                 window.open(arg.event.url, 'google-calendar-event', 'width=700,height=600');

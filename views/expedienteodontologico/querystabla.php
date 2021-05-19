@@ -3,7 +3,7 @@ $id = $model->IdPersona;
 $bc = $model->CodigoPaciente;
 
 
-$querydepartamentos = "SELECT IdPersona, TIMESTAMPDIFF(YEAR,FechaNacimiento,CURDATE()) AS EDAD, concat(Nombres,' ',Apellidos) as 'Nombre Completo',
+$querydepartamentos = "SELECT IdPersona, TIMESTAMPDIFF(YEAR,FechaNacimiento,CURDATE()) AS EDAD, concat(Nombres,' ',Apellidos) as 'NombreCompleto',
   CASE WHEN TIMESTAMPDIFF(YEAR,FechaNacimiento,CURDATE()) < 15 THEN 'PEDIATRIA'
      WHEN FechaNacimiento IS NULL THEN 'FECHA DE NACIMIENTO SIN REGISTRARSE' ELSE 'GENERAL' END AS 'CLASIFICACION',
   CASE WHEN Direccion = '' THEN 'ACTUALIZAR DIRECCION' ELSE 'ACTUALIZADO' END as 'DIRECCION',
@@ -18,6 +18,7 @@ while ($test = $resultadodepartamentos->fetch_assoc()) {
     $responsable = $test['RESPONSABLE'];
     $genero = $test['GENERO'];
     $edad = $test['EDAD'];
+    $nombrecompleto = $test['NombreCompleto'];
 }
 
 //OBTENER CONFIGURACION GENERAL
@@ -91,13 +92,13 @@ $resultadotablaenfermedad = $mysqli->query($querytablaenfermedad);
 
 // CONSULTA PARA CARGAR LA TABLA DE LAS CONSULTAS EN EL EXPEDIENTE DEL PACIENTE MEDICINA GENERAL
 $querytablaconsulta = "SELECT c.IdConsulta, c.FechaConsulta, CONCAT(u.Nombres,' ', u.Apellidos) As 'Medico',
-                                            CONCAT(p.Nombres,' ', p.Apellidos) As 'Paciente', m.NombreModulo As 'Especialidad', c.IdEstado as 'Estado'
-                                            FROM consulta c
-                                            INNER JOIN usuario u ON c.IdUsuario = u.IdUsuario
-                                            INNER JOIN modulo m ON c.IdModulo = m.IdModulo
-                                            INNER JOIN persona p ON c.IdPersona = p.IdPersona
-                                            WHERE c.Activo = 0 AND c.IdPersona = $idpersonaid and C.IdModulo = '$medgeneral' AND c.Consultaimaurl is null
-                                            ORDER BY c.FechaConsulta DESC";
+                          CONCAT(p.Nombres,' ', p.Apellidos) As 'Paciente', m.NombreModulo As 'Especialidad', c.IdEstado as 'Estado'
+                          FROM consulta c
+                          INNER JOIN usuario u ON c.IdUsuario = u.IdUsuario
+                          INNER JOIN modulo m ON c.IdModulo = m.IdModulo
+                          INNER JOIN persona p ON c.IdPersona = p.IdPersona
+                          WHERE c.Activo = 0 AND c.IdPersona = $idpersonaid
+                          ORDER BY c.FechaConsulta DESC";
 $resultadotablaconsulta = $mysqli->query($querytablaconsulta);
 
 
@@ -169,3 +170,21 @@ $resultadotipoexamen = $mysqli->query($querytipoexamen);
 $querytablaenfermedad2 = "SELECT IdEnfermedad, CONCAT(CodigoICD,' ',Nombre) AS 'Nombre'
                                             FROM enfermedad";
 $resultadotablaenfermedad2 = $mysqli->query($querytablaenfermedad2);
+
+
+//TABLA PARA CARGAR PLAN DE TRATAMIENTO SELECCIONADO POR EL CAREOGRAMA
+$querytablaplantratamiento = "SELECT CONCAT(UPPER(LEFT(D.Diente, 1)), LOWER(SUBSTRING(D.Diente, 2))) AS 'Diente', DP.DescripcionProcedimiento, DPO.NombrePosicion FROM dienteortogramadetalle DOD
+      INNER JOIN dienteortograma DO ON DO.IdDienteOrtograma = DOD.IdDienteOrtograma
+      INNER JOIN dienteprocedimiento DP ON DOD.IdDienteProcedimiento = DP.IdDienteProcedimiento
+      INNER JOIN dienteposicion DPO ON DPO.IdDientePosicion = DOD.IdDientePosicion
+      INNER JOIN diente D ON D.IdDiente = DPO.IdDiente
+      INNER JOIN persona P ON P.IdPersona = DO.IdPersona
+      WHERE DO.IdPersona = $idpersonaid AND DP.IdDienteProcedimiento > 1
+      ORDER BY DPO.IdDientePosicion ASC";
+$resultadotablaplantratamiento = $mysqli->query($querytablaplantratamiento);
+
+//TABLA PARA CARGAR PLAN DE TRATAMIENTO GUARDADO EN LA BASE DE DATOS
+$querytablaplantratamientohistorico = "SELECT DPT.IdPlanTratamiento ,CONCAT(P.Nombres,' ',P.Apellidos) as 'NombreCompleto', DPT.Fecha, DPT.Hora FROM dienteplantratamiento DPT
+INNER JOIN PERSONA P ON P.IdPersona = DPT.IdPersona
+WHERE DPT.IdPersona =  $idpersonaid";
+$resultadotablaplantratamientohistorico = $mysqli->query($querytablaplantratamientohistorico);

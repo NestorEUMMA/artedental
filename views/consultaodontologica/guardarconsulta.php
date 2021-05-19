@@ -11,7 +11,7 @@ session_start();
 
 		//AL MOMENTO DE ALMACENAR LA CONSULTA, EL IDESTADO SE GUARDA EN 1, ESO SIGNIFICA QUE NO TIENE ALMACENADOS SIGNOS VITALES
     $insertexpediente = "INSERT INTO consulta(IdUsuario,IdPersona,IdModulo,FechaConsulta, Activo, IdEstado)"
-                       . "VALUES ('$usuario','$persona','$modulo',now(), 1, 1)";
+                       . "VALUES ('$usuario','$persona','$modulo',now(), 1, 7)";
     $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
     $last_id = $mysqli->insert_id;
 

@@ -185,53 +185,6 @@ include  'styles.php';
                                        <div id="tab-7" class="tab-pane active">
                                           <div class="panel-body">
                                              <div class="row">
-                                                <br>
-                                                <!-- <div class="col-md-10 col-md-offset-1">
-                                                   <div class="">
-                                                      <div class="panel-body">
-                                                         <div class="btn-group" data-toggle="buttons">
-                                                            <div class="col-sm-2">
-                                                               <label id="fractura" class="btn btn-danger active">
-                                                                  <input type="radio" name="options" id="option1"
-                                                                     autocomplete="off" checked>Fractura</label>
-                                                            </div>
-                                                            <div class="col-sm-2">
-                                                               <label id="restauracion" class="btn btn-primary">
-                                                                  <input type="radio" name="options" id="option2"
-                                                                     autocomplete="off">Obturación
-                                                               </label>
-                                                            </div>
-                                                            <div class="col-sm-2">
-                                                               <label id="extraccion" class="btn btn-warning">
-                                                                  <input type="radio" name="options" id="option3"
-                                                                     autocomplete="off">Extracción
-                                                               </label>
-                                                            </div>
-                                                            <div class="col-sm-2">
-                                                               <label id="extraer" class="btn btn-warning">
-                                                                  <input type="radio" name="options" id="option4"
-                                                                     autocomplete="off">A Extraer
-                                                               </label>
-                                                            </div>
-                                                            <div class="col-sm-2">
-                                                               <label id="puente" class="btn btn-primary">
-                                                                  <input type="radio" name="options" id="option5"
-                                                                     autocomplete="off">Puente
-                                                               </label>
-                                                            </div>
-                                                            <div class="col-sm-2">
-                                                               <label id="borrar" class="btn btn-default">
-                                                                  <input type="radio" name="options" id="option6"
-                                                                     autocomplete="off">Borrar
-                                                               </label>
-                                                            </div>
-                                                         </div>
-                                                      </div>
-                                                   </div>
-                                                </div> -->
-                                                <!-- TR, TL, TLR, TLL TODO LO QUE ESTA DENTRO DE ESOS IDS SE SUSTITUYE CON 
-                                    LA FUNCION DE JAVA PARA REEMPLAZAR LA PALABRA INDEX POR EL NUMERO QUE LE CORRESPONDE DE LA FILA, LUEGO 
-                                    SE HACE UN BARRIDO HACIA ATRAS O HACIA ADELANTE, DEPENDIENDO DE COMO ESTE EN EL PDF DEL ORTOGRAMA  -->
                                                 <div id="tr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 </div>
                                                 <div id="tl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -251,7 +204,6 @@ include  'styles.php';
                                                 <div id="bl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 </div>
                                              </div>
-                                             <!-- HASTA AQUI TERMINA EL ORTOGRAMA -->
                                              <div class="row">
                                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                    <div class="panel panel-default">

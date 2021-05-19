@@ -64,6 +64,9 @@ $this->params['breadcrumbs'][] = $this->title;
           <form class="form-horizontal" action="../../views/configuraciongeneral/limpiarbase.php" method="POST">
             <button type="submit" class="btn  btn-danger dim"> LIMPIAR BASE DE DATOS <i class="fa fa-trash"></i></button>
           </form>
+          <!-- <form class="form-horizontal" action="../../views/configuraciongeneral/cargarortograma.php" method="POST">
+            <button type="submit" class="btn  btn-danger dim"> ORTOGRAMA <i class="fa fa-trash"></i></button>
+          </form> -->
         </center>
       </div>
     </div>

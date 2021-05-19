@@ -98,21 +98,12 @@
 #bll {
     border-left: 1px solid black;
 }
-/* .click-red {
-    background-color: red !important;
-}
 
-.click-blue {
-    background-color: blue;
-}
-
-.click-yellow {
-    background-color: yellow;
-}
-
-.click-delete {
-    background-color: #747F7D !important;
-} */
+@media screen and (max-width: 800px) {
+    .left, .main, .right {
+      width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+  }
 
 .kill {
     background-color: green;

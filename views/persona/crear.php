@@ -48,12 +48,7 @@
                   <div class="tabs-container">
                      <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#tab-1"> DATO GENERAL</a></li>
-                        <li class=""><a data-toggle="tab" href="#tab-2">RESPONSABLE</a></li>
-                        <!-- <li class=""><a data-toggle="tab" href="#tab-3">DATO MEDICO</a></li>
-                           <li class=""><a data-toggle="tab" href="#tab-4">SOCIOECONOMICO</a></li>
-                           <li class=""><a data-toggle="tab" href="#tab-5">HISTORIAL CLINICO</a></li> -->
                         <li class=""><a data-toggle="tab" href="#tab-6">EVALUACION DENTAL INFANTIL</a></li>
-                        <!-- <li class=""><a data-toggle="tab" href="#tab-7">ORTOGRAMA</a></li> -->
                         <li class="pull-right">
                            <button type="submit" class="btn btn-primary dim" name="guardarPaciente"><i class="fa fa-check"></i></button>
                         </li>
@@ -61,6 +56,7 @@
                      <div class="tab-content">
                         <div id="tab-1" class="tab-pane active">
                            <div class="panel-body">
+                           <h3> DATOS GENERALES </h3>
                               <div class="form-group">
                                  <label for="txtNombres" class="col-sm-1 control-label">Nombres</label>
                                  <div class="col-sm-5">
@@ -102,7 +98,7 @@
                                  <div class="col-sm-11">
                                     <div class="input-group">
                                        <div class="input-group-addon"><i class="fa fa-arrows"></i></div>
-                                       <input type="text" class="form-control" id="txtDireccion" name="txtDireccion" required="">
+                                       <input type="text" class="form-control" id="txtDireccion" name="txtDireccion">
                                     </div>
                                  </div>
                               </div>
@@ -129,10 +125,8 @@
                                     </div>
                                  </div>
                               </div>
-                           </div>
-                        </div>
-                        <div id="tab-2" class="tab-pane">
-                           <div class="panel-body">
+                              <br>
+                              <h3> RESPONSABLE </h3>
                               <div class="form-group">
                                  <label for="txtNombresResponsable" class="col-sm-1 control-label">Nombres</label>
                                  <div class="col-sm-5">

@@ -40,9 +40,9 @@
                         p.Medicamentos as 'Medicamentos',
                         p.Enfermedad as 'EnfermedadP'
                         FROM persona p
-                        INNER JOIN geografia g on p.IdGeografia = g.IdGeografia
-                        INNER JOIN estadocivil ec on p.IdEstadoCivil = ec.IdEstadoCivil
-                        INNER JOIN pais pa on p.IdPais = pa.IdPais
+                        LEFT JOIN geografia g on p.IdGeografia = g.IdGeografia
+                        LEFT JOIN estadocivil ec on p.IdEstadoCivil = ec.IdEstadoCivil
+                        LEFT JOIN pais pa on p.IdPais = pa.IdPais
                         WHERE p.IdPersona = $idpersona";
             $resultadoobtenerinformaciongeneral = $mysqli->query($queryobtenerinformaciongeneral);
             while ($test = $resultadoobtenerinformaciongeneral->fetch_assoc()) {
@@ -96,6 +96,15 @@
                     WHERE a.IdPersona=5993 and b.IdFactor=3";
              //echo  $queryfichaconsulta;
              $resultadoobtenervacunacion = $mysqli->query($queryobtenervacunacion);
+
+             $queryEmpresa = "SELECT NombreEmpresa, Direccion, Telefono from empresa where IdEmpresa = 1";
+
+            $resultadoEmpresa = $mysqli->query($queryEmpresa);
+            while ($test = $resultadoEmpresa->fetch_assoc()) {
+            $empresa = $test['NombreEmpresa'];
+            $direccion = $test['Direccion'];
+            $telefono = $test['Telefono'];
+            }
            
       ?>
    <body class="white-bg" >
@@ -111,10 +120,9 @@
                   <h2>FICHA DE PACIENTE</h2>
                   <small>
                      <address>
-                        <strong>ARTEDENTAL 4 KIDS</strong><br>
-                        Bo Concepción Cl José Mariano Calderón No 11, Stgo Texac<br>
-                        Santiago Texacuangos - La Libertad<br>
-                        <abbr title="Phone">P:</abbr> (503) 2220-8689
+                        <strong><?php echo $empresa ?></strong><br>
+                        <?php echo $direccion ?><br>
+                        <abbr title="Telefono">:</abbr> (503) <?php echo $telefono ?>
                      </address>
                   </small>
                </div>
@@ -128,14 +136,6 @@
                </div>
             </div>
             <h3>DATOS PERSONALES</h3>
-            <div class="row">
-               <div class="col-xs-5">
-                  <strong>DUI:</strong> / DUI
-               </div>
-               <div class="col-xs-5">
-                  <?php echo $DUIprint; ?>
-               </div>
-            </div>
             <div class="row">
                <div class="col-xs-5">
                   <strong>Nombre Completo:</strong> / Complete Name
@@ -154,22 +154,6 @@
             </div>
             <div class="row">
                <div class="col-xs-5">
-                  <strong>Departamento</strong> / Departament
-               </div>
-               <div class="col-xs-5">
-                  <?php echo $Departamentoprint; ?>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-xs-5">
-                  <strong>Municipio</strong> / Municipality
-               </div>
-               <div class="col-xs-5">
-                  <?php echo $Municipio; ?>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-xs-5">
                   <strong>Telefono</strong> / Phone
                </div>
                <div class="col-xs-5">
@@ -182,14 +166,6 @@
                </div>
                <div class="col-xs-5">
                   <?php echo $Celular; ?>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-xs-5">
-                  <strong>Sexo</strong> 
-               </div>
-               <div class="col-xs-5">
-                  <?php echo $Genero; ?>
                </div>
             </div>
             <div class="row">
@@ -211,13 +187,6 @@
             <div class="row">
                <div class="col-xs-5">
                   <strong>Correo Electronico</strong> / E-Mail
-               </div>
-               <div class="col-xs-5">
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-xs-5">
-                  <strong>Facebook</strong> / Facebook
                </div>
                <div class="col-xs-5">
                </div>
@@ -249,43 +218,6 @@
                </div>
             </div>
             <br>
-            <h3>DATOS MEDICOS</h3>
-            <div class="row">
-               <div class="col-xs-5">
-                  <strong>Alergias</strong> / Responsible Adult
-               </div>
-               <div class="col-xs-5">
-                  <?php echo $Alergias; ?>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-xs-5">
-                  <strong>Medicamentos</strong> / Responsible Adult
-               </div>
-               <div class="col-xs-5">
-                  <?php echo $Medicamentos; ?>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-xs-5">
-                  <strong>Enfermedades</strong> / Responsible Adult
-               </div>
-               <div class="col-xs-5">
-                  <?php echo $EnfermedadP; ?>
-               </div>
-            </div>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <center>
-               <small>
-                  <address>ARTEDENTAL 4 KIDS, Antiguo Cuscatlan, La Libertad </address>
-               </small>
-            </center>
-            <center>
-               <small>
-                  <address><?php echo ++$d ?></address>
-               </small>
-            </center>
-            
          </div>
       </div>
       <!-- Mainly scripts -->
@@ -307,3 +239,4 @@
     window.close();
    });
 </script>
+
