@@ -2,14 +2,10 @@
 require_once '../../include/dbconnect.php';
 session_start();
 
-      $idpersona = $_POST['txtpersonaID'];
-      $idconsulta = $_POST['txtconsultaID'];
-      $diente=count(($_POST['Diente']));
-    //   $diente = $_POST['Diente'];
-    //   $descripcionprocedimiento = $_POST['DescripcionProcedimiento'];
-    //   $nombreposicion=$_POST['NombrePosicion'];
-    //   $valor=$_POST['Valor'];
-
+       $idpersona = $_POST['txtpersonaID'];
+       $idconsulta = $_POST['txtconsultaID'];
+       $diente=count(($_POST['Diente']));
+       $comentarios = $_POST['txtComentarios'];
 
         $insertexpediente = "INSERT INTO dienteplantratamiento(IdPersona,Fecha,Hora) VALUES ('$idpersona',NOW(),NOW())";
         $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
@@ -26,16 +22,20 @@ session_start();
             $nombreposicion=$_POST['NombrePosicion'];
             $valor=$_POST['Valor'];
 
-            $sql = "INSERT INTO dienteplantratamientodetalle(IdPlanTratamiento, Procedimiento,Diente, Posicion,Precio) 
+            $sqldetalle = "INSERT INTO dienteplantratamientodetalle(IdPlanTratamiento, Procedimiento,Diente, Posicion,Precio) 
             VALUES('$last_id', '$dientee[$i]','$descripcionprocedimiento[$i]','$nombreposicion[$i]','$valor[$i]')";  
-            $resultadoinsertmovimiento = $mysqli->query($sql);
+            $resultadoinsertmovimiento = $mysqli->query($sqldetalle);
             
-            echo $resultadoinsertmovimiento;
+            echo $sqldetalle;
         }   
         }  
         else  
         {  
 
         } 
+
+        $sqlcomentarios = "INSERT INTO dienteplantratamientocomentarios(IdPlanTratamiento, Comentarios) 
+            VALUES('$last_id', '$comentarios')";  
+        $resultadoinsertmovimientocomentarios = $mysqli->query($sqlcomentarios);
 
         header('Location: ../../web/consultaodontologia/medical?id='.$idconsulta);

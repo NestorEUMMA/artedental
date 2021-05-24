@@ -17,6 +17,5 @@ session_start();
       $insertexpediente1 = "UPDATE persona SET ProximaVisita='$fechaproxvisita' WHERE IdPersona='$idpersona'";
       $resultadoinsertmovimiento1 = $mysqli->query($insertexpediente1);
 
-      //echo $insertexpediente;
       
-     header('Location: ../../web/consultaodontologia/medical?id='.$id);
+      header('Location: ../../web/consultaodontologia/medical?id='.$id);

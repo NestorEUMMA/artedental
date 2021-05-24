@@ -6,8 +6,9 @@ session_start();
     $idplantratamiento = $_POST["id"];
 
 
-   $queryexpedientesu = "SELECT Procedimiento, Diente, Posicion, Precio FROM dienteplantratamientodetalle
-    where IdPlanTratamiento = $idplantratamiento";
+   $queryexpedientesu = "SELECT DPT.Procedimiento, DPT.Diente, DPT.Posicion, DPT.Precio, DPC.Comentarios FROM dienteplantratamientodetalle DPT
+   INNER JOIN dienteplantratamientocomentarios DPC on DPC.IdPlanTratamiento = DPT.IdPlanTratamiento
+   WHERE DPT.IdPlanTratamiento = $idplantratamiento";
    $resultadoexpedientesu = $mysqli->query($queryexpedientesu);
 
 
@@ -19,7 +20,7 @@ session_start();
        $temp['Diente'] = $rowtwo['Diente'];
        $temp['Posicion'] = $rowtwo['Posicion'];
        $temp['Precio'] = $rowtwo['Precio'];
-   
+       $temp['Comentarios'] = $rowtwo['Comentarios']; 
        $data[] = $temp;
    }
 

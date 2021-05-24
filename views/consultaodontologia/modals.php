@@ -115,7 +115,7 @@
                 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="javascript:window.location.reload()">Cerrar</button>
                 <button type="submit" class="btn btn-primary" name="">Guardar</button>
             </div>
             </form>
@@ -125,7 +125,7 @@
 
 <!-- MODAL PARA GUARDAR PLAN DE TRATAMIENTO -->
 <div class="modal inmodal" id="modalGuardarPlantratamiento" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-md">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content animated fadeIn">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -163,15 +163,18 @@
                             echo "<td> <input type='hidden' value='". $row['DescripcionProcedimiento'] ."' name='DescripcionProcedimiento[]'>"  . $row['DescripcionProcedimiento'] . "</td>";
                             echo "<td> <input type='hidden' value='". $row['Diente'] ."' name='Diente[]'>" . $row['Diente'] . "</td>";
                             echo "<td> <input type='hidden' value='". $row['NombrePosicion']."' name='NombrePosicion[]'>" . $row['NombrePosicion'] . "</td>";
-                            echo "<td><input type='text' name='Valor[]' class='form-control name_list'/></td></tr>";
+                            echo "<td><input type='text'   name='Valor[]' class='form-control name_list'/></td></tr>";
                         }
                         echo "</tr>";
                         echo "</body>  ";
                         ?>
-                    </table>                 
+                    </table>
+                    <div class="">
+                        <textarea type="text" rows="6" id="" class="form-control" name="txtComentarios">  </textarea>
+                    </div>                 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="javascript:window.location.reload()">Cerrar</button>
                     <button type="submit" class="btn btn-primary" name="guardarConsulta">Guardar Cambios</button>
                 </div>
             </form>
@@ -203,10 +206,14 @@
                     <tbody id="DataResult">
                     
                     </tbody>
-                </table>              
+                </table>
+                <br>
+                <div class="">
+                        <textarea type="text" rows="6" disabled="disabled" id="comentarioplantratamiento" class="form-control" name="txtComentarios">  </textarea>
+                    </div>              
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="javascript:window.location.reload()">Cerrar</button>
                 </div>
         </div>
     </div>
@@ -218,7 +225,7 @@
         <div class="modal-content animated fadeIn">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <i class="fa fa-stethoscope modal-icon"></i>
+                <i class="fa fa-trash modal-icon"></i>
                 <h4 class="modal-title" id=''>ELIMINAR PLAN DE TRATAMIENTO</h4>
                 <small id='modaltabnuevaconsultamedica14'></small><small> <?php echo $idpersona; ?></small>
             </div>
@@ -238,7 +245,7 @@
                 </div>
                 <div class="modal-footer">
                 <center>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="javascript:window.location.reload()">Cerrar</button>
                     <button type="submit" class="btn btn-primary" name="guardarConsulta">Eliminar</button>
                 </center>
                 </div>
@@ -294,7 +301,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="javascript:window.location.reload()">Cerrar</button>
                     <button type="submit" class="btn btn-primary" name="guardarConsulta">Guardar Cambios</button>
                 </div>
             </form>
@@ -344,9 +351,42 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="javascript:window.location.reload()">Cerrar</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+
+<!-- MODAL PARA IMPRIMIR PLAN DE TRATAMIENTO -->
+<div class="modal inmodal" id="modalimprimirHistoricoPlanTratamiento" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content animated fadeIn">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <i class="fa fa-print modal-icon"></i>
+                <h4 class="modal-title" id=''>IMPRIMIR PLAN DE TRATAMIENTO</h4>
+                <small id='modaltabnuevaconsultamedica14'></small><small> <?php echo $idpersona; ?></small>
+            </div>
+            <form class="form-horizontal" method="POST" action="../../reports/expediente/plantratamiento"  target="_blank" id="demo-form" data-parsley-validate="">
+                <div class="modal-body">
+                    <div class="hidden">
+                        IDPLANTRATAMIENTO
+                        <textarea type="text" rows="4" class="form-control" name="txtplantratamineto" id="plantratamientoimprimir"></textarea>
+                    </div>       
+                    <center>
+                    ¿Desea imprimir este Plan de Tratamiento?
+                    </center>      
+                </div>
+                <div class="modal-footer">
+                <center>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="javascript:window.location.reload()">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" name="guardarConsulta">Imprimir</button>
+                </center>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

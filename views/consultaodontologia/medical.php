@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
 include  'styles.php';
 
 ?>
-
+<link href="../template/css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
 <link href="../template/css/plugins/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
 <link href="../template/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 <link href="../css/base.css" rel="stylesheet">
@@ -209,24 +209,20 @@ include  'styles.php';
                                                    <div class="panel panel-default">
                                                       <div class="panel-body">
                                                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-                                                            <div style="height: 20px; width:20px; display:inline-block;"
-                                                               class="click-red"></div>
-                                                            = Fractura/Carie
+                                                            <div style="height: 20px; width:20px; display:inline-block; background-color: red"></div>
+                                                            = Carie
                                                             <br>
-                                                            <div style="height: 5px; width:20px; display:inline-block;"
-                                                               class="click-red"></div>
-                                                            = Puente Entre Piezas
+                                                            <div style="height: 20px; width:20px; display:inline-block; background-color: orange"></div>
+                                                            = Fluor
                                                          </div>
                                                          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
-                                                            <div style="height: 20px; width:20px; display:inline-block;"
-                                                               class="click-blue"></div>
-                                                            = Obturación
+                                                         <div style="height: 20px; width:20px; display:inline-block; background-color: yellow"></div>
+                                                            = Fractura
+                                                         <br>
+                                                         <div style="height: 20px; width:20px; display:inline-block; background-color: pink"></div>   
+                                                           = Sellantes
                                                          </div>
-                                                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
-                                                            <span style="display:inline:block;"> Pieza Extraída</span> =
-                                                            <img style="display:inline:block;"
-                                                               src="../template/img/extraccion.png">
-                                                            <br> Idicada Para Extracción = <i style="color:red;"
+                                                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">Extracción = <i style="color:red;"
                                                                class="fa fa-times fa-2x"></i>
                                                          </div>
                                                       </div>
@@ -548,7 +544,8 @@ include  'styles.php';
                                                    echo "<td>".$row['Hora']."</td>";
                                                    echo "<td width='100'>" .
                                                    "<span id='btn" . $IdPlanTratamiento . "' class='btn-xs btn-success btn-histver'><i class='fa fa-search'></i></span>
-                                                    <span id='btn" . $IdPlanTratamiento . "' class='btn-xs btn-danger btn-histeli'><i class='fa fa-remove'></i></span>" .
+                                                    <span id='btn" . $IdPlanTratamiento . "' class='btn-xs btn-danger btn-histeli'><i class='fa fa-remove'></i></span>
+                                                    <span id='btn" . $IdPlanTratamiento . "' class='btn-xs btn-info btn-imprimir '><i class='fa fa-print'></i></span>" .
                                                    "</td>";
                                                 }
                                                 echo "</tr>";
@@ -586,9 +583,43 @@ include  'styles.php';
    </div>
 </div>
 <script src="../template/js/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="../template/js/plugins/jasny/jasny-bootstrap.min.js"></script>
 <?php
 /* AGREGA TODOS LOS MODALES */
 include 'modals.php';
 /* AGREGA TODOS LOS SCRIPTS */
 include 'scripts.php';
 ?>
+
+<!-- <form id="frmficha" action="../../reports/expediente/plantratamiento" method="post" target="_blank" class="hidden">
+      <input type="text" id="IdPlanTratamiento" name="IdPlanTratamiento" value="<?php echo $IdPlanTratamiento;?>" />
+  </form> -->
+
+<div id="ID_DIV">
+
+</div>
+
+<script>
+    function imprimirDIV(contenido) {
+        var ficha = document.getElementById(contenido);
+        var ventanaImpresion = window.open(' ', 'popUp');
+        ventanaImpresion.document.write(ficha.innerHTML);
+        ventanaImpresion.document.close();
+        ventanaImpresion.print();
+        ventanaImpresion.close();
+    }
+</script>
+
+<script type="text/javascript">
+        $(document).ready(function(){
+
+            $(".btn-imprimir").click(function(){
+                // var id = $(this).attr("value");
+                // $("#IdIndemnizacion").val(id);
+                $("#frmficha").submit();
+                //alert(id);
+            });
+    
+        });
+
+    </script>

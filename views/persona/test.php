@@ -12,7 +12,7 @@ session_start();
 
 $id = $_POST["IdFactor"];
 
-$query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = $id";
+$query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = $id and activo = 1";
 $tblPreguntas = $mysqli->query($query);
 $arrPreguntas = array();
 

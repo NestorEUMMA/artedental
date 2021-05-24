@@ -355,7 +355,7 @@ if (!empty($_SESSION['user'])) {
             googleCalendarApiKey: 'AIzaSyCMbFnaAV0Vh6X1sail7gRXVK614rVpJXg',
 
             // US Holidays
-            events: 'radamanthys.eo@gmail.com',
+            events: 'artedental4kids@gmail.com',
             //eventColor: 'red',
             //eventTextColor: 'red',
             eventBackgroundColor: 'white',

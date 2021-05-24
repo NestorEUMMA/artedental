@@ -34,6 +34,7 @@
                htmlText += "</tr> ";
           }
                   $( "#DataResult" ).append( htmlText );
+                  $("#comentarioplantratamiento").val(data[ key ].Comentarios);   
                   $("#modalCargarHistoricoPlanTratamiento").modal("show");
                }
                
@@ -106,6 +107,17 @@
          $("#modalEliminarHistoricoPlanTratamiento").modal("show");
          
       });
+
+      $(".btn-imprimir").click(function() {
+         var id = $(this).attr("id").replace("btn", "");
+         var myData = {
+            "id": id
+         };
+         $("#plantratamientoimprimir").text(id);
+         $("#modalimprimirHistoricoPlanTratamiento").modal("show");
+         
+      });
+      
 
 
       $('#demo-form').parsley().on('field:validated', function() {

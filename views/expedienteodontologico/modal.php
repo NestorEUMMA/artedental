@@ -24,7 +24,10 @@
                     <tbody id="DataResult">
                     
                     </tbody>
-                </table>              
+                </table>
+                <div class="">
+                        <textarea type="text" rows="6" disabled="disabled" id="comentarioplantratamiento" class="form-control" name="txtComentarios">  </textarea>
+                    </div>               
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>

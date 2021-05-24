@@ -11,4 +11,7 @@ session_start();
         $eliminarplantratamiento = "DELETE FROM dienteplantratamiento WHERE IdPlanTratamiento = $idplantratamiento";
         $resultadoeliminarplantratamiento = $mysqli->query($eliminarplantratamiento);
 
+        $eliminarplantratamientocomentarios = "DELETE FROM dienteplantratamientocomentarios WHERE IdPlanTratamiento = $idplantratamiento";
+        $resultadoeliminarplantratamientocomentarios = $mysqli->query($eliminarplantratamientocomentarios);
+
         header('Location: ../../web/consultaodontologia/medical?id='.$idconsulta);

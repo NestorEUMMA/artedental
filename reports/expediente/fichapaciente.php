@@ -16,7 +16,7 @@
       $d = 0;
       $idpersona =$_POST['idpersona'];
       
-           $queryobtenerinformaciongeneral = "SELECT 
+      $queryobtenerinformaciongeneral = "SELECT 
                         p.CodigoPaciente as 'Codigo',
                         CONCAT(p.Nombres,' ',p.Apellidos) as 'NombrePaciente',
                         p.dui as 'DUI',
@@ -44,8 +44,8 @@
                         LEFT JOIN estadocivil ec on p.IdEstadoCivil = ec.IdEstadoCivil
                         LEFT JOIN pais pa on p.IdPais = pa.IdPais
                         WHERE p.IdPersona = $idpersona";
-            $resultadoobtenerinformaciongeneral = $mysqli->query($queryobtenerinformaciongeneral);
-            while ($test = $resultadoobtenerinformaciongeneral->fetch_assoc()) {
+      $resultadoobtenerinformaciongeneral = $mysqli->query($queryobtenerinformaciongeneral);
+      while ($test = $resultadoobtenerinformaciongeneral->fetch_assoc()) {
                  $CodPaciente = $test['Codigo'];
                  $NombrePaciente = $test['NombrePaciente'];
                  $DUIprint = $test['DUI'];
@@ -68,34 +68,8 @@
                  $Alergias = $test['Alergias'];
                  $Medicamentos = $test['Medicamentos'];
                  $EnfermedadP = $test['EnfermedadP'];
-             }
+      }
       
-           $queryobtenerhistoclinico = "SELECT c.Nombre as Pregunta, (case when IdRespuesta is null then b.Detalle
-                  else (select Nombre from respuesta where IdRespuesta = b.IdRespuesta) end) as Respuesta
-                    FROM test a
-                    LEFT JOIN testdetalle b on a.IdTest = b.IdTest
-                    LEFT JOIN pregunta c on b.IdPregunta = c.IdPregunta
-                    WHERE a.IdPersona=5993 and b.IdFactor=2";
-             //echo  $queryfichaconsulta;
-             $resultadoobtenerhistoclinico = $mysqli->query($queryobtenerhistoclinico);
-      
-            $queryobtenersocioeconomico = "SELECT c.Nombre as Pregunta, (case when IdRespuesta is null then b.Detalle
-                  else (select Nombre from respuesta where IdRespuesta = b.IdRespuesta) end) as Respuesta
-                    FROM test a
-                    LEFT JOIN testdetalle b on a.IdTest = b.IdTest
-                    LEFT JOIN pregunta c on b.IdPregunta = c.IdPregunta
-                    WHERE a.IdPersona=5993 and b.IdFactor=1";
-             //echo  $queryfichaconsulta;
-             $resultadoobtenersocioeconomico = $mysqli->query($queryobtenersocioeconomico);
-      
-             $queryobtenervacunacion = "SELECT c.Nombre as Pregunta, (case when IdRespuesta is null then b.Detalle
-                  else (select Nombre from respuesta where IdRespuesta = b.IdRespuesta) end) as Respuesta
-                    FROM test a
-                    LEFT JOIN testdetalle b on a.IdTest = b.IdTest
-                    LEFT JOIN pregunta c on b.IdPregunta = c.IdPregunta
-                    WHERE a.IdPersona=5993 and b.IdFactor=3";
-             //echo  $queryfichaconsulta;
-             $resultadoobtenervacunacion = $mysqli->query($queryobtenervacunacion);
 
              $queryEmpresa = "SELECT NombreEmpresa, Direccion, Telefono from empresa where IdEmpresa = 1";
 

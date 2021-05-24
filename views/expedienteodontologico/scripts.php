@@ -107,6 +107,7 @@
                htmlText += "</tr> ";
           }
                   $( "#DataResult" ).append( htmlText );
+                  $("#comentarioplantratamiento").val(data[ key ].Comentarios);
                   $("#modalCargarHistoricoPlanTratamiento").modal("show");
                }
                
