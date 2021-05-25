@@ -591,35 +591,7 @@ include 'modals.php';
 include 'scripts.php';
 ?>
 
-<!-- <form id="frmficha" action="../../reports/expediente/plantratamiento" method="post" target="_blank" class="hidden">
-      <input type="text" id="IdPlanTratamiento" name="IdPlanTratamiento" value="<?php echo $IdPlanTratamiento;?>" />
-  </form> -->
 
 <div id="ID_DIV">
 
 </div>
-
-<script>
-    function imprimirDIV(contenido) {
-        var ficha = document.getElementById(contenido);
-        var ventanaImpresion = window.open(' ', 'popUp');
-        ventanaImpresion.document.write(ficha.innerHTML);
-        ventanaImpresion.document.close();
-        ventanaImpresion.print();
-        ventanaImpresion.close();
-    }
-</script>
-
-<script type="text/javascript">
-        $(document).ready(function(){
-
-            $(".btn-imprimir").click(function(){
-                // var id = $(this).attr("value");
-                // $("#IdIndemnizacion").val(id);
-                $("#frmficha").submit();
-                //alert(id);
-            });
-    
-        });
-
-    </script>

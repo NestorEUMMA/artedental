@@ -256,6 +256,10 @@
                            </div>
                         </div>
                         <div id="tab-6" class="tab-pane">
+                        <div class="panel-body">
+                                 <h4>PRIMERA VISITA</h4>
+                                 <div id="primeravisita"></div>
+                              </div>
                            <div class="panel-body">
                               <h4>GESTACION</h4>
                               <div id="gestacion"></div>
@@ -287,10 +291,7 @@
                                  <h4>HIGIENE NOCTURNA</h4>
                                  <div id="higienenocturna"></div>
                               </div>
-                              <div class="panel-body">
-                                 <h4>PRIMERA VISITA</h4>
-                                 <div id="primeravisita"></div>
-                              </div>
+                              
                            </div>
                         </div>
                      </div>
