@@ -74,7 +74,7 @@ session_start();
     $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
     $last_id = $mysqli->insert_id;
 
-
+    echo $resultadoinsertmovimiento;
     $query = "select IdPersona from persona order by 1 desc limit 1";
 
     $tbl = $mysqli->query($query);
@@ -145,7 +145,7 @@ session_start();
 
 
     //Guardar gestacion
-    $query = "SELECT IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 4;";
+    $query = "SELECT IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 4 and activo = 1;";
     $tblPregGE = $mysqli->query($query);
     $arrPregGE = array();
 
@@ -208,7 +208,7 @@ session_start();
     }
 
     //Guardar nacimiento
-    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 5;";
+    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 5 and activo = 1;";
     $tblPregNA = $mysqli->query($query);
     $arrPregNA = array();
 
@@ -269,7 +269,7 @@ session_start();
     }
 
     //Guardar infancia
-    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 6;";
+    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 6 and activo = 1;";
     $tblPregIN = $mysqli->query($query);
     $arrPregIN = array();
 
@@ -331,7 +331,7 @@ session_start();
     }
 
     //Guardar amamantamiento
-    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 7;";
+    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 7 and activo = 1;";
     $tblPregAM = $mysqli->query($query);
     $arrPregAM = array();
 
@@ -394,7 +394,7 @@ session_start();
     }
 
     //Guardar alimentacion
-    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 8;";
+    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 8 and activo = 1;";
     $tblPregAL = $mysqli->query($query);
     $arrPregAL = array();
 
@@ -457,7 +457,7 @@ session_start();
     }
 
     //Guardar endulzantes
-    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 9;";
+    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 9 and activo = 1;";
     $tblPregEN = $mysqli->query($query);
     $arrPregEN = array();
 
@@ -520,7 +520,7 @@ session_start();
     }
 
     //Guardar alimentacion nocturna
-    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 10;";
+    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 10 and activo = 1;";
     $tblPregAN = $mysqli->query($query);
     $arrPregAN = array();
 
@@ -583,7 +583,7 @@ session_start();
     }
 
     //Guardar higiene dental
-    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 11;";
+    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 11 and activo = 1;";
     $tblPregHD = $mysqli->query($query);
     $arrPregHD = array();
 
@@ -647,7 +647,7 @@ session_start();
 
 
     //Guardar primera visita
-    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 12;";
+    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 12 and activo = 1;";
     $tblPregHD = $mysqli->query($query);
     $arrPregHD = array();
 

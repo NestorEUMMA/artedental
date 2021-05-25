@@ -58,18 +58,18 @@
                            <div class="panel-body">
                            <h3> DATOS GENERALES </h3>
                               <div class="form-group">
-                                 <label for="txtNombres" class="col-sm-1 control-label">Nombres</label>
-                                 <div class="col-sm-5">
+                                 <label for="txtNombres" class="col-sm-1 control-label">Nombre</label>
+                                 <div class="col-sm-11">
                                     <div class="input-group">
                                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                       <input type="text" class="form-control" id="txtNombres" name="txtNombres" required="">
+                                       <input style="text-transform:uppercase" type="text" class="form-control" id="txtNombres" name="txtNombres" required="">
                                     </div>
                                  </div>
-                                 <label for="txtApellidos" class="col-sm-1 control-label">Apellidos</label>
-                                 <div class="col-sm-5">
+                                 <label for="txtApellidos" class="col-sm-1 control-label hidden">Apellidos</label>
+                                 <div class="col-sm-5 hidden">
                                     <div class="input-group">
-                                       <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                       <input type="text" class="form-control" id="txtApellidos" name="txtApellidos" required="" >
+                                       <div class="input-group-addon hidden"><i class="fa fa-user"></i></div>
+                                       <input style="text-transform:uppercase" type="text" class="form-control" id="txtApellidos" name="txtApellidos" >
                                     </div>
                                  </div>
                               </div>
@@ -78,7 +78,7 @@
                                  <div class="col-sm-5">
                                     <div class="input-group">
                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                       <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtFechaNacimiento" id="txtFechaNacimiento" required="">
+                                       <input style="text-transform:uppercase" type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtFechaNacimiento" id="txtFechaNacimiento" required="">
                                     </div>
                                  </div>
                                  <label for="txtGenero" class="col-sm-1 control-label">Genero</label>
@@ -87,8 +87,8 @@
                                        <div class="input-group-addon"><i class="fa fa-genderless"></i></div>
                                        <select class="form-control select2" style="width: 100%;" name="txtGenero" id="txtGenero" required="required">
                                           <option value=""></option>
-                                          <option value="Masculino">Masculino</option>
-                                          <option value="Femenino">Femenino</option>
+                                          <option value="Masculino">MASCULINO</option>
+                                          <option value="Femenino">FEMENINO</option>
                                        </select>
                                     </div>
                                  </div>
@@ -98,52 +98,52 @@
                                  <div class="col-sm-11">
                                     <div class="input-group">
                                        <div class="input-group-addon"><i class="fa fa-arrows"></i></div>
-                                       <input type="text" class="form-control" id="txtDireccion" name="txtDireccion">
+                                       <input style="text-transform:uppercase" type="text" class="form-control" id="txtDireccion" name="txtDireccion">
                                     </div>
                                  </div>
                               </div>
                               <div class="form-group">
-                                 <label for="txtTelefono" class="col-sm-1 control-label">Teléfono</label>
-                                 <div class="col-sm-2">
-                                    <div class="input-group">
+                                 <label for="txtTelefono" class="col-sm-1 control-label hidden">Teléfono</label>
+                                 <div class="col-sm-2 hidden">
+                                    <div class="input-group hidden">
                                        <div class="input-group-addon"><i class="fa fa-phone-square"></i></div>
-                                       <input type="text" class="form-control"  data-mask="9999-9999" id="txtTelefono" name="txtTelefono" />
+                                       <input style="text-transform:uppercase" type="text" class="form-control"  data-mask="9999-9999" id="txtTelefono" name="txtTelefono" />
                                     </div>
                                  </div>
                                  <label for="txtCelular" class="col-sm-1 control-label">Celular</label>
-                                 <div class="col-sm-2">
+                                 <div class="col-sm-5">
                                     <div class="input-group">
                                        <div class="input-group-addon"><i class="fa fa-mobile"></i></div>
-                                       <input type="text" class="form-control" data-mask="9999-9999" id="txtCelular" name="txtCelular" />
+                                       <input style="text-transform:uppercase" type="text" class="form-control" data-mask="9999-9999" id="txtCelular" name="txtCelular" />
                                     </div>
                                  </div>
                                  <label for="txtCorreo" class="col-sm-1 control-label">Correo</label>
                                  <div class="col-sm-5">
                                     <div class="input-group">
                                        <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                                       <input type="text" class="form-control" id="txtCorreo" name="txtCorreo"  data-parsley-trigger="change">
+                                       <input style="text-transform:uppercase" type="text" class="form-control" id="txtCorreo" name="txtCorreo"  data-parsley-trigger="change">
                                     </div>
                                  </div>
                               </div>
                               <br>
                               <h3> RESPONSABLE </h3>
                               <div class="form-group">
-                                 <label for="txtNombresResponsable" class="col-sm-1 control-label">Nombres</label>
-                                 <div class="col-sm-5">
+                                 <label for="txtNombresResponsable" class="col-sm-1 control-label">Nombre</label>
+                                 <div class="col-sm-11">
                                     <div class="input-group">
                                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                       <input type="text" class="form-control" id="txtNombresResponsable"  name="txtNombresResponsable"/>
+                                       <input style="text-transform:uppercase" type="text" class="form-control" id="txtNombresResponsable"  name="txtNombresResponsable"/>
                                     </div>
                                  </div>
-                                 <label for="txtApellidosResponsable" class="col-sm-1 control-label">Apellidos</label>
-                                 <div class="col-sm-5">
+                                 <label for="txtApellidosResponsable" class="col-sm-1 control-label hidden">Apellidos</label>
+                                 <div class="col-sm-5 hidden">
                                     <div class="input-group">
                                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                       <input type="text" class="form-control" id="txtApellidosResponsable"  name="txtApellidosResponsable"/>
+                                       <input style="text-transform:uppercase" type="text" class="form-control" id="txtApellidosResponsable"  name="txtApellidosResponsable"/>
                                     </div>
                                  </div>
                               </div>
-                              <div class="form-group">
+                              <div class="form-group hidden">
                                  <label for="txtParentesco" class="col-sm-1 control-label">Parentesco</label>
                                  <div class="col-sm-2">
                                     <div class="input-group">
@@ -170,14 +170,14 @@
                                  <div class="col-sm-2">
                                     <div class="input-group">
                                        <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
-                                       <input type="text" class="form-control" data-mask="99999999-9" data-mask name="txtDuiResponsable" id="txtDuiResponsable" >
+                                       <input style="text-transform:uppercase" type="text" class="form-control" data-mask="99999999-9" data-mask name="txtDuiResponsable" id="txtDuiResponsable" >
                                     </div>
                                  </div>
                                  <label for="txtTelefonoResponsable" class="col-sm-1 control-label">Telefono</label>
                                  <div class="col-sm-2">
                                     <div class="input-group">
                                        <div class="input-group-addon"><i class="fa fa-phone-square"></i></div>
-                                       <input type="text" class="form-control"  class="form-control" data-mask="9999-9999" data-mask id="txtTelefonoResponsable" name="txtTelefonoResponsable" />
+                                       <input style="text-transform:uppercase" type="text" class="form-control"  class="form-control" data-mask="9999-9999" data-mask id="txtTelefonoResponsable" name="txtTelefonoResponsable" />
                                     </div>
                                  </div>
                               </div>

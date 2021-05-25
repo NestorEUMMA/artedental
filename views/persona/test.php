@@ -69,7 +69,7 @@ foreach ($arrPreguntas as $iP => $vP) {
 				case "1":
 				{
 					$IdPregunta = 'selPregunta'.$vP["IdPregunta"];
-					echo "<textarea id='$IdPregunta' name='$IdPregunta' class='form-control' row='2'></textarea>";
+					echo "<textarea style='text-transform:uppercase'id='$IdPregunta' name='$IdPregunta' class='form-control' row='2'></textarea>";
 					break;
 				}
 				case "2":
@@ -90,7 +90,7 @@ foreach ($arrPreguntas as $iP => $vP) {
 				case "3":
 					{
 						$IdPregunta = 'selPregunta'.$vP["IdPregunta"];
-					echo "<textarea id='$IdPregunta' name='$IdPregunta' class='form-control' row='1'></textarea>";
+					echo "<textarea style='text-transform:uppercase'id='$IdPregunta' name='$IdPregunta' class='form-control' row='1'></textarea>";
 					break;
 					}
 				default:

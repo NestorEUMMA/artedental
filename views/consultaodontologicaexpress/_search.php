@@ -1,10 +1,16 @@
 <?php
-
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\Persona;
+use yii\helpers\ArrayHelper;
+use kartik\date\DatePicker;
+use kartik\select2\Select2;
+use kartik\depdrop\DepDrop;
+use kartik\money\MaskMoney;
+use kartik\file\FileInput;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\ConsultaodontologicaexpressSearch */
+/* @var $model app\models\ConsultapacienteSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -15,66 +21,38 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'IdPersona') ?>
+<div class="form-group">
+  <div class="col-lg-7">
+    <?php echo $form->field($model, 'IdPersona')->widget(Select2::classname(), [
+        'data' => ArrayHelper::map(Persona::find()->all(), 'IdPersona', 'fullName'),
+        'language' => 'es',
+        'options' => ['placeholder' => ' Selecione ...'],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ]);
+    ?>
+ </div>
+  <div class="col-lg-3">
+ <?= $form->field($model, 'DuiResponsable')->widget(\yii\widgets\MaskedInput::className(), [
+        'mask' => '99999999-9',
+    ]) ?>
+ </div>
+   <div class="col-lg-2">
+ <?= $form->field($model, 'CodigoPaciente')->widget(\yii\widgets\MaskedInput::className(), [
+        'mask' => '9999999',
+    ]) ?>
+ </div>
+</div>
 
-    <?= $form->field($model, 'Nombres') ?>
+<div class="form-group">
+    <?= Html::submitButton('Buscar', ['class' => 'btn btn-success']) ?>
+</div> 
 
-    <?= $form->field($model, 'Apellidos') ?>
 
-    <?= $form->field($model, 'FechaNacimiento') ?>
 
-    <?= $form->field($model, 'Direccion') ?>
-
-    <?php // echo $form->field($model, 'Correo') ?>
-
-    <?php // echo $form->field($model, 'IdGeografia') ?>
-
-    <?php // echo $form->field($model, 'Genero') ?>
-
-    <?php // echo $form->field($model, 'IdEstadoCivil') ?>
-
-    <?php // echo $form->field($model, 'IdParentesco') ?>
-
-    <?php // echo $form->field($model, 'Telefono') ?>
-
-    <?php // echo $form->field($model, 'Celular') ?>
-
-    <?php // echo $form->field($model, 'Alergias') ?>
-
-    <?php // echo $form->field($model, 'Medicamentos') ?>
-
-    <?php // echo $form->field($model, 'Enfermedad') ?>
-
-    <?php // echo $form->field($model, 'Dui') ?>
-
-    <?php // echo $form->field($model, 'TelefonoResponsable') ?>
-
-    <?php // echo $form->field($model, 'IdEstado') ?>
-
-    <?php // echo $form->field($model, 'Categoria') ?>
-
-    <?php // echo $form->field($model, 'NombresResponsable') ?>
-
-    <?php // echo $form->field($model, 'ApellidosResponsable') ?>
-
-    <?php // echo $form->field($model, 'Parentesco') ?>
-
-    <?php // echo $form->field($model, 'DuiResponsable') ?>
-
-    <?php // echo $form->field($model, 'RutaCarpeta') ?>
-
-    <?php // echo $form->field($model, 'IdPais') ?>
-
-    <?php // echo $form->field($model, 'CodigoPaciente') ?>
-
-    <?php // echo $form->field($model, 'UltimaVisita') ?>
-
-    <?php // echo $form->field($model, 'ProximaVisita') ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Buscar', ['class' => 'btn btn-info']) ?>
-    </div>
 
     <?php ActiveForm::end(); ?>
+
 
 </div>
