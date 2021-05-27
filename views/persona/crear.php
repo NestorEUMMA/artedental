@@ -78,7 +78,7 @@
                                  <div class="col-sm-5">
                                     <div class="input-group">
                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                       <input style="text-transform:uppercase" type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtFechaNacimiento" id="txtFechaNacimiento" required="">
+                                       <input style="text-transform:uppercase" type="text" class="form-control" data-mask="99-99-9999" name="txtFechaNacimiento" id="" required="">
                                     </div>
                                  </div>
                                  <label for="txtGenero" class="col-sm-1 control-label">Genero</label>

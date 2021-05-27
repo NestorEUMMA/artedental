@@ -18,13 +18,18 @@ session_start();
 
 
     $usuario = $_SESSION['IdUsuario'];
-    $Nombres = $_POST['txtNombres'];
-    $Apellidos = $_POST['txtApellidos'];
+    $Nombres = strtoupper($_POST['txtNombres']);
+    $Apellidos = strtoupper($_POST['txtApellidos']);
     $FechaNacimiento = $_POST['txtFechaNacimiento'];
-    $Direccion = $_POST['txtDireccion'];
-    $Correo = $_POST['txtCorreo'];
+    $dia = substr($FechaNacimiento, 0, 2);
+    $mes = substr($FechaNacimiento, 3, 2);
+    $anio = substr($FechaNacimiento, 6, 4);
+    $FechaNacimientoPersona = $anio.'-'.$mes.'-'.$dia;    
+    echo $FechaNacimientoPersona;
+    $Direccion = strtoupper($_POST['txtDireccion']);
+    $Correo = strtoupper($_POST['txtCorreo']);
     // $IdGeografia = $geografia;
-     $Genero = $_POST['txtGenero'];
+    $Genero = $_POST['txtGenero'];
     // $IdEstadoCivil = $_POST['txtIdEstadoCivil'];
     //$IdParentesco = 1; //$_POST['txt'];
     $Telefono = $_POST['txtTelefono'];
@@ -38,7 +43,7 @@ session_start();
     $Categoria = $_POST['txtCategoria'];
 
     //Datos del Responsable
-    $NombresResponsable = $_POST['txtNombresResponsable'];
+    $NombresResponsable = strtoupper($_POST['txtNombresResponsable']);
     $ApellidosResponsable = $_POST['txtApellidosResponsable'];
     $DuiResponsable = $_POST['txtDuiResponsable'];
     $Parentesco = $_POST['txtParentesco'];
@@ -62,7 +67,7 @@ session_start();
                         )
                         VALUES
                         (
-                             '$Nombres','$Apellidos','$FechaNacimiento','$Direccion'
+                             '$Nombres','$Apellidos','$FechaNacimientoPersona','$Direccion'
                             ,'$Correo','$Genero'
                             ,'$Telefono','$Celular','$Alergias', 0
                             ,'$Medicamentos','$Enfermedad','$TelefonoResponsable'
@@ -76,7 +81,7 @@ session_start();
 
     echo $resultadoinsertmovimiento;
     $query = "select IdPersona from persona order by 1 desc limit 1";
-
+                            
     $tbl = $mysqli->query($query);
     $arr = array();
 
