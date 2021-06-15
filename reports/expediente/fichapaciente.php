@@ -209,8 +209,8 @@
      "<?php echo $CodPaciente ?>", // Valor del codigo de barras
    "code128" // tipo (cadena)
    );
-    window.print();
-    window.close();
+    setTimeout('window.print()', 500);
+    setTimeout('window.close()', 1500);
    });
 </script>
 

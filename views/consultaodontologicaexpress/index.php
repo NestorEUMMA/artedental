@@ -96,7 +96,7 @@ $this->params['breadcrumbs'][] = $this->title;
                               ],
                           ],
                       ]); ?>
-                                  </table>
+                                  z</table>
           </div>
       </div>
     </div>

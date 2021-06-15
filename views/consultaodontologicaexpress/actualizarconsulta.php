@@ -19,11 +19,11 @@ session_start();
       $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
       $last_id = $mysqli->insert_id;
 
-      $insertexpediente = "UPDATE consulta SET Diagnostico='$diagnostico',Comentarios='$comentarios',Activo=1,FechaProxVisita='$fechaproxvisita' WHERE IdConsulta='$last_id'";
+      $insertexpediente = "UPDATE consulta SET Diagnostico='$diagnostico',Comentarios='$comentarios',FechaProxVisita='$fechaproxvisita' WHERE IdConsulta='$last_id'";
       $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
 
       $insertexpediente1 = "UPDATE persona SET ProximaVisita='$fechaproxvisita' WHERE IdPersona='$idpersona'";
       $resultadoinsertmovimiento1 = $mysqli->query($insertexpediente1);
 
-      
+
       header('Location: ../../web/consultaodontologicaexpress/view?id='.$idpersona);

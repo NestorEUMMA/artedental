@@ -121,7 +121,7 @@ $querytablaconsulta = "SELECT c.IdConsulta, c.FechaConsulta, CONCAT(u.Nombres,' 
                           INNER JOIN usuario u ON c.IdUsuario = u.IdUsuario
                           INNER JOIN modulo m ON c.IdModulo = m.IdModulo
                           INNER JOIN persona p ON c.IdPersona = p.IdPersona
-                          WHERE c.Activo = 0 AND c.IdPersona = $idpersonaid
+                          WHERE c.Activo = 0 AND c.IdPersona = $idpersonaid and c.IdEstado = 7
                           ORDER BY c.FechaConsulta DESC";
 $resultadotablaconsulta = $mysqli->query($querytablaconsulta);
 

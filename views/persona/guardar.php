@@ -25,7 +25,7 @@ session_start();
     $mes = substr($FechaNacimiento, 3, 2);
     $anio = substr($FechaNacimiento, 6, 4);
     $FechaNacimientoPersona = $anio.'-'.$mes.'-'.$dia;    
-    echo $FechaNacimientoPersona;
+    //echo $FechaNacimientoPersona;
     $Direccion = strtoupper($_POST['txtDireccion']);
     $Correo = strtoupper($_POST['txtCorreo']);
     // $IdGeografia = $geografia;

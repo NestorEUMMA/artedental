@@ -1,0 +1,9 @@
+
+//MENU
+INSERT INTO `db_artedental`.`menu` (`IdMenu`, `DescripcionMenu`, `DescripcionMenuIng`, `Icono`, `TipoMenu`, `Orden`) VALUES ('15', 'REPORTES', 'REPORTES', 'fa fa-barcode', 'Menu', '15');
+//SUBMENU
+INSERT INTO `db_artedental`.`menudetalle` (`IdMenuDetalle`, `IdMenu`, `DescripcionMenuDetalle`, `Url`, `Icono`) VALUES ('37', '15', 'REPORTE', '../reportes/index', 'fa fa-book');
+
+//PERMISOS
+INSERT INTO `db_artedental`.`menuusuario` (`IdMenuUsuario`, `IdMenuDetalle`, `MenuUsuarioActivo`, `IdUsuario`, `IdMenu`, `TipoPermiso`) VALUES ('142', '37', '1', '366', '15', '1');
+INSERT INTO `db_artedental`.`menuusuario` (`IdMenuUsuario`, `IdMenuDetalle`, `MenuUsuarioActivo`, `IdUsuario`, `IdMenu`, `TipoPermiso`) VALUES ('143', '37', '1', '1', '15', '1');

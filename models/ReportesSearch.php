@@ -5,14 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use yii\data\SqlDataProvider;
 use app\models\Persona;
-use app\models\Consulta;
 
 /**
- * ConsultaodontologicaexpressSearch represents the model behind the search form of `app\models\Persona`.
+ * ReportesSearch represents the model behind the search form of `app\models\Persona`.
  */
-class ConsultaodontologicaexpressSearch extends Persona
+class ReportesSearch extends Persona
 {
     /**
      * {@inheritdoc}
@@ -94,6 +92,4 @@ class ConsultaodontologicaexpressSearch extends Persona
 
         return $dataProvider;
     }
-
-
 }

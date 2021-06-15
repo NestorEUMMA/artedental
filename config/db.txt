@@ -1,4 +1,4 @@
 localhost
-db_artedental
+db_artedentaluq
 root
 nest2015
