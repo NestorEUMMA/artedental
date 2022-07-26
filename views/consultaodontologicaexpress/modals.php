@@ -330,7 +330,7 @@
                   <div class="col-sm-10">
                      <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                        <input type="text" class="form-control" id="txtFechaProxima" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtFechaProxima"  required="">
+                        <input type="text" class="form-control" id=""  data-mask="99-99-9999" name="txtFechaProxima">
                      </div>
                   </div>
                </div>

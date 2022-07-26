@@ -51,7 +51,6 @@ $this->params['breadcrumbs'][] = $this->title;
       <div class="ibox float-e-margins">
       <div class="ibox-title">
         <h3>REPORTE MENSUAL DE CONSULTAS</h3>
-        
       </div>
           <div class="ibox-content">
             <form action="../../reports/consulta/proximasvisitas" target="_blank" method="post" id="demo-form" data-parsley-validate="">
@@ -74,6 +73,50 @@ $this->params['breadcrumbs'][] = $this->title;
       </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12">
+      <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h3>REPORTE MENSUAL DE PROXIMAS CONSULTAS</h3>
+        
+      </div>
+          <div class="ibox-content">
+            <form action="../../reports/consulta/visitasmes" target="_blank" method="post" id="demo-form" data-parsley-validate="">
+              <div class="form-group" id="data_1">
+                  <label class="font-normal">Fecha de Inicio</label>
+                  <div class="input-group date">
+                      <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control"  data-mask="99-99-9999" name="txtInicio1" id="" required="">
+                  </div>
+              </div>
+
+              <div class="form-group" id="data_1">
+                  <label class="font-normal">Fecha Final</label>
+                  <div class="input-group date">
+                      <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control"  data-mask="99-99-9999" name="txtFinal1" id="" required="">
+                  </div>
+              </div>
+              <center><button type="submit" class="btn btn-success">VER REPORTE</button></center> 
+            </form>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+      <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h3>INFORMACION DE PACIENTES</h3>
+        
+      </div>
+          <div class="ibox-content">
+            <form action="../../reports/pacientes/pacientes" target="_blank" method="post" id="demo-form" data-parsley-validate="">
+              <center><button type="submit" class="btn btn-success">VER REPORTE</button></center> 
+            </form>
+          </div>
+      </div>
+    </div>
+</div>
 
 
 <script src="../template/js/plugins/select2/select2.full.min.js"></script>
@@ -84,7 +127,25 @@ $(document).ready(function(){
    
    $(function () {
 
-   $('#txtInicio').datepicker({
+   $('#txtInicio1').datepicker({
+                startView: 1,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true,
+                format: "yyyy-mm-dd"
+            });
+   
+  $('#txtFinal1').datepicker({
+      startView: 1,
+      todayBtn: "linked",
+      keyboardNavigation: false,
+      forceParse: false,
+      autoclose: true,
+      format: "yyyy-mm-dd"
+  });
+
+  $('#txtInicio').datepicker({
                 startView: 1,
                 todayBtn: "linked",
                 keyboardNavigation: false,
