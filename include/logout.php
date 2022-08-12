@@ -19,7 +19,7 @@
    			$updateestadouser = "UPDATE usuario SET Estado = 'Desconectado', HoraUltimaSesion = '$fechas'  where IdUsuario = '$IdUsuario'";
    		    $resultadoupdate = $mysqli->query($updateestadouser);
    			session_destroy();
-   			unset($_SESSION['user']);\
+   			unset($_SESSION['user']);
    			header("Location: ../index");
    		}
    

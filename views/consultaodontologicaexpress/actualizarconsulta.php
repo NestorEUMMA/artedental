@@ -8,6 +8,12 @@ session_start();
       $diagnostico = $_POST['txtDiagnostico'];
       $comentarios = $_POST['txtComentarios'];
       $fechaproxvisita = $_POST['txtFechaProxima'];
+      $diainico = substr($fechaproxvisita, 0, 2);
+      $mesinicio = substr($fechaproxvisita, 3, 2);
+      $anioinicio = substr($fechaproxvisita, 6, 4);
+      $fechaproxvisitaFormat = $anioinicio.'-'.$mesinicio.'-'.$diainico;
+      
+
       $user = $_SESSION['IdUsuario'];
       $persona = $_POST['txtPaciente'];
       $usuario = $_POST['cboUsuario'];
@@ -19,10 +25,10 @@ session_start();
       $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
       $last_id = $mysqli->insert_id;
 
-      $insertexpediente = "UPDATE consulta SET Diagnostico='$diagnostico',Comentarios='$comentarios',FechaProxVisita='$fechaproxvisita' WHERE IdConsulta='$last_id'";
+      $insertexpediente = "UPDATE consulta SET Diagnostico='$diagnostico',Comentarios='$comentarios',FechaProxVisita='$fechaproxvisitaFormat' WHERE IdConsulta='$last_id'";
       $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
 
-      $insertexpediente1 = "UPDATE persona SET ProximaVisita='$fechaproxvisita' WHERE IdPersona='$idpersona'";
+      $insertexpediente1 = "UPDATE persona SET ProximaVisita='$fechaproxvisitaFormat' WHERE IdPersona='$idpersona'";
       $resultadoinsertmovimiento1 = $mysqli->query($insertexpediente1);
 
 

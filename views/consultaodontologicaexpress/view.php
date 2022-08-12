@@ -430,7 +430,7 @@ include  'styles.php';
                                                 echo "<tr>";
                                                 echo "<th id=''>N°</th>";
                                                 echo "<th id=''>PACIENTE</th>";
-                                                echo "<th id=''>DORTOR</th>";
+                                                echo "<th id=''>DOCTOR</th>";
                                                 echo "<th id=''>ESPECIALIDAD</th>";
                                                 echo "<th id=''>FECHA</th>";
                                                 echo "<th style = 'width:150px' id=''>ACCION</th>";

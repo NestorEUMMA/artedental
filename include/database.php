@@ -5,7 +5,7 @@ class Database extends PDO
 {
 
 	public function __construct(){
-		 $array = split("\n", file_get_contents('C:\xampp\htdocs\artedental\config\db.txt'));
+		 $array = explode("\n", file_get_contents('C:\xampp\htdocs\artedental\config\db.txt'));
 		 $localhost = $array[0];
 		 $db = trim($array[1]);
 		 $usuario = trim($array[2]);

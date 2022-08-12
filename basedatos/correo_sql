@@ -1,0 +1,18 @@
+CREATE TABLE `db_artedental`.`correo` (
+  `IdCorreo` INT NOT NULL AUTO_INCREMENT,
+  `Host` VARCHAR(45) NULL,
+  `Username` VARCHAR(45) NULL,
+  `Password` VARCHAR(45) NULL,
+  `Port` VARCHAR(45) NULL,
+  `SetFrom` VARCHAR(45) NULL,
+  `SetFromName` VARCHAR(45) NULL,
+  `AddAddress` VARCHAR(45) NULL,
+  `AddAddressName` VARCHAR(45) NULL,
+  `Addcc` VARCHAR(45) NULL,
+  `Titulo` VARCHAR(100) NULL,
+  `Cuerpo` VARCHAR(600) NULL,
+  PRIMARY KEY (`IdCorreo`));
+
+  INSERT INTO `db_artedental`.`menu` (`IdMenu`, `DescripcionMenu`, `DescripcionMenuIng`, `Icono`, `TipoMenu`, `Orden`) VALUES ('16', 'CORREO', 'CORREO', 'fa-envelope-open-o', 'Menu', '16');
+
+
