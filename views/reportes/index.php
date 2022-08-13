@@ -118,6 +118,35 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-12">
+      <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h3>REPORTE DE CORREOS ENVIADOS</h3>
+        
+      </div>
+          <div class="ibox-content">
+            <form action="../../reports/correos/pacientes" target="_blank" method="post" id="demo-form" data-parsley-validate="">
+              <div class="form-group" id="data_1">
+                    <label class="font-normal">Fecha de Inicio</label>
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control"  data-mask="99-99-9999" name="txtInicio1" id="" required="">
+                    </div>
+                </div>
+
+                <div class="form-group" id="data_1">
+                    <label class="font-normal">Fecha Final</label>
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control"  data-mask="99-99-9999" name="txtFinal1" id="" required="">
+                    </div>
+                </div>
+              <center><button type="submit" class="btn btn-success">VER REPORTE</button></center> 
+            </form>
+          </div>
+      </div>
+    </div>
+</div>
+
 
 <script src="../template/js/plugins/select2/select2.full.min.js"></script>
 <script src="../template/js/plugins/daterangepicker/daterangepicker.js"></script>

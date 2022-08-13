@@ -54,7 +54,7 @@ foreach ($arrPreguntas as $iP => $vP) {
 			switch ($vP["Ponderacion"]) {
 				case "0":
 				{
-					echo "<select id='selPregunta". $vP["IdPregunta"] . "' name='selPregunta".$vP["IdPregunta"] . "' class='form-control select3'  onfocus='inFocus(this)' onfocusout='outFocus(this)'   >";
+					echo "<select required='' id='selPregunta". $vP["IdPregunta"] . "' name='selPregunta".$vP["IdPregunta"] . "' class='form-control select3'  onfocus='inFocus(this)' onfocusout='outFocus(this)'   >";
 					echo "<option value=''></option>";
 
 					foreach ($arrRespuestas as $iR => $vR) {
@@ -69,13 +69,13 @@ foreach ($arrPreguntas as $iP => $vP) {
 				case "1":
 				{
 					$IdPregunta = 'selPregunta'.$vP["IdPregunta"];
-					echo "<textarea style='text-transform:uppercase'id='$IdPregunta' name='$IdPregunta' class='form-control' row='2'></textarea>";
+					echo "<textarea  required='' style='text-transform:uppercase'id='$IdPregunta' name='$IdPregunta' class='form-control' row='2'></textarea>";
 					break;
 				}
 				case "2":
 				{
 					$IdPregunta = 'selPregunta'.$vP["IdPregunta"];
-					echo "<select id='$IdPregunta' name='$IdPregunta". "[]" ."' class='form-control select3' multiple='multiple'>";
+					echo "<select  required='' id='$IdPregunta' name='$IdPregunta". "[]" ."' class='form-control select3' multiple='multiple'>";
 					echo "<option value=''></option>";
 
 					foreach ($arrRespuestas as $iR => $vR) {
@@ -90,7 +90,7 @@ foreach ($arrPreguntas as $iP => $vP) {
 				case "3":
 					{
 						$IdPregunta = 'selPregunta'.$vP["IdPregunta"];
-					echo "<textarea style='text-transform:uppercase'id='$IdPregunta' name='$IdPregunta' class='form-control' row='1'></textarea>";
+					echo "<textarea  required='' style='text-transform:uppercase'id='$IdPregunta' name='$IdPregunta' class='form-control' row='1'></textarea>";
 					break;
 					}
 				default:

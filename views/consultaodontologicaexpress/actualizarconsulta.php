@@ -8,6 +8,7 @@ session_start();
       $diagnostico = $_POST['txtDiagnostico'];
       $comentarios = $_POST['txtComentarios'];
       $fechaproxvisita = $_POST['txtFechaProxima'];
+      $correoconsulta = $_POST['txtCorreoConsulta'];
       $diainico = substr($fechaproxvisita, 0, 2);
       $mesinicio = substr($fechaproxvisita, 3, 2);
       $anioinicio = substr($fechaproxvisita, 6, 4);
@@ -20,15 +21,15 @@ session_start();
       $modulo = $_POST['cboModulo'];
 
       //AL MOMENTO DE ALMACENAR LA CONSULTA, EL IDESTADO SE GUARDA EN 1, ESO SIGNIFICA QUE NO TIENE ALMACENADOS SIGNOS VITALES
-    $insertexpediente = "INSERT INTO consulta(IdUsuario,IdPersona,IdModulo,FechaConsulta, Activo, IdEstado)"
-    . "VALUES ('$usuario','$persona','$modulo',now(), 0, 7)";
+    $insertexpediente = "INSERT INTO consulta(IdUsuario,IdPersona,IdModulo,FechaConsulta, Activo, IdEstado, estadocorreo)"
+    . "VALUES ('$usuario','$persona','$modulo',now(), 0, 7,0)";
       $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
       $last_id = $mysqli->insert_id;
 
       $insertexpediente = "UPDATE consulta SET Diagnostico='$diagnostico',Comentarios='$comentarios',FechaProxVisita='$fechaproxvisitaFormat' WHERE IdConsulta='$last_id'";
       $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
 
-      $insertexpediente1 = "UPDATE persona SET ProximaVisita='$fechaproxvisitaFormat' WHERE IdPersona='$idpersona'";
+      $insertexpediente1 = "UPDATE persona SET ProximaVisita='$fechaproxvisitaFormat', correo='$correoconsulta', configuracioncorreo = 1 WHERE IdPersona='$idpersona'";
       $resultadoinsertmovimiento1 = $mysqli->query($insertexpediente1);
 
 

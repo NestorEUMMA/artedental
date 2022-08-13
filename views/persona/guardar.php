@@ -79,7 +79,7 @@ session_start();
     $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
     $last_id = $mysqli->insert_id;
 
-    echo $resultadoinsertmovimiento;
+    // echo $resultadoinsertmovimiento;
     $query = "select IdPersona from persona order by 1 desc limit 1";
                             
     $tbl = $mysqli->query($query);
@@ -92,7 +92,7 @@ session_start();
 
     $IdPersona = $arr[0]["IdPersona"];
 
-    echo "<h1>$IdPersona</h1>";
+    // echo "<h1>$IdPersona</h1>";
 
 
     //CREACION DEL ORTOGRAMA
@@ -132,7 +132,7 @@ session_start();
     $strTest = "INSERT INTO test (IdPersona,IdClase,Fecha,Hora) VALUES ($IdPersona,1,NOW(),NOW())";
     $resultTest = $mysqli->query($strTest);
 
-    echo "<h2>$strTest</h2>";
+    // echo "<h2>$strTest</h2>";
 
     ////Determinando el IdTest
     $query = "SELECT IdTest FROM test order by 1 desc limit 1";
@@ -162,6 +162,10 @@ session_start();
         $IdFactor = 4;
         $IdRespuesta = $_POST["selPregunta". $f["IdPregunta"]];
 
+        if($IdRespuesta == ''){
+            $IdRespuesta = 0;
+        }
+
         switch ($Ponderacion) {
             case "0":
             {
@@ -171,6 +175,7 @@ session_start();
                         values
                             ($IdTest,$IdFactor,$IdPregunta,$IdRespuesta);
                         ";
+                echo $queryInsResp;
                 $resultInsResp = $mysqli->query($queryInsResp);
                 //echo "<h3>$queryInsResp</h3>";
                 break;
@@ -225,17 +230,22 @@ session_start();
         $IdFactor = 5;
         $IdRespuesta = $_POST["selPregunta". $f["IdPregunta"]];
 
+
         switch ($Ponderacion) {
             case "0":
             {
+                if($IdRespuesta == ''){
+                    $IdRespuesta = 0;
+                }
                 //Insertar una respuesta por pregunta
                 $queryInsResp = "insert into testdetalle
                             (IdTest,IdFactor,IdPregunta,IdRespuesta)
                         values
                             ($IdTest,$IdFactor,$IdPregunta,$IdRespuesta);
                         ";
+                
                 $resultInsResp = $mysqli->query($queryInsResp);
-                //echo "<h3>$queryInsResp</h3>";
+                echo "<h3>$queryInsResp</h3>";
                 break;
             }
             case "1":
@@ -285,6 +295,9 @@ session_start();
 
         $IdFactor = 6;
         $IdRespuesta = $_POST["selPregunta". $f["IdPregunta"]];
+        if($IdRespuesta == ''){
+            $IdRespuesta = 1;
+        }
 
         switch ($Ponderacion) {
             case "0":

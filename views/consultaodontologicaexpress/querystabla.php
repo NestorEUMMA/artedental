@@ -116,7 +116,7 @@ $IdDienteOrtograma = $test['IdDienteOrtograma'];
 
 // CONSULTA PARA CARGAR LA TABLA DE LAS CONSULTAS EN EL EXPEDIENTE DEL PACIENTE
 $querytablaconsulta = "SELECT c.IdConsulta, c.FechaConsulta, CONCAT(u.Nombres,' ', u.Apellidos) As 'Medico',
-                          CONCAT(p.Nombres,' ', p.Apellidos) As 'Paciente', m.NombreModulo As 'Especialidad', c.IdEstado as 'Estado'
+                          CONCAT(p.Nombres,' ', p.Apellidos) As 'Paciente', m.NombreModulo As 'Especialidad', c.IdEstado as 'Estado',
                           FROM consulta c
                           INNER JOIN usuario u ON c.IdUsuario = u.IdUsuario
                           INNER JOIN modulo m ON c.IdModulo = m.IdModulo

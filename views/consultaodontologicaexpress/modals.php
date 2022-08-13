@@ -334,6 +334,15 @@
                      </div>
                   </div>
                </div>
+               <div class="form-group">
+                  <div class="col-sm-2"><label for="inputEmail3" class="control-label" id=''>Correo</label></div>
+                  <div class="col-sm-10">
+                     <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                        <input type="text" class="form-control" value="<?php echo $correo ?>"  name="txtCorreoConsulta">
+                     </div>
+                  </div>
+               </div>
             </div>
             <div class="modal-footer">
                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="javascript:window.location.reload()">Cerrar</button>

@@ -15,4 +15,9 @@ CREATE TABLE `db_artedental`.`correo` (
 
   INSERT INTO `db_artedental`.`menu` (`IdMenu`, `DescripcionMenu`, `DescripcionMenuIng`, `Icono`, `TipoMenu`, `Orden`) VALUES ('16', 'CORREO', 'CORREO', 'fa-envelope-open-o', 'Menu', '16');
 
+  
+  ALTER TABLE `db_artedental`.`consulta` ADD COLUMN `estadocorreo` INT(1) NULL AFTER `UnidadServer`;
+  ALTER TABLE `db_artedental`.`consulta` CHANGE COLUMN `configuacioncorreo` `configuacioncorreo` INT(11) NULL , DROP PRIMARY KEY, ADD PRIMARY KEY (`IdConsulta`);
+  
+
 
